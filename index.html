@@ -4,20 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thérapie de Couple Rueil-Malmaison (92) & Visio - Melissa Boukaia</title>
-    <meta name="description" content="Cabinet de Thérapie de couple et Sexothérapie à Rueil-Malmaison (92500) avec Melissa Boukaia. Surmontez la crise, rétablissez la communication. Appel découverte offert." />
+    <meta name="description" content="Melissa Boukaia, Thérapeute de couple et Sexothérapeute à Rueil-Malmaison (92). Retrouvez une relation saine et apaisée. Cabinet ou Visio. Appel découverte offert." />
     
-    <!-- SEO Local -->
+    <!-- SEO Local & Geo -->
     <meta name="geo.region" content="FR-92" />
     <meta name="geo.placename" content="Rueil-Malmaison" />
     <meta name="geo.position" content="48.8777;2.1811" />
     <meta name="ICBM" content="48.8777, 2.1811" />
+    <!-- URL Canonique Officielle pour éviter le duplicate content avec Vercel -->
+    <link rel="canonical" href="https://xn--bullesdepenses-mkb.fr/" />
+    
+    <!-- Performance : Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://esm.sh" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Fonts: Playfair Display (Titres Elegants) & Inter (Texte Pro) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
+    <!-- STRUCTURED DATA (JSON-LD) FOR LOCAL SEO RANKING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Melissa Boukaia - Thérapie de Couple & Sexothérapie",
+      "image": "https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg",
+      "@id": "https://xn--bullesdepenses-mkb.fr",
+      "url": "https://xn--bullesdepenses-mkb.fr",
+      "telephone": "+33600000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Centre Ville",
+        "addressLocality": "Rueil-Malmaison",
+        "postalCode": "92500",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8777,
+        "longitude": 2.1811
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "priceRange": "$$",
+      "description": "Cabinet de thérapie de couple et sexothérapie à Rueil-Malmaison. Aide à la communication, gestion de crise, infidélité et intimité.",
+      "sameAs": [
+        "https://calendly.com/melissaboukaia"
+      ]
+    }
+    </script>
+
     <!-- Tailwind Config -->
     <script>
       tailwind.config = {
@@ -36,16 +87,16 @@
               },
               // Palette "Celestial Blue" (Bleu Céleste Apaisant)
               sage: {
-                50: '#F0F9FA',   // Very light blue mist
-                100: '#E0F2F1',  // Lightest celestial
-                200: '#B2DFDB',  // Soft Cyan
-                300: '#80CBC4',  // Muted Teal
-                400: '#4DB6AC',  // Calm Blue
+                50: '#F0F9FA',   
+                100: '#E0F2F1',  
+                200: '#B2DFDB',  
+                300: '#80CBC4',  
+                400: '#4DB6AC',  
                 500: '#649BA6',  // Main Celestial Blue
-                600: '#4A7A85',  // Deep Soft Blue
+                600: '#4A7A85',  
                 700: '#345A63',  // Text Blue
-                800: '#25434A',  // Deep Slate
-                900: '#192E33',  // Almost black/teal
+                800: '#25434A',  
+                900: '#192E33',  
               },
               gold: {
                 400: '#fbbf24',
@@ -80,7 +131,20 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body class="bg-cream-100 text-sage-800 font-sans antialiased selection:bg-sage-200 selection:text-sage-900">
-    <div id="root"></div>
+    
+    <!-- 
+      SEO FALLBACK CONTENT 
+      This content is visible to search engines immediately, even if JS fails.
+      It matches the React content to ensure keywords are indexed.
+    -->
+    <div id="root">
+       <div style="padding: 2rem; max-width: 800px; margin: 0 auto; text-align: center; font-family: 'Times New Roman', serif; color: #345A63;">
+          <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Thérapie de couple à Rueil-Malmaison</h1>
+          <p style="font-size: 1.5rem; font-style: italic; margin-bottom: 2rem;">Et si votre couple retrouvait enfin de l’apaisement ?</p>
+          <p>Melissa Boukaia vous accompagne en cabinet à Rueil-Malmaison (92) ou en Visio.</p>
+          <p>Chargement du site en cours...</p>
+       </div>
+    </div>
 
     <!-- Application Code Embedded Directly -->
     <script type="text/babel" data-type="module">
@@ -309,7 +373,7 @@
                   <div className="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
                      {/* Main Image */}
                      <div className="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
-                       <img src={IMG_HAPPY_COUPLE} alt="Couple heureux Rueil Malmaison" className="w-full h-full object-cover" />
+                       <img src={IMG_HAPPY_COUPLE} alt="Couple heureux Rueil Malmaison" className="w-full h-full object-cover" width="448" height="597" loading="eager" />
                        
                        {/* Overlay Gradient */}
                        <div className="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent"></div>
@@ -533,7 +597,7 @@
                   <div className="lg:col-span-5 order-2 lg:order-1">
                     <div className="relative mx-auto max-w-sm lg:max-w-none">
                        <div className="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
-                          <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover grayscale-0" />
+                          <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover grayscale-0" loading="lazy" />
                        </div>
                        <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
                           <Quote size={32} className="text-sage-800 opacity-50" />
@@ -614,11 +678,11 @@
            
            <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
               <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                 <img src={IMG_OFFICE_1} alt="Cabinet Thérapie Rueil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                 <img src={IMG_OFFICE_1} alt="Cabinet Thérapie Rueil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Un espace chaleureux</div>
               </div>
               <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                 <img src={IMG_OFFICE_2} alt="Cabinet Thérapie Couple" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                 <img src={IMG_OFFICE_2} alt="Cabinet Thérapie Couple" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Propice à l'échange</div>
               </div>
            </div>
@@ -643,7 +707,7 @@
                  {BLOG_POSTS.map(post => (
                    <div key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group cursor-pointer" onClick={() => onNavigate('article', post.id)}>
                      <div className="h-48 overflow-hidden">
-                       <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                       <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                      </div>
                      <div className="p-6">
                        <h3 className="font-serif text-xl text-sage-900 mb-3 group-hover:text-sage-600 transition-colors">{post.title}</h3>
@@ -741,7 +805,7 @@
           <section id="contact" className="relative py-20 md:py-24 bg-sage-900 text-white overflow-hidden">
              {/* Background Image Overlay */}
              <div className="absolute inset-0 opacity-10">
-               <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover" />
+               <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover" loading="lazy" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/95 to-sage-900/90"></div>
 
