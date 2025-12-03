@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
   <head>
@@ -6,7 +7,7 @@
     <title>Thérapie de Couple à Rueil-Malmaison & Visio - Melissa Boukaia</title>
     <meta name="description" content="Melissa Boukaia, Thérapeute de couple et sexothérapeute à Rueil-Malmaison. Retrouvez un dialogue apaisé et une relation épanouie. Appel découverte 15 min offert." />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -17,33 +18,36 @@
               hand: ['"Caveat"', 'cursive'],
             },
             colors: {
-              brand: {
-                50: '#f4fbf9',
-                100: '#dcfce7',
-                200: '#ccfbf1',
-                500: '#14b8a6',
-                700: '#0f766e', 
-                800: '#115e59', 
-                900: '#134e4a',
+              // Palette "Kaveh" - Sage & Cream
+              cream: {
+                50: '#FDFBF7',
+                100: '#F7F4EB', // Fond principal
+                200: '#EBE5D5',
+                300: '#D8CDB6',
               },
-              sand: {
-                50: '#fafaf9',
-                100: '#f5f5f4',
-                200: '#e7e5e4',
-                300: '#d6d3d1',
-                600: '#57534e',
-                800: '#44403c',
-                900: '#292524',
+              sage: {
+                50: '#F2F7F5',
+                100: '#E4EEE9',
+                200: '#C5D6CF',
+                300: '#A3BDB3',
+                400: '#84A196',
+                500: '#6B9080', // Couleur principale (Boutons, titres verts)
+                600: '#557266',
+                700: '#41584F',
+                800: '#2E3E38', // Texte foncé
+                900: '#1D2824',
               },
               gold: {
                 400: '#fbbf24',
                 500: '#f59e0b',
-                600: '#d97706',
               }
             },
             boxShadow: {
-              'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
-              'glow': '0 0 20px rgba(20, 184, 166, 0.2)',
+              'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
+              'card': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
+            },
+            borderRadius: {
+              'arch': '10rem 10rem 1rem 1rem', // Forme d'arche pour les images
             }
           }
         }
@@ -60,7 +64,7 @@
 }
 </script>
 </head>
-  <body class="bg-[#faf9f8] text-sand-800 font-sans antialiased selection:bg-brand-200 selection:text-brand-900">
+  <body class="bg-cream-100 text-sage-800 font-sans antialiased selection:bg-sage-200 selection:text-sage-900">
     <div id="root"></div>
   </body>
 </html>
