@@ -16,7 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Tailwind Config -->
     <script>
@@ -34,18 +34,18 @@
                 200: '#EBE5D5',
                 300: '#D8CDB6',
               },
-              // Palette "Sage" renommed to "Soft Celestial Blue" (Apaisant)
+              // Palette "Celestial Blue" (Bleu Céleste Apaisant)
               sage: {
-                50: '#F4F9FA',   // Very light mist
-                100: '#E2F1F3',  // Light sky
-                200: '#C5E2E6',
-                300: '#A3CED4',
-                400: '#81B9C1',
-                500: '#649BA6',  // Soft Celestial Blue base (Calming)
-                600: '#4D808A',  // Deep Soft Blue
-                700: '#3A636C',  // Text Blue
-                800: '#2D4B52',  // Deep Slate
-                900: '#1F3439',  // Almost black/teal
+                50: '#F0F9FA',   // Very light blue mist
+                100: '#E0F2F1',  // Lightest celestial
+                200: '#B2DFDB',  // Soft Cyan
+                300: '#80CBC4',  // Muted Teal
+                400: '#4DB6AC',  // Calm Blue
+                500: '#649BA6',  // Main Celestial Blue
+                600: '#4A7A85',  // Deep Soft Blue
+                700: '#345A63',  // Text Blue
+                800: '#25434A',  // Deep Slate
+                900: '#192E33',  // Almost black/teal
               },
               gold: {
                 400: '#fbbf24',
@@ -93,7 +93,7 @@
 
       // --- IMAGES ---
       const IMG_HAPPY_COUPLE = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/couple-heureux-rire.png";
-      const IMG_MELISSA = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-17-a-08.57.51_f5249572-768x1293.jpg";
+      const IMG_MELISSA = "https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg";
       const IMG_OFFICE_1 = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/sexotherapie-saint-cloud-sexologue.jpg";
       const IMG_OFFICE_2 = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/Sexotherapeute-a-rueil-malmaison.jpg";
       const IMG_THERAPY_SESSION = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/therapie-de-couple.jpg";
@@ -266,7 +266,7 @@
                      Thérapie de couple à <span className="text-sage-600 italic">Rueil-Malmaison</span>
                    </h2>
                    
-                   <p className="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-light">
+                   <p className="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-normal">
                      Et si votre couple retrouvait enfin de l’apaisement ?
                    </p>
                    
@@ -533,7 +533,7 @@
                   <div className="lg:col-span-5 order-2 lg:order-1">
                     <div className="relative mx-auto max-w-sm lg:max-w-none">
                        <div className="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
-                          <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover" />
+                          <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover grayscale-0" />
                        </div>
                        <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
                           <Quote size={32} className="text-sage-800 opacity-50" />
@@ -553,7 +553,7 @@
                           Si je devais résumer mon parcours, je dirais que chaque étape de ma vie m’a fait grandir. J’ai traversé des remises en question, des moments de doute... mais aussi des rencontres qui m'ont permis de mieux me comprendre.
                         </p>
                         
-                        {/* Mobile: Hidden by default, Desktop: Always visible (or handled via same state for simplicity across breakpoints, but better to just use CSS/State combo) */}
+                        {/* Mobile: Hidden by default, Desktop: Always visible */}
                         <div className={`${isExpanded ? 'block' : 'hidden md:block'} space-y-6`}>
                           <p>
                             J’ai grandi aux côtés d’une maman psychologiquement fragile, ce qui m’a amenée très tôt à développer une écoute sensible et authentique. J'ai appris à entendre ce qui ne se disait pas toujours avec des mots.
@@ -741,7 +741,7 @@
           <section id="contact" className="relative py-20 md:py-24 bg-sage-900 text-white overflow-hidden">
              {/* Background Image Overlay */}
              <div className="absolute inset-0 opacity-10">
-               <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover grayscale" />
+               <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover" />
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/95 to-sage-900/90"></div>
 
