@@ -694,37 +694,6 @@
         );
       };
 
-      const LatestArticles = ({ onNavigate }) => (
-        <section className="py-20 bg-white border-t border-cream-200">
-           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-             <div className="flex justify-between items-end mb-10">
-               <div>
-                  <p className="text-xs font-bold tracking-widest text-sage-400 uppercase mb-2">Conseils</p>
-                  <h2 className="text-3xl font-serif text-sage-900">Derniers articles</h2>
-               </div>
-               <button onClick={() => onNavigate('blog')} className="hidden md:flex items-center gap-2 text-sage-600 hover:text-sage-900 font-medium transition-colors">
-                 Voir tout <ArrowRight size={16} />
-               </button>
-             </div>
-             
-             <div className="grid md:grid-cols-3 gap-6">
-                {BLOG_POSTS.slice(0, 3).map(post => (
-                   <div key={post.id} className="group cursor-pointer" onClick={() => onNavigate('article', post.id)}>
-                      <div className="rounded-xl overflow-hidden mb-4 shadow-sm">
-                        <img src={post.image} alt={post.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
-                      </div>
-                      <h3 className="font-serif text-lg text-sage-900 leading-tight mb-2 group-hover:text-sage-600 transition-colors">{post.title}</h3>
-                      <p className="text-sm text-sage-500 line-clamp-2">{post.excerpt}</p>
-                   </div>
-                ))}
-             </div>
-             <div className="mt-8 text-center md:hidden">
-               <button onClick={() => onNavigate('blog')} className="text-sage-600 font-medium underline underline-offset-4">Voir tous les articles</button>
-             </div>
-           </div>
-        </section>
-      );
-
       const FAQ = () => {
         const [openIndex, setOpenIndex] = useState(null);
 
@@ -837,7 +806,6 @@
                   <Reviews />
                   <Bio />
                   <Office />
-                  <LatestArticles onNavigate={handleNavigate} />
                   <FAQ />
                   <Contact />
                 </>
