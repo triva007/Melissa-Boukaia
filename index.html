@@ -15,8 +15,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
     
     <!-- Tailwind Config -->
     <script>
@@ -26,7 +26,6 @@
             fontFamily: {
               serif: ['"Playfair Display"', 'serif'],
               sans: ['"Inter"', 'sans-serif'],
-              hand: ['"Caveat"', 'cursive'],
             },
             colors: {
               cream: {
@@ -35,17 +34,18 @@
                 200: '#EBE5D5',
                 300: '#D8CDB6',
               },
+              // Palette "Sage" renommed to "Soft Celestial Blue" (Apaisant)
               sage: {
-                50: '#F2F7F5',
-                100: '#E4EEE9',
-                200: '#C5D6CF',
-                300: '#A3BDB3',
-                400: '#84A196',
-                500: '#6B9080',
-                600: '#557266',
-                700: '#41584F',
-                800: '#2E3E38',
-                900: '#1D2824',
+                50: '#F4F9FA',   // Very light mist
+                100: '#E2F1F3',  // Light sky
+                200: '#C5E2E6',
+                300: '#A3CED4',
+                400: '#81B9C1',
+                500: '#649BA6',  // Soft Celestial Blue base (Calming)
+                600: '#4D808A',  // Deep Soft Blue
+                700: '#3A636C',  // Text Blue
+                800: '#2D4B52',  // Deep Slate
+                900: '#1F3439',  // Almost black/teal
               },
               gold: {
                 400: '#fbbf24',
@@ -216,7 +216,7 @@
                   <button onClick={() => handleNav('home', 'faq')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">FAQ</button>
                   <button 
                     onClick={() => handleNav('home', 'contact')} 
-                    className="bg-sage-700 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-800 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="bg-sage-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
                   >
                     Appel offert
                   </button>
@@ -241,7 +241,7 @@
                   <button onClick={() => handleNav('home', 'qui-suis-je')} className="text-xl font-serif text-sage-900">Mon histoire</button>
                   <button onClick={() => handleNav('blog')} className="text-xl font-serif text-sage-900">Le Blog</button>
                   <button onClick={() => handleNav('home', 'faq')} className="text-xl font-serif text-sage-900">FAQ</button>
-                  <button onClick={() => handleNav('home', 'contact')} className="bg-sage-700 text-white px-8 py-4 rounded-full text-lg mx-auto w-full max-w-xs shadow-lg font-medium">Réserver mon appel offert</button>
+                  <button onClick={() => handleNav('home', 'contact')} className="bg-sage-600 text-white px-8 py-4 rounded-full text-lg mx-auto w-full max-w-xs shadow-lg font-medium">Réserver mon appel offert</button>
                 </div>
               </div>
             )}
@@ -265,7 +265,8 @@
                    <h2 className="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
                      Thérapie de couple à <span className="text-sage-600 italic">Rueil-Malmaison</span>
                    </h2>
-                   <p className="font-hand text-2xl md:text-3xl text-sage-600 mb-8 -mt-2 rotate-1 font-medium">
+                   
+                   <p className="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-light">
                      Et si votre couple retrouvait enfin de l’apaisement ?
                    </p>
                    
@@ -275,7 +276,7 @@
 
                    <div className="flex flex-col mb-10 items-center lg:items-start">
                      <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-                       <a href="#contact" className="flex items-center justify-center gap-2 bg-sage-700 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-800 transition-all shadow-lg shadow-sage-700/20 hover:shadow-xl hover:-translate-y-0.5 text-base w-full sm:w-auto">
+                       <a href="#contact" className="flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-all shadow-lg shadow-sage-600/20 hover:shadow-xl hover:-translate-y-0.5 text-base w-full sm:w-auto">
                          <Phone size={18} />
                          Appel découverte offert
                        </a>
@@ -317,8 +318,8 @@
                      {/* Floating Badge */}
                      <div className="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-4 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
                         <div className="relative">
-                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                          <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                          <div className="w-3 h-3 bg-sage-500 rounded-full animate-pulse"></div>
+                          <div className="absolute inset-0 bg-sage-500 rounded-full animate-ping opacity-75"></div>
                         </div>
                         <div>
                           <p className="text-[10px] text-sage-400 uppercase font-bold tracking-wide">Cabinet & Visio</p>
@@ -436,7 +437,7 @@
                     color="bg-gold-500"
                     name="Sophia M." 
                     date="il y a 4 mois" 
-                    text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés."
+                    text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés à mieux communiquer."
                   />
                   <GoogleReviewCard 
                     initial="C"
@@ -489,7 +490,7 @@
                      Une thérapie <span className="italic text-sage-500">concrète</span> et bienveillante
                    </h2>
                    <p className="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed text-lg">
-                     Mon accompagnement repose sur trois piliers essentiels : l’écoute, la compréhension du lien, et le respect du rythme de chacun. Je combine Sexothérapie, PNL et Sophrologie.
+                     Mon accompagnement repose sur trois piliers essentiels : l’écoute, la compréhension du lien, et le respect du rythme de chacun.
                    </p>
                 </div>
 
@@ -510,9 +511,9 @@
                 </div>
                 
                 <div className="mt-16 text-center">
-                   <div className="inline-block bg-sage-50 px-8 py-6 rounded-2xl border border-sage-100 max-w-3xl">
+                   <div className="inline-block bg-sage-50 px-8 py-6 rounded-2xl border border-sage-100 max-w-3xl shadow-sm">
                       <p className="text-sage-800 italic font-serif text-lg leading-relaxed">
-                         "Mon rôle n'est pas de juger ou de dire ce qu'il faut faire, mais de créer un espace sécurisé où chacun peut s'exprimer librement et être entendu, sans crainte."
+                         "Mon rôle est de ne pas juger mais de vous donner toutes les clés dont vous avez besoin. Comme je dis souvent à mes clients : je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau."
                       </p>
                    </div>
                 </div>
@@ -684,7 +685,7 @@
                  <div className="bg-sage-50 rounded-2xl p-8 text-center">
                    <h3 className="font-serif text-xl text-sage-900 mb-2">Besoin d'en parler ?</h3>
                    <p className="text-sage-600 mb-6">Si cet article résonne avec votre situation, n'hésitez pas à prendre rendez-vous.</p>
-                   <button onClick={() => onNavigate('home', 'contact')} className="bg-sage-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-800 shadow-md">
+                   <button onClick={() => onNavigate('home', 'contact')} className="bg-sage-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md">
                      Réserver mon appel offert
                    </button>
                  </div>
