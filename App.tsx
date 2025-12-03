@@ -1,23 +1,25 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Heart, 
   MapPin, 
-  Video, 
   Menu, 
   X, 
   Star,
-  ArrowRight,
   ChevronDown,
   Quote,
   Check,
   Calendar,
-  Phone
+  Phone,
+  MessageCircle,
+  Users,
+  Lightbulb,
+  ArrowRight,
+  Video,
+  ChevronUp
 } from 'lucide-react';
 
 // --- IMAGES ---
 const IMG_HAPPY_COUPLE = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/couple-heureux-rire.png";
-const IMG_CRISIS_COUPLE = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/04/crise-couple-1.jpg";
 const IMG_MELISSA = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-17-a-08.57.51_f5249572-768x1293.jpg";
 const IMG_OFFICE_1 = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/sexotherapie-saint-cloud-sexologue.jpg";
 const IMG_OFFICE_2 = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/Sexotherapeute-a-rueil-malmaison.jpg";
@@ -60,43 +62,48 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-cream-100/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-cream-100/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-4 md:py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
-             <span className="font-serif font-bold text-xl text-sage-900 leading-none">Melissa Boukaia</span>
-             <span className="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple</span>
+             <span className="font-serif font-bold text-xl md:text-2xl text-sage-900 leading-none">Melissa Boukaia</span>
+             <h1 className="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple à Rueil (92)</h1>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
             <a href="#problemes" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Pour qui ?</a>
-            <a href="#vision" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Approche</a>
-            <a href="#qui-suis-je" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Qui suis-je ?</a>
+            <a href="#vision" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Mon approche</a>
+            <a href="#avis" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Témoignages</a>
+            <a href="#qui-suis-je" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Mon histoire</a>
+            <a href="#faq" className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">FAQ</a>
             <a 
               href="#contact" 
-              className="border border-sage-800 text-sage-900 px-6 py-2 rounded-full text-sm font-medium hover:bg-sage-800 hover:text-white transition-all duration-300"
+              className="bg-sage-700 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-800 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              Prendre rendez-vous
+              Appel offert
             </a>
           </div>
 
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden text-sage-900 p-2"
+            className="md:hidden text-sage-900 p-2 focus:outline-none"
+            aria-label="Menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 p-6 animate-in slide-in-from-top-5">
-           <div className="flex flex-col space-y-6 text-center pt-10">
-            <a href="#problemes" onClick={() => setIsOpen(false)} className="text-2xl font-serif text-sage-900">Pour qui ?</a>
-            <a href="#vision" onClick={() => setIsOpen(false)} className="text-2xl font-serif text-sage-900">Approche</a>
-            <a href="#qui-suis-je" onClick={() => setIsOpen(false)} className="text-2xl font-serif text-sage-900">Qui suis-je ?</a>
-            <a href="#contact" onClick={() => setIsOpen(false)} className="bg-sage-600 text-white px-8 py-3 rounded-full text-lg mx-auto w-max mt-4">Prendre rendez-vous</a>
+        <div className="md:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 p-6 animate-in slide-in-from-top-5 border-t border-sage-200 overflow-y-auto">
+           <div className="flex flex-col space-y-6 text-center pt-8">
+            <a href="#problemes" onClick={() => setIsOpen(false)} className="text-xl font-serif text-sage-900">Pour qui ?</a>
+            <a href="#vision" onClick={() => setIsOpen(false)} className="text-xl font-serif text-sage-900">Mon approche</a>
+            <a href="#avis" onClick={() => setIsOpen(false)} className="text-xl font-serif text-sage-900">Témoignages</a>
+            <a href="#qui-suis-je" onClick={() => setIsOpen(false)} className="text-xl font-serif text-sage-900">Mon histoire</a>
+            <a href="#faq" onClick={() => setIsOpen(false)} className="text-xl font-serif text-sage-900">FAQ</a>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="bg-sage-700 text-white px-8 py-4 rounded-full text-lg mx-auto w-full max-w-xs shadow-lg font-medium">Réserver mon appel offert</a>
           </div>
         </div>
       )}
@@ -106,78 +113,83 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-cream-100">
+    <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-cream-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Text Left */}
-          <div className="relative z-10 order-2 lg:order-1">
-             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sage-200 bg-white/50 text-sage-600 text-xs font-bold uppercase tracking-wider mb-6">
-                <MapPin size={12} />
-                Cabinet Rueil (92) & Visio
+          <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
+             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage-200 bg-white/60 backdrop-blur-sm text-sage-700 text-xs font-bold uppercase tracking-wider mb-6 mx-auto lg:mx-0 shadow-sm">
+                <MapPin size={14} />
+                Rueil-Malmaison (92) & Visio
              </div>
 
-             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.15] font-serif text-sage-900 mb-8">
-               Et si vous pouviez enfin retrouver l'<span className="italic font-light text-sage-500">harmonie</span> dans votre couple ?
-             </h1>
+             <h2 className="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
+               Thérapie de couple à <span className="text-sage-600 italic">Rueil-Malmaison</span>
+             </h2>
+             <p className="font-hand text-2xl md:text-3xl text-sage-600 mb-8 -mt-2 rotate-1 font-medium">
+               Et si votre couple retrouvait enfin de l’apaisement ?
+             </p>
              
-             <p className="text-lg text-sage-700 mb-10 leading-relaxed font-light max-w-lg">
-               Grâce à une thérapie bienveillante, sortez des conflits et recréez un lien solide. Libérez-vous des tensions qui vous freinent.
+             <p className="text-base md:text-lg text-sage-700 mb-10 leading-relaxed font-light max-w-lg mx-auto lg:mx-0">
+               Recréez une relation saine grâce à un accompagnement bienveillant. Je vous aide à rétablir le dialogue et à surmonter la crise.
              </p>
 
-             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-               <a href="#contact" className="flex items-center justify-center gap-3 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-all shadow-lg shadow-sage-200 hover:shadow-xl hover:-translate-y-0.5">
-                 <Phone size={18} />
-                 Appel découverte offert
-               </a>
-               <a href="#vision" className="flex items-center justify-center px-8 py-4 rounded-full border border-sage-300 text-sage-800 font-medium hover:bg-white transition-colors">
-                 Comprendre l'approche
-               </a>
+             <div className="flex flex-col mb-10 items-center lg:items-start">
+               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                 <a href="#contact" className="flex items-center justify-center gap-2 bg-sage-700 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-800 transition-all shadow-lg shadow-sage-700/20 hover:shadow-xl hover:-translate-y-0.5 text-base w-full sm:w-auto">
+                   <Phone size={18} />
+                   Appel découverte offert
+                 </a>
+                 <a href="#vision" className="flex items-center justify-center px-8 py-4 rounded-full border border-sage-300 text-sage-800 font-medium hover:bg-white transition-colors text-base w-full sm:w-auto">
+                   Mon approche
+                 </a>
+               </div>
+               <div className="mt-3 text-[10px] md:text-xs text-sage-500 font-bold tracking-widest uppercase opacity-80 pl-2">
+                 Gratuit • 15 min • Sans engagement
+               </div>
              </div>
 
-             <div className="flex items-center gap-4">
-               <div className="flex -space-x-3">
-                 {[1,2,3].map(i => (
-                   <div key={i} className="w-10 h-10 rounded-full border-2 border-cream-100 bg-sage-200 overflow-hidden">
-                     <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt="Patient" className="w-full h-full object-cover" />
-                   </div>
-                 ))}
-               </div>
-               <div className="flex flex-col">
-                 <div className="flex gap-0.5 text-gold-500">
-                   {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="currentColor" />)}
-                 </div>
-                 <span className="text-xs text-sage-500 font-medium mt-0.5">Recommandé par +40 couples</span>
+             {/* Google Trust Badge */}
+             <div className="flex items-center justify-center lg:justify-start gap-4">
+               <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-sage-100 shadow-sm rounded-xl px-5 py-3">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-8 h-8" />
+                  <div className="flex flex-col items-start">
+                     <div className="flex gap-0.5 text-[#fbbc04] mb-0.5">
+                       {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="currentColor" />)}
+                     </div>
+                     <p className="text-xs text-sage-600 font-bold">+20 couples me recommandent</p>
+                  </div>
                </div>
              </div>
              
-             <div className="mt-4 text-xs text-sage-400">
-               Gratuit • 15 min • Sans engagement
-             </div>
           </div>
 
           {/* Image Right - Arch Shape */}
-          <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md mx-auto lg:mr-0">
+          <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
+            <div className="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
                {/* Main Image */}
-               <div className="aspect-[3/4] rounded-[10rem_10rem_2rem_2rem] overflow-hidden shadow-2xl relative z-10">
-                 <img src={IMG_HAPPY_COUPLE} alt="Couple heureux" className="w-full h-full object-cover" />
+               <div className="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
+                 <img src={IMG_HAPPY_COUPLE} alt="Couple heureux Rueil Malmaison" className="w-full h-full object-cover" />
                  
                  {/* Overlay Gradient */}
-                 <div className="absolute inset-0 bg-gradient-to-t from-sage-900/30 to-transparent"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent"></div>
                </div>
 
                {/* Floating Badge */}
-               <div className="absolute bottom-10 -left-6 lg:-left-12 z-20 bg-white/95 backdrop-blur px-6 py-4 rounded-full shadow-lg border border-cream-200 flex items-center gap-3 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+               <div className="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-4 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                  </div>
                   <div>
-                    <p className="text-xs text-sage-400 uppercase font-bold tracking-wide">Prochains créneaux</p>
-                    <p className="text-sm font-serif font-bold text-sage-900">Disponibles cette semaine</p>
+                    <p className="text-[10px] text-sage-400 uppercase font-bold tracking-wide">Cabinet & Visio</p>
+                    <p className="text-sm font-serif font-bold text-sage-900 leading-tight">Créneaux disponibles</p>
                   </div>
                </div>
 
                {/* Decorative Circle */}
-               <div className="absolute -top-10 -right-10 w-32 h-32 bg-sage-100 rounded-full blur-2xl -z-10"></div>
+               <div className="absolute top-10 -right-6 w-32 h-32 bg-sage-200 rounded-full blur-3xl -z-10 opacity-60"></div>
             </div>
           </div>
 
@@ -190,122 +202,140 @@ const Hero = () => {
 const Problem = () => {
   const problems = [
     {
-      text: "Ressentent un éloignement émotionnel ou physique croissant.",
-      icon: <Check size={18} />
+      text: "Vous vivez des conflits fréquents, des non-dits ou un éloignement émotionnel.",
+      icon: <MessageCircle size={20} />
     },
     {
-      text: "Vivent des conflits fréquents pour des détails du quotidien.",
-      icon: <Check size={18} />
+      text: "Le dialogue est rompu et vous ne savez plus comment vous retrouver.",
+      icon: <X size={20} />
     },
     {
-      text: "Ont l'impression de ne plus être compris par leur partenaire.",
-      icon: <Check size={18} />
+      text: "Vous vous sentez incompris(e), frustré(e) ou submergé(e) par les émotions.",
+      icon: <Heart size={20} />
     },
     {
-      text: "Souffrent de non-dits qui s'accumulent avec le temps.",
-      icon: <Check size={18} />
+      text: "Vous vous demandez si vous êtes encore faits pour être ensemble.",
+      icon: <Lightbulb size={20} />
     }
   ];
 
   return (
-    <section id="problemes" className="py-24 bg-sage-500 text-white relative">
+    <section id="problemes" className="py-20 md:py-28 bg-sage-500 text-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif mb-6">Je m'adresse à tous les couples qui...</h2>
-          <div className="w-24 h-1 bg-white/30 mx-auto rounded-full"></div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Votre couple traverse une crise ou une période de tension ?</h2>
+          <p className="text-sage-100 text-lg md:text-xl font-light">Ne restez pas seul face à l'impasse.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {problems.map((p, i) => (
-            <div key={i} className="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-8 rounded-2xl flex items-start gap-4 hover:bg-sage-600 transition-colors">
-              <div className="bg-white text-sage-600 rounded-full p-1.5 flex-shrink-0 mt-0.5">
+            <div key={i} className="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors duration-300">
+              <div className="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
                 {p.icon}
               </div>
-              <p className="text-lg font-light leading-relaxed opacity-95">{p.text}</p>
+              <p className="text-base md:text-lg font-light leading-relaxed opacity-95">{p.text}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-           <a href="#contact" className="inline-flex items-center gap-2 bg-white text-sage-800 px-8 py-3 rounded-full font-medium hover:bg-cream-100 transition-colors">
+        <div className="mt-12 md:mt-16 text-center">
+           <a href="#contact" className="inline-flex items-center gap-2 bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-base">
              <Phone size={18} />
-             Réserver un appel gratuit
+             Réserver mon appel offert
            </a>
-           <p className="text-sage-200 text-sm mt-4">Gratuit • 15 min • Sans engagement</p>
+           <p className="text-sage-200 text-xs md:text-sm mt-4 opacity-80">C'est gratuit et sans engagement</p>
         </div>
       </div>
     </section>
   );
 };
 
-// Google Review Card Component
-const GoogleReviewCard = ({ name, date, text, initial, color }: any) => (
-  <div className="min-w-[300px] md:min-w-[380px] bg-white p-6 rounded-2xl shadow-sm border border-cream-200 flex flex-col snap-center h-full mx-2">
+const GoogleReviewCard = ({ name, date, text, initial, color }) => (
+  <div className="min-w-[280px] w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
     <div className="flex items-center justify-between mb-4">
       <div className="flex items-center gap-3">
-        <div className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-white font-serif font-bold text-lg`}>
+        <div className={`w-12 h-12 rounded-full ${color} flex items-center justify-center text-white font-serif font-bold text-xl shadow-sm`}>
           {initial}
         </div>
         <div>
-          <p className="font-bold text-sage-900 text-sm">{name}</p>
+          <p className="font-bold text-sage-900 text-sm md:text-base">{name}</p>
           <p className="text-xs text-sage-400">{date}</p>
         </div>
       </div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-5 h-5 opacity-80" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-6 h-6 opacity-90" />
     </div>
-    <div className="flex mb-3">
-      {[1,2,3,4,5].map(i => <Star key={i} size={14} className="text-[#fbbc04] fill-[#fbbc04]" />)}
+    <div className="flex mb-4">
+      {[1,2,3,4,5].map(i => <Star key={i} size={16} className="text-[#fbbc04] fill-[#fbbc04]" />)}
     </div>
-    <p className="text-sage-600 text-sm leading-relaxed font-light italic">"{text}"</p>
+    <p className="text-sage-600 text-sm md:text-base leading-relaxed font-light line-clamp-5 flex-grow">"{text}"</p>
   </div>
 );
 
 const Reviews = () => {
   return (
-    <section className="py-24 bg-cream-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-12">
-         <div className="inline-flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm mb-4">
-           <span className="font-bold text-sage-900">5.0</span>
-           <div className="flex text-[#fbbc04]"><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /><Star size={12} fill="currentColor" /></div>
-           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" className="w-4 h-4" />
+    <section id="avis" className="py-20 md:py-24 bg-cream-100 overflow-hidden border-t border-cream-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-16">
+         <div className="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-sm mb-6 border border-cream-200">
+           <span className="font-bold text-sage-900 text-xl">5.0</span>
+           <div className="flex text-[#fbbc04] gap-1"><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /></div>
+           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" className="w-6 h-6 ml-2" />
          </div>
-         <h2 className="text-3xl md:text-4xl font-serif text-sage-900">Ce qu'ils disent de <span className="italic font-light text-sage-500">l'expérience</span></h2>
-         <p className="text-sage-500 mt-2 text-sm">Retrouvez les avis vérifiés de mes patients sur Google.</p>
+         <h2 className="text-3xl md:text-4xl font-serif text-sage-900">Ce qu'ils en pensent</h2>
+         <p className="text-sage-500 mt-4 text-base font-light max-w-2xl mx-auto">Retrouvez les avis vérifiés de patients qui ont retrouvé la sérénité.</p>
       </div>
 
-      <div className="flex overflow-x-auto pb-10 px-6 max-w-7xl mx-auto snap-x snap-mandatory scrollbar-hide -ml-2">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 hidden md:grid">
             <GoogleReviewCard 
-              initial="T"
+              initial="A"
               color="bg-sage-400"
-              name="Thomas L." 
-              date="il y a 2 mois" 
-              text="Nous étions au bord de la rupture. Melissa nous a aidés à nous entendre à nouveau. Sa douceur et sa justesse ont sauvé notre couple."
+              name="Amandine F." 
+              date="il y a 1 mois" 
+              text="Nous avons vu Mélissa pour une thérapie de couple à un moment où on n'arrivait plus à se parler sans se disputer. Elle nous a vraiment aidés à comprendre nos blocages."
+            />
+            <GoogleReviewCard 
+              initial="S"
+              color="bg-gold-500"
+              name="Sophia M." 
+              date="il y a 4 mois" 
+              text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés."
             />
             <GoogleReviewCard 
               initial="C"
-              color="bg-gold-500"
-              name="Camille R." 
-              date="il y a 3 semaines" 
-              text="Je me sentais seule et incomprise. Les séances m'ont permis de mettre des mots sur mes maux et de retrouver ma place dans la relation."
-            />
-            <GoogleReviewCard 
-              initial="M"
               color="bg-sage-600"
-              name="Marc D." 
-              date="il y a 4 mois" 
-              text="Un espace sans jugement où on peut tout dire. On repart avec des clés concrètes pour avancer. Merci pour tout ce chemin."
+              name="Cédric B." 
+              date="il y a 3 mois" 
+              text="On traversait une grosse période de tension. Au final, ça nous a fait énormément de bien. Elle nous a aidés à remettre du dialogue."
             />
              <GoogleReviewCard 
-              initial="S"
+              initial="N"
               color="bg-blue-400"
-              name="Sophie B." 
-              date="il y a 1 mois" 
-              text="Excellente thérapeute. L'approche est moderne et vraiment adaptée à notre situation. Des changements dès les premières séances."
+              name="Nicolas S." 
+              date="il y a 2 mois" 
+              text="On repart plus connectés, avec des outils simples à appliquer. Franchement, on recommande vivement."
             />
+        </div>
+        
+        <div className="flex overflow-x-auto pb-8 gap-4 md:hidden snap-x snap-mandatory -mx-6 px-6 no-scrollbar">
+             <div className="snap-center w-[85vw] flex-shrink-0">
+               <GoogleReviewCard initial="A" color="bg-sage-400" name="Amandine F." date="il y a 1 mois" text="Nous avons vu Mélissa pour une thérapie de couple à un moment où on n'arrivait plus à se parler sans se disputer. Elle nous a vraiment aidés à comprendre nos blocages." />
+             </div>
+             <div className="snap-center w-[85vw] flex-shrink-0">
+               <GoogleReviewCard initial="S" color="bg-gold-500" name="Sophia M." date="il y a 4 mois" text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés." />
+             </div>
+             <div className="snap-center w-[85vw] flex-shrink-0">
+                <GoogleReviewCard initial="C" color="bg-sage-600" name="Cédric B." date="il y a 3 mois" text="On traversait une grosse période de tension. Au final, ça nous a fait énormément de bien. Elle nous a aidés à remettre du dialogue." />
+             </div>
+             <div className="snap-center w-[85vw] flex-shrink-0">
+                <GoogleReviewCard initial="N" color="bg-blue-400" name="Nicolas S." date="il y a 2 mois" text="On repart plus connectés, avec des outils simples à appliquer. Franchement, on recommande vivement." />
+             </div>
+        </div>
       </div>
       
-      <div className="text-center">
-        <a href="https://g.page/r/..." target="_blank" className="text-sage-600 text-sm hover:text-sage-900 underline underline-offset-4">Voir tous les avis sur Google Maps</a>
+      <div className="text-center mt-10">
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sage-600 text-sm font-medium hover:text-sage-900 underline underline-offset-4 decoration-sage-300 hover:decoration-sage-900 transition-all">
+          Voir tous les avis sur Google Maps <ArrowRight size={14} className="ml-1" />
+        </a>
       </div>
     </section>
   );
@@ -313,37 +343,40 @@ const Reviews = () => {
 
 const Method = () => {
   return (
-    <section id="vision" className="py-24 bg-white">
+    <section id="vision" className="py-20 md:py-24 bg-white">
        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-             <p className="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">La Méthode</p>
-             <h2 className="text-4xl md:text-5xl font-serif text-sage-900 leading-tight">
-               La thérapie peut littéralement <span className="italic text-sage-500">transformer</span> votre vie
+          <div className="text-center mb-16">
+             <p className="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">Mon approche</p>
+             <h2 className="text-3xl md:text-5xl font-serif text-sage-900 leading-tight mb-6">
+               Une thérapie <span className="italic text-sage-500">concrète</span> et bienveillante
              </h2>
-             <p className="mt-6 text-sage-600 max-w-2xl mx-auto font-light">
-               Je vous accompagne pour faire disparaître ce qui entrave votre épanouissement relationnel.
+             <p className="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed text-lg">
+               Mon accompagnement repose sur trois piliers essentiels : l’écoute, la compréhension du lien, et le respect du rythme de chacun. Je combine Sexothérapie, PNL et Sophrologie.
              </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
              {[
-               { icon: <Heart size={24} />, title: "Apaiser les émotions", text: "Faire disparaître les ressentiments et les douleurs liées aux conflits passés." },
-               { icon: <Quote size={24} />, title: "Recréer le dialogue", text: "Instaurer de nouveaux schémas de communication positifs pour se comprendre enfin." },
-               { icon: <Check size={24} />, title: "Renforcer le lien", text: "Retrouver la complicité, l'intimité et la confiance pour avancer ensemble." }
+               { icon: <MessageCircle size={28} />, title: "Mieux communiquer", text: "Retrouver un dialogue apaisé et constructif dans votre couple, sans cris ni reproches." },
+               { icon: <Heart size={28} />, title: "Restaurer l'intimité", text: "Recréer une connexion profonde, dépasser les blocages émotionnels et retrouver la complicité." },
+               { icon: <Users size={28} />, title: "Outils concrets", text: "Je vous donne des moyens concrets pour sortir des conflits répétitifs et renforcer votre relation durablement." }
              ].map((item, i) => (
-               <div key={i} className="bg-cream-50 rounded-3xl p-8 text-center hover:shadow-soft transition-shadow duration-300 border border-cream-100">
-                  <div className="w-14 h-14 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200">
+               <div key={i} className="bg-cream-50 rounded-2xl p-8 text-center hover:shadow-soft transition-all duration-300 border border-cream-100 hover:-translate-y-1 group">
+                  <div className="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200 group-hover:text-sage-700 group-hover:border-sage-300 transition-colors">
                     {item.icon}
                   </div>
-                  <h3 className="font-serif text-xl text-sage-900 mb-4">{item.title}</h3>
+                  <h3 className="font-serif text-xl text-sage-900 mb-3">{item.title}</h3>
                   <p className="text-sage-600 font-light leading-relaxed">{item.text}</p>
                </div>
              ))}
           </div>
           
-          <div className="mt-16 flex justify-center gap-4">
-              <a href="#contact" className="bg-sage-600 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:bg-sage-700 transition-colors">Appel découverte</a>
-              <a href="#contact" className="bg-white text-sage-800 border border-sage-200 px-8 py-3 rounded-full font-medium hover:bg-cream-50 transition-colors">Consultation</a>
+          <div className="mt-16 text-center">
+             <div className="inline-block bg-sage-50 px-8 py-6 rounded-2xl border border-sage-100 max-w-3xl">
+                <p className="text-sage-800 italic font-serif text-lg leading-relaxed">
+                   "Mon rôle n'est pas de juger ou de dire ce qu'il faut faire, mais de créer un espace sécurisé où chacun peut s'exprimer librement et être entendu, sans crainte."
+                </p>
+             </div>
           </div>
        </div>
     </section>
@@ -351,51 +384,65 @@ const Method = () => {
 };
 
 const Bio = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <section id="qui-suis-je" className="py-24 bg-sage-500 text-white relative overflow-hidden">
-       {/* Texture/Pattern overlay optional */}
+    <section id="qui-suis-je" className="py-20 md:py-24 bg-sage-500 text-white relative overflow-hidden">
        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
          <div className="grid lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-5">
-              <div className="relative">
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="relative mx-auto max-w-sm lg:max-w-none">
                  <div className="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
-                    <img src={IMG_MELISSA} alt="Melissa Boukaia" className="w-full h-full object-cover" />
+                    <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover" />
                  </div>
-                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center">
+                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
                     <Quote size={32} className="text-sage-800 opacity-50" />
                  </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7">
-               <h2 className="text-4xl lg:text-5xl font-serif mb-8 leading-tight">
-                 Mais qui suis-je pour vous promettre cela ?
+            <div className="lg:col-span-7 order-1 lg:order-2">
+               <p className="text-sage-200 font-bold uppercase tracking-widest text-xs mb-3">À propos de moi</p>
+               <h2 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">
+                 Mon histoire
                </h2>
-               <h3 className="text-2xl font-serif text-sage-200 mb-6">Je suis Melissa Boukaia, thérapeute.</h3>
                
-               <div className="space-y-6 text-lg font-light text-sage-50 leading-relaxed">
-                  <div className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-sage-400 flex items-center justify-center flex-shrink-0 mt-1"><Check size={14} /></div>
-                    <p>Une approche <strong className="font-normal text-white">bienveillante & personnalisée</strong> pour chaque couple que j'accompagne.</p>
+               <div className="space-y-6 text-base md:text-lg font-light text-sage-50 leading-relaxed text-justify relative">
+                  {/* Always visible part */}
+                  <p>
+                    Si je devais résumer mon parcours, je dirais que chaque étape de ma vie m’a fait grandir. J’ai traversé des remises en question, des moments de doute... mais aussi des rencontres qui m'ont permis de mieux me comprendre.
+                  </p>
+                  
+                  {/* Mobile: Hidden by default, Desktop: Always visible (or handled via same state for simplicity across breakpoints, but better to just use CSS/State combo) */}
+                  <div className={`${isExpanded ? 'block' : 'hidden md:block'} space-y-6`}>
+                    <p>
+                      J’ai grandi aux côtés d’une maman psychologiquement fragile, ce qui m’a amenée très tôt à développer une écoute sensible et authentique. J'ai appris à entendre ce qui ne se disait pas toujours avec des mots.
+                    </p>
+                    <p>
+                      Mon couple, depuis de nombreuses années, est ma colonne vertébrale. Je suis aussi maman de trois enfants, et comme beaucoup, j’ai expérimenté l’équilibre parfois fragile entre les rôles, les besoins, les émotions.
+                    </p>
+                    <p>
+                      Aujourd’hui, c’est tout ce vécu que je mets à votre service. Ma plus grande satisfaction, c’est de voir les couples avancer, retrouver un dialogue et recréer du lien.
+                    </p>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-sage-400 flex items-center justify-center flex-shrink-0 mt-1"><Check size={14} /></div>
-                    <p>Un cadre <strong className="font-normal text-white">éthique et confidentiel</strong> où vous pouvez vous exprimer librement.</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-sage-400 flex items-center justify-center flex-shrink-0 mt-1"><Check size={14} /></div>
-                    <p>Un accompagnement qui <strong className="font-normal text-white">respecte votre rythme</strong>, sans jugement.</p>
-                  </div>
+                  
+                  {/* Mobile Toggle Button */}
+                  <button 
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="md:hidden flex items-center gap-1 text-sage-800 font-bold bg-white/20 px-4 py-2 rounded-full text-sm mt-2 hover:bg-white/30 transition-colors"
+                  >
+                    {isExpanded ? (
+                      <>Voir moins <ChevronUp size={16} /></>
+                    ) : (
+                      <>Lire la suite <ChevronDown size={16} /></>
+                    )}
+                  </button>
                </div>
 
-               <p className="mt-8 text-sage-200 italic font-serif text-xl border-l-2 border-sage-300 pl-6">
-                 "Je ne suis pas là pour juger, mais pour vous aider à retrouver le chemin l'un vers l'autre."
-               </p>
-
                <div className="mt-10 flex flex-wrap gap-4">
-                 <a href="#contact" className="bg-white text-sage-800 px-8 py-3 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg">
-                   Appel découverte
+                 <a href="#contact" className="bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg">
+                   Réserver mon appel offert
                  </a>
                </div>
             </div>
@@ -407,61 +454,72 @@ const Bio = () => {
 };
 
 const Office = () => (
-  <section className="py-24 bg-cream-100">
+  <section className="py-20 md:py-24 bg-cream-100">
      <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-12">
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-sage-500">
-           <MapPin size={24} />
+        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-sage-500 border border-cream-200">
+           <MapPin size={28} />
         </div>
-        <h2 className="text-3xl md:text-4xl font-serif text-sage-900 mb-4">Je vous accueille dans mon cabinet privé</h2>
-        <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-cream-200 text-sage-600 text-sm">
-           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-           5 rue du Petit Potet, <span className="font-bold">21000 Dijon</span> (exemple)
+        <h2 className="text-3xl md:text-4xl font-serif text-sage-900 mb-6">Je vous accueille à Rueil-Malmaison ou en Visio</h2>
+        <div className="inline-flex flex-col md:flex-row items-center gap-3 text-sage-700 text-sm font-medium">
+           <span className="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
+             <MapPin size={14} className="text-sage-500" />
+             Cabinet : Rueil-Malmaison (92)
+           </span>
+           <span className="hidden md:inline text-sage-300">•</span>
+           <span className="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
+             <Video size={14} className="text-sage-500" />
+             Visio : Partout en France
+           </span>
         </div>
      </div>
      
-     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8">
-        <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white">
-           <img src={IMG_OFFICE_1} alt="Cabinet" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+     <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
+        <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
+           <img src={IMG_OFFICE_1} alt="Cabinet Thérapie Rueil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+           <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Un espace chaleureux</div>
         </div>
-        <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white">
-           <img src={IMG_OFFICE_2} alt="Cabinet" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
+           <img src={IMG_OFFICE_2} alt="Cabinet Thérapie Couple" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+           <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Propice à l'échange</div>
         </div>
      </div>
   </section>
 );
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
-    { q: "Est-ce que l'appel découverte m'engage à commencer une thérapie ?", a: "Non, pas du tout. L'appel découverte est simplement un temps d'échange gratuit et sans engagement, pour faire le point sur votre situation et voir ensemble comment je peux vous aider." },
-    { q: "En combien de séances vais-je voir des résultats ?", a: "Chaque couple est différent. Certains débloquent la situation en quelques séances, d'autres souhaitent un travail plus profond sur la durée. Nous en discuterons ensemble." },
-    { q: "Vais-je perdre le contrôle sous hypnose ?", a: "Non, l'hypnose thérapeutique est un état de conscience modifié mais vous restez conscient et maître de vous-même. (Note: À adapter si vous faites de l'hypnose ou non)" },
-    { q: "Comment se déroule l'appel de découverte ?", a: "C'est un échange téléphonique de 15-20 minutes où vous m'expliquez brièvement votre problématique, et je vous explique comment je travaille." }
+    { q: "Quels sont vos Tarifs ?", a: "La première consultation, d’une durée d’environ 1h30, est proposée à 135€. Les séances suivantes durent 1h et sont au tarif de 85€. Ce premier échange plus long permet de poser les bases de votre accompagnement et de bien comprendre votre situation en couple." },
+    { q: "Est-ce que l’appel gratuit m’engage à commencer une thérapie ?", a: "Non, pas du tout. L’appel gratuit est une première prise de contact sans engagement. Il vous permet de poser vos questions, de me découvrir, et de voir si vous vous sentez en confiance pour envisager un accompagnement. La décision de commencer une thérapie vous appartient entièrement." },
+    { q: "Et si mon/ma partenaire ne veut pas venir ?", a: "C’est une situation fréquente. Vous pouvez commencer seul(e) pour poser un regard plus clair sur votre relation. Parfois, ce premier pas encourage l’autre à rejoindre la démarche par la suite." },
+    { q: "Comment on commence ?", a: "Tout commence par un appel téléphonique gratuit de 15 minutes. C’est un premier échange simple, sans engagement, pour faire connaissance, comprendre votre situation et voir si mon accompagnement vous convient. Si vous souhaitez poursuivre, nous fixons ensemble une première séance, en cabinet à Rueil-Malmaison ou en visio selon votre préférence." },
+    { q: "Combien de temps faut-il pour aller mieux ?", a: "Cela dépend de chaque couple et de l'historique de la relation. Certains couples voient des améliorations significatives dès les premières séances grâce à des outils de communication concrets que je vous transmets." },
+    { q: "Est-ce remboursé ?", a: "Les séances de thérapie de couple ne sont pas remboursées par la Sécurité Sociale. Cependant, certaines mutuelles peuvent prendre en charge une partie des consultations au titre de la psychologie ou des médecines douces. Renseignez-vous auprès de votre organisme." }
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="faq" className="py-20 md:py-24 bg-white">
       <div className="max-w-3xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
            <h2 className="text-3xl md:text-4xl font-serif text-sage-900 mb-4">Questions fréquentes</h2>
-           <p className="text-sage-500">Tout ce que vous devez savoir avant de commencer</p>
+           <p className="text-sage-500 font-light">Tout ce que vous devez savoir avant de commencer</p>
         </div>
         
         <div className="space-y-4">
            {faqs.map((faq, i) => (
-             <div key={i} className="border border-cream-200 rounded-2xl p-2 bg-cream-50 hover:border-sage-300 transition-colors">
+             <div key={i} className="border border-cream-200 rounded-2xl p-1 bg-cream-50 hover:border-sage-300 transition-colors">
                 <button 
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex justify-between items-center p-4 text-left"
+                  className="w-full flex justify-between items-center p-5 text-left"
                 >
-                  <span className="font-medium text-sage-900 pr-8">{faq.q}</span>
-                  <div className={`bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform ${openIndex === i ? 'rotate-180 bg-sage-600 text-white' : ''}`}>
+                  <span className="font-medium text-sage-900 pr-4 text-base">{faq.q}</span>
+                  <div className={`bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0 ${openIndex === i ? 'rotate-180 bg-sage-600 text-white' : ''}`}>
                     <ChevronDown size={18} />
                   </div>
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                   <p className="px-4 pb-4 text-sage-600 font-light text-sm leading-relaxed">{faq.a}</p>
+                <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                   <p className="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">{faq.a}</p>
                 </div>
              </div>
            ))}
@@ -473,37 +531,26 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative py-24 bg-sage-900 text-white overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-24 bg-sage-900 text-white overflow-hidden">
        {/* Background Image Overlay */}
-       <div className="absolute inset-0 opacity-20">
-         <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover" />
+       <div className="absolute inset-0 opacity-10">
+         <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover grayscale" />
        </div>
-       <div className="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/90 to-sage-900/80"></div>
+       <div className="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/95 to-sage-900/90"></div>
 
        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-tight">
-            Venez découvrir <span className="italic text-sage-300">tout ce que</span><br/>
-            la thérapie peut vous apporter.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
+            Votre nouvelle vie de couple <br/> <span className="italic text-sage-300">commence ici</span>
           </h2>
-          <p className="text-xl text-sage-200 mb-12 font-light max-w-2xl mx-auto">
-            Faites le premier pas vers votre bien-être aujourd'hui. Le changement commence par une simple décision.
+          <p className="text-lg md:text-xl text-sage-200 mb-10 font-light max-w-2xl mx-auto">
+            Faites le premier pas vers l'apaisement. Réservez votre appel découverte gratuit dès maintenant.
           </p>
           
-          <div className="flex justify-center gap-6 mb-16">
-             <button className="bg-white text-sage-900 px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-cream-100 transition-colors shadow-lg shadow-white/10">
-                <Phone size={20} />
-                Appel découverte
-             </button>
-             <button className="bg-transparent border border-sage-500 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-800 transition-colors">
-                Consultation
-             </button>
-          </div>
-          
-          <div className="text-xs text-sage-400 mb-16">
-             Gratuit • 15 min • Sans engagement • Cabinet (Rueil) ou Visio
+          <div className="text-xs text-sage-400 mb-10 uppercase tracking-widest flex items-center justify-center gap-2">
+             <Calendar size={14} /> Choisissez votre créneau ci-dessous
           </div>
 
-          <div className="bg-white rounded-3xl p-2 shadow-2xl max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl p-1 md:p-2 shadow-2xl max-w-4xl mx-auto overflow-hidden">
              <CalendlyWidget />
           </div>
        </div>
@@ -511,27 +558,21 @@ const Contact = () => {
   );
 };
 
-const Footer = () => (
-  <footer className="bg-cream-100 py-12 border-t border-cream-200">
-    <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-       <div>
-         <p className="font-serif font-bold text-xl text-sage-900">Kaveh Jahanshai</p>
-         <p className="text-xs text-sage-500 uppercase tracking-widest mt-1">Hypnothérapeute</p>
-       </div>
-       <p className="text-xs text-sage-400">Copyright © 2025 Kaveh Jahanshahi - Mentions Légales</p>
-    </div>
-  </footer>
-);
-
-// Switch footer name back to Melissa for the user
 const FooterUser = () => (
-  <footer className="bg-cream-100 py-12 border-t border-cream-200">
-    <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+  <footer className="bg-cream-100 py-12 border-t border-cream-200 text-center md:text-left mb-16 md:mb-0">
+    <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
        <div>
-         <p className="font-serif font-bold text-xl text-sage-900">Melissa Boukaia</p>
-         <p className="text-xs text-sage-500 uppercase tracking-widest mt-1">Thérapeute de couple</p>
+         <p className="font-serif font-bold text-2xl text-sage-900">Melissa Boukaia</p>
+         <p className="text-xs text-sage-500 uppercase tracking-widest mt-2 font-medium">Thérapeute de couple & Sexothérapeute</p>
+         <p className="text-sm text-sage-600 mt-2 flex items-center justify-center md:justify-start gap-1"><MapPin size={14}/> Rueil-Malmaison (92) & Visio</p>
        </div>
-       <p className="text-xs text-sage-400">Copyright © 2025 Melissa Boukaia - Mentions Légales</p>
+       <div className="flex flex-col items-center md:items-end gap-3">
+          <p className="text-sm text-sage-500">© 2025 Melissa Boukaia. Tous droits réservés.</p>
+          <div className="flex gap-6 text-xs text-sage-500">
+            <a href="#" className="hover:text-sage-800 transition-colors">Mentions Légales</a>
+            <a href="#" className="hover:text-sage-800 transition-colors">Politique de confidentialité</a>
+          </div>
+       </div>
     </div>
   </footer>
 );
@@ -544,8 +585,10 @@ function App() {
       <main>
         <Hero />
         <Problem />
-        <Reviews />
+        {/* CRO change: Method/Solution first to show value immediately */}
         <Method />
+        {/* CRO change: Social Proof next to build trust before asking for commitment or showing long bio */}
+        <Reviews />
         <Bio />
         <Office />
         <FAQ />
