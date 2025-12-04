@@ -14,17 +14,18 @@
     <meta name="ICBM" content="48.8777, 2.1811" />
     <link rel="canonical" href="https://xn--bullesdepenses-mkb.fr/" />
     
+    <!-- Optimization: DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://i.postimg.cc" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    
     <!-- Preload Critical Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" />
+    <!-- Image LCP (Hero) en haute priorité -->
+    <link rel="preload" as="image" href="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" fetchpriority="high" />
 
-    <!-- Optimization Calendly -->
-    <link rel="preconnect" href="https://assets.calendly.com" />
-    <link rel="preconnect" href="https://calendly.com" />
-    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
-
-    <!-- Tailwind CSS (CDN pour simplicité, idéalement à compiler pour prod) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
@@ -181,7 +182,7 @@
                         <!-- Google Badge -->
                         <div class="flex items-center justify-center lg:justify-start gap-4">
                             <div class="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-sage-100 shadow-sm rounded-xl px-5 py-3">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-8 h-8" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-8 h-8" width="32" height="32" />
                                 <div class="flex flex-col items-start">
                                     <div class="flex gap-0.5 text-[#fbbc04] mb-0.5">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -199,7 +200,7 @@
                     <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
                         <div class="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
                             <div class="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
-                                <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple heureux Rueil Malmaison" class="w-full h-full object-cover" width="448" height="597">
+                                <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple heureux Rueil Malmaison" class="w-full h-full object-cover" width="448" height="597" fetchpriority="high">
                                 <div class="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent"></div>
                             </div>
                             <!-- Floating Badge -->
@@ -382,7 +383,7 @@
                     <div class="lg:col-span-5 order-2 lg:order-1">
                         <div class="relative mx-auto max-w-sm lg:max-w-none">
                             <div class="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
-                                <img src="https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg" alt="Melissa Boukaia Thérapeute Rueil Malmaison" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg" alt="Melissa Boukaia Thérapeute Rueil Malmaison" class="w-full h-full object-cover" loading="lazy" width="400" height="500">
                             </div>
                             <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-sage-800 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
@@ -433,11 +434,11 @@
             </div>
             <div class="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
                 <div class="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                    <img src="https://i.postimg.cc/K87jRkb1/sexotherapie-saint-cloud-sexologue.jpg" alt="Cabinet Thérapie Rueil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    <img src="https://i.postimg.cc/K87jRkb1/sexotherapie-saint-cloud-sexologue.jpg" alt="Cabinet Thérapie Rueil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width="600" height="450">
                     <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Un espace chaleureux</div>
                 </div>
                 <div class="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                    <img src="https://i.postimg.cc/T3j1pLxW/Sexotherapeute-a-rueil-malmaison.jpg" alt="Cabinet Thérapie Couple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    <img src="https://i.postimg.cc/T3j1pLxW/Sexotherapeute-a-rueil-malmaison.jpg" alt="Cabinet Thérapie Couple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width="600" height="450">
                     <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Propice à l'échange</div>
                 </div>
             </div>
@@ -686,8 +687,24 @@
                     nav.classList.add('bg-transparent', 'py-4', 'md:py-6');
                 }
             });
+
+            // --- Lazy Load Calendly on Scroll (Optimization) ---
+            const calendlySection = document.getElementById('contact');
+            if (calendlySection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const script = document.createElement('script');
+                            script.src = "https://assets.calendly.com/assets/external/widget.js";
+                            script.async = true;
+                            document.body.appendChild(script);
+                            observer.disconnect();
+                        }
+                    });
+                }, { rootMargin: "200px" }); // Load 200px before reaching section
+                observer.observe(calendlySection);
+            }
         };
     </script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
