@@ -21,12 +21,26 @@
     <link rel="preconnect" href="https://esm.sh" />
     <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     
+    <!-- Preload Critical Image (LCP) -->
+    <link rel="preload" as="image" href="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts: Playfair Display (Titres Elegants) & Inter (Texte Pro) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
+    <!-- CSS Critique pour affichage immédiat -->
+    <style>
+      body { font-family: 'Inter', sans-serif; background-color: #F7F4EB; color: #192E33; }
+      h1, h2, h3 { font-family: 'Playfair Display', serif; }
+      .font-serif { font-family: 'Playfair Display', serif; }
+      .italic { font-style: italic; }
+      /* Hide scrollbar for review carousel on mobile */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
     <!-- STRUCTURED DATA (JSON-LD) FOR LOCAL SEO RANKING -->
     <script type="application/ld+json">
     {
@@ -134,17 +148,70 @@
   <body class="bg-cream-100 text-sage-800 font-sans antialiased selection:bg-sage-200 selection:text-sage-900">
     
     <!-- 
-      SEO FALLBACK CONTENT 
-      This content is visible to search engines immediately, even if JS fails.
-      It matches the React content to ensure keywords are indexed.
+      STATIC SHELL (SSR Simulation)
+      This content appears IMMEDIATELY while React loads in the background.
+      It mirrors the Navbar and Hero section exactly.
     -->
     <div id="root">
-       <div style="padding: 2rem; max-width: 800px; margin: 0 auto; text-align: center; font-family: 'Times New Roman', serif; color: #345A63;">
-          <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Thérapie de couple à Rueil-Malmaison</h1>
-          <p style="font-size: 1.5rem; font-style: italic; margin-bottom: 2rem;">Et si votre couple retrouvait enfin de l’apaisement ?</p>
-          <p>Melissa Boukaia vous accompagne en cabinet à Rueil-Malmaison (92) ou en Visio.</p>
-          <p>Chargement du site en cours...</p>
-       </div>
+       <!-- STATIC NAVBAR -->
+       <nav class="fixed top-0 z-50 w-full bg-transparent py-4 md:py-6">
+          <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+             <div class="flex flex-col">
+                <span class="font-serif font-bold text-xl md:text-2xl text-sage-900 leading-none">Melissa Boukaia</span>
+                <h1 class="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple à Rueil (92)</h1>
+             </div>
+             <!-- Desktop Menu Placeholder -->
+             <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
+                <span class="text-sage-800 font-medium text-sm">Pour qui ?</span>
+                <span class="text-sage-800 font-medium text-sm">Mon approche</span>
+                <span class="text-sage-800 font-medium text-sm">Témoignages</span>
+                <span class="text-sage-800 font-medium text-sm">Mon histoire</span>
+                <span class="text-sage-800 font-medium text-sm">Blog</span>
+                <span class="text-sage-800 font-medium text-sm">FAQ</span>
+                <span class="bg-sage-600 text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-md">Appel offert</span>
+             </div>
+             <!-- Mobile Menu Icon Placeholder -->
+             <div class="md:hidden text-sage-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+             </div>
+          </div>
+       </nav>
+
+       <!-- STATIC HERO SECTION -->
+       <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-cream-100">
+          <div class="max-w-7xl mx-auto px-6 lg:px-12">
+             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative z-10 order-2 lg:order-1 text-center lg:text-left">
+                   <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage-200 bg-white/60 text-sage-700 text-xs font-bold uppercase tracking-wider mb-6 mx-auto lg:mx-0 shadow-sm">
+                      <span>Rueil-Malmaison (92) & Visio</span>
+                   </div>
+                   <h2 class="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
+                      Thérapie de couple à <span class="text-sage-600 italic">Rueil-Malmaison</span>
+                   </h2>
+                   <p class="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-normal">
+                      Et si votre couple retrouvait enfin de l’apaisement ?
+                   </p>
+                   <div class="flex flex-col mb-10 items-center lg:items-start">
+                      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                         <a href="#contact" class="flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium shadow-lg text-base w-full sm:w-auto">
+                            Appel découverte offert
+                         </a>
+                      </div>
+                      <div class="mt-3 text-[10px] md:text-xs text-sage-500 font-bold tracking-widest uppercase opacity-80 pl-2">
+                         Gratuit • 15 min • Sans engagement
+                      </div>
+                   </div>
+                </div>
+                <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
+                  <div class="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
+                     <div class="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
+                        <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple heureux Rueil Malmaison" class="w-full h-full object-cover" width="448" height="597">
+                     </div>
+                  </div>
+                </div>
+             </div>
+          </div>
+       </section>
     </div>
 
     <!-- Application Code Embedded Directly -->
