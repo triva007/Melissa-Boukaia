@@ -1,1 +1,0 @@
-// File deliberately emptied. Code moved to index.html for compatibility.

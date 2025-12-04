@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thérapie de Couple Rueil-Malmaison (92) & Visio | Melissa Boukaia</title>
@@ -12,36 +12,63 @@
     <meta name="geo.placename" content="Rueil-Malmaison" />
     <meta name="geo.position" content="48.8777;2.1811" />
     <meta name="ICBM" content="48.8777, 2.1811" />
-    <!-- URL Canonique Officielle pour éviter le duplicate content avec Vercel -->
     <link rel="canonical" href="https://xn--bullesdepenses-mkb.fr/" />
     
-    <!-- Performance : Preconnect -->
+    <!-- Preload Critical Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://esm.sh" />
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
-    
-    <!-- Preload Critical Image (LCP) -->
     <link rel="preload" as="image" href="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" />
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN pour simplicité, idéalement à compiler pour prod) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts: Playfair Display (Titres Elegants) & Inter (Texte Pro) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     
-    <!-- CSS Critique pour affichage immédiat -->
+    <!-- Configuration Design -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              cream: { 50: '#FDFBF7', 100: '#F7F4EB', 200: '#EBE5D5', 300: '#D8CDB6' },
+              sage: { 
+                50: '#F0F9FA', 100: '#E0F2F1', 200: '#B2DFDB', 300: '#80CBC4', 
+                400: '#4DB6AC', 500: '#649BA6', 600: '#4A7A85', 700: '#345A63', 
+                800: '#25434A', 900: '#192E33' 
+              },
+              gold: { 400: '#fbbf24', 500: '#f59e0b' }
+            },
+            boxShadow: {
+              'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
+              'card': '0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
+              'elevated': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
+            },
+            borderRadius: { 'arch': '10rem 10rem 1rem 1rem' }
+          }
+        }
+      }
+    </script>
+
+    <!-- CSS Personnalisé -->
     <style>
       body { font-family: 'Inter', sans-serif; background-color: #F7F4EB; color: #192E33; }
       h1, h2, h3 { font-family: 'Playfair Display', serif; }
-      .font-serif { font-family: 'Playfair Display', serif; }
-      .italic { font-style: italic; }
-      /* Hide scrollbar for review carousel on mobile */
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .fade-in { animation: fadeIn 0.5s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.3s ease-out; opacity: 0; }
+      .faq-content.open { max-height: 500px; opacity: 1; }
+      .rotate-180 { transform: rotate(180deg); }
+      .hidden-view { display: none !important; }
     </style>
 
-    <!-- STRUCTURED DATA (JSON-LD) FOR LOCAL SEO RANKING -->
+    <!-- JSON-LD SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -58,909 +85,609 @@
         "postalCode": "92500",
         "addressCountry": "FR"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8777,
-        "longitude": 2.1811
-      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.8777, "longitude": 2.1811 },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "20:00"
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00", "closes": "20:00"
       },
       "priceRange": "$$",
-      "description": "Cabinet de thérapie de couple et sexothérapie à Rueil-Malmaison. Aide à la communication, gestion de crise, infidélité et intimité.",
-      "sameAs": [
-        "https://calendly.com/melissaboukaia"
-      ]
+      "description": "Cabinet de thérapie de couple et sexothérapie à Rueil-Malmaison.",
+      "sameAs": ["https://calendly.com/melissaboukaia"]
     }
     </script>
+</head>
+<body class="bg-cream-100 text-sage-800 antialiased selection:bg-sage-200 selection:text-sage-900">
 
-    <!-- Tailwind Config -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Inter"', 'sans-serif'],
-            },
-            colors: {
-              cream: {
-                50: '#FDFBF7',
-                100: '#F7F4EB',
-                200: '#EBE5D5',
-                300: '#D8CDB6',
-              },
-              // Palette "Celestial Blue" (Bleu Céleste Apaisant)
-              sage: {
-                50: '#F0F9FA',   
-                100: '#E0F2F1',  
-                200: '#B2DFDB',  
-                300: '#80CBC4',  
-                400: '#4DB6AC',  
-                500: '#649BA6',  // Main Celestial Blue
-                600: '#4A7A85',  
-                700: '#345A63',  // Text Blue
-                800: '#25434A',  
-                900: '#192E33',  
-              },
-              gold: {
-                400: '#fbbf24',
-                500: '#f59e0b',
-              }
-            },
-            boxShadow: {
-              'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
-              'card': '0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
-              'elevated': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
-            },
-            borderRadius: {
-              'arch': '10rem 10rem 1rem 1rem',
-            }
-          }
-        }
-      }
-    </script>
-
-    <!-- Import Map -->
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.263.1?deps=react@18.2.0"
-  }
-}
-</script>
-
-    <!-- Babel -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  </head>
-  <body class="bg-cream-100 text-sage-800 font-sans antialiased selection:bg-sage-200 selection:text-sage-900">
-    
-    <!-- 
-      STATIC SHELL (SSR Simulation)
-      This content appears IMMEDIATELY while React loads in the background.
-      It mirrors the Navbar and Hero section exactly.
-    -->
-    <div id="root">
-       <!-- STATIC NAVBAR -->
-       <nav class="fixed top-0 z-50 w-full bg-transparent py-4 md:py-6">
-          <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-             <div class="flex flex-col">
-                <span class="font-serif font-bold text-xl md:text-2xl text-sage-900 leading-none">Melissa Boukaia</span>
-                <h1 class="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple à Rueil (92)</h1>
-             </div>
-             <!-- Desktop Menu Placeholder -->
-             <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
-                <span class="text-sage-800 font-medium text-sm">Pour qui ?</span>
-                <span class="text-sage-800 font-medium text-sm">Mon approche</span>
-                <span class="text-sage-800 font-medium text-sm">Témoignages</span>
-                <span class="text-sage-800 font-medium text-sm">Mon histoire</span>
-                <span class="text-sage-800 font-medium text-sm">Blog</span>
-                <span class="text-sage-800 font-medium text-sm">FAQ</span>
-                <span class="bg-sage-600 text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-md">Appel offert</span>
-             </div>
-             <!-- Mobile Menu Icon Placeholder -->
-             <div class="md:hidden text-sage-900">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-             </div>
-          </div>
-       </nav>
-
-       <!-- STATIC HERO SECTION -->
-       <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-cream-100">
-          <div class="max-w-7xl mx-auto px-6 lg:px-12">
-             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-                   <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage-200 bg-white/60 text-sage-700 text-xs font-bold uppercase tracking-wider mb-6 mx-auto lg:mx-0 shadow-sm">
-                      <span>Rueil-Malmaison (92) & Visio</span>
-                   </div>
-                   <h2 class="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
-                      Thérapie de couple à <span class="text-sage-600 italic">Rueil-Malmaison</span>
-                   </h2>
-                   <p class="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-normal">
-                      Et si votre couple retrouvait enfin de l’apaisement ?
-                   </p>
-                   <div class="flex flex-col mb-10 items-center lg:items-start">
-                      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-                         <a href="#contact" class="flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium shadow-lg text-base w-full sm:w-auto">
-                            Appel découverte offert
-                         </a>
-                      </div>
-                      <div class="mt-3 text-[10px] md:text-xs text-sage-500 font-bold tracking-widest uppercase opacity-80 pl-2">
-                         Gratuit • 15 min • Sans engagement
-                      </div>
-                   </div>
-                </div>
-                <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
-                  <div class="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
-                     <div class="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
-                        <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple heureux Rueil Malmaison" class="w-full h-full object-cover" width="448" height="597">
-                     </div>
-                  </div>
-                </div>
-             </div>
-          </div>
-       </section>
-    </div>
-
-    <!-- Application Code Embedded Directly -->
-    <script type="text/babel" data-type="module">
-      import React, { useState, useEffect } from 'react';
-      import ReactDOM from 'react-dom/client';
-      import { 
-        Heart, MapPin, Menu, X, Star, ChevronDown, Quote, Check, 
-        Calendar, Phone, MessageCircle, Users, Lightbulb, ArrowRight, Video, ChevronUp, BookOpen, ArrowLeft
-      } from 'lucide-react';
-
-      // --- IMAGES ---
-      const IMG_HAPPY_COUPLE = "https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png";
-      const IMG_MELISSA = "https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg";
-      const IMG_OFFICE_1 = "https://i.postimg.cc/K87jRkb1/sexotherapie-saint-cloud-sexologue.jpg";
-      const IMG_OFFICE_2 = "https://i.postimg.cc/T3j1pLxW/Sexotherapeute-a-rueil-malmaison.jpg";
-      const IMG_THERAPY_SESSION = "https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/therapie-de-couple.jpg";
-
-      // --- DATA: BLOG POSTS ---
-      const BLOG_POSTS = [
-        {
-          id: 1,
-          title: "Les 5 clés pour renouer le dialogue dans le couple",
-          excerpt: "Lorsque les non-dits s'accumulent, la communication devient impossible. Découvrez comment briser le silence avec bienveillance.",
-          image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&q=80&w=800",
-          content: (
-            <>
-              <p className="mb-4">La communication est souvent citée comme la clé de voûte du couple, mais qu'est-ce que cela signifie vraiment ? Il ne s'agit pas seulement de parler, mais d'entendre.</p>
-              <h3 className="font-serif text-xl text-sage-900 mt-6 mb-3">1. Écouter pour comprendre, pas pour répondre</h3>
-              <p className="mb-4">Trop souvent, nous écoutons notre partenaire en préparant déjà notre contre-argument. La véritable écoute active demande de mettre son ego de côté.</p>
-              <h3 className="font-serif text-xl text-sage-900 mt-6 mb-3">2. Choisir le bon moment</h3>
-              <p className="mb-4">N'abordez pas les sujets sensibles quand l'un de vous est épuisé ou stressé. Créez un espace dédié à l'échange.</p>
-              <p className="mb-4">Dans mon cabinet à Rueil-Malmaison, nous travaillons spécifiquement sur ces mécanismes pour rétablir un lien sain.</p>
-            </>
-          )
-        },
-        {
-          id: 2,
-          title: "Thérapie de couple : Quand faut-il consulter ?",
-          excerpt: "N'attendez pas que la rupture soit inévitable. Voici les signes qui montrent qu'un accompagnement extérieur est nécessaire.",
-          image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
-          content: (
-            <>
-              <p className="mb-4">Beaucoup de couples attendent le "point de non-retour" pour consulter. Pourtant, la thérapie est bien plus efficace quand elle intervient dès les premiers blocages persistants.</p>
-              <h3 className="font-serif text-xl text-sage-900 mt-6 mb-3">Les signaux d'alerte</h3>
-              <ul className="list-disc pl-5 space-y-2 mb-4">
-                <li>Vous vous disputez toujours pour les mêmes sujets sans jamais trouver de solution.</li>
-                <li>Vous vivez comme des "colocataires" sans intimité.</li>
-                <li>L'un de vous a peur d'exprimer ses besoins.</li>
-              </ul>
-              <p className="mb-4">Consulter un thérapeute, c'est s'offrir un espace neutre pour déposer ces valises émotionnelles.</p>
-            </>
-          )
-        },
-        {
-          id: 3,
-          title: "Surmonter une crise : Fin ou nouveau départ ?",
-          excerpt: "Une crise majeure peut être dévastatrice, mais elle peut aussi être l'occasion de reconstruire une relation plus authentique.",
-          image: "https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&q=80&w=800",
-          content: (
-            <>
-              <p className="mb-4">L'infidélité, le deuil, ou simplement l'usure du temps peuvent provoquer des séismes dans le couple. Souvent, on pense que c'est la fin.</p>
-              <p className="mb-4">Pourtant, la crise est aussi un symptôme : elle dit que l'ancien fonctionnement ne convient plus. Elle oblige à la vérité.</p>
-              <h3 className="font-serif text-xl text-sage-900 mt-6 mb-3">Reconstruire la confiance</h3>
-              <p className="mb-4">C'est un processus lent qui demande de la patience et souvent, l'aide d'un tiers pour ne pas tomber dans les reproches constants.</p>
-            </>
-          )
-        }
-      ];
-
-      // --- COMPONENTS ---
-
-      const CalendlyWidget = () => {
-        useEffect(() => {
-          const head = document.querySelector('head');
-          const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-          
-          if (!existingScript) {
-              const script = document.createElement('script');
-              script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
-              script.setAttribute('async', 'true');
-              head?.appendChild(script);
-          }
-        }, []);
-
-        return (
-          <div className="w-full bg-white rounded-2xl overflow-hidden shadow-soft border border-cream-200">
-            <div 
-              className="calendly-inline-widget w-full" 
-              data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1" 
-              style={{ minWidth: '320px', height: '700px' }} 
-            />
-          </div>
-        );
-      };
-
-      const Navbar = ({ onNavigate, currentPage }) => {
-        const [isOpen, setIsOpen] = useState(false);
-        const [scrolled, setScrolled] = useState(false);
-
-        useEffect(() => {
-          const handleScroll = () => setScrolled(window.scrollY > 20);
-          window.addEventListener('scroll', handleScroll);
-          return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
-
-        const handleNav = (page, sectionId) => {
-          onNavigate(page);
-          setIsOpen(false);
-          if (page === 'home' && sectionId) {
-            setTimeout(() => {
-              const element = document.getElementById(sectionId);
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-          }
-        };
-
-        return (
-          <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-cream-100/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-4 md:py-6'}`}>
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-              <div className="flex justify-between items-center">
-                <div className="flex flex-col cursor-pointer" onClick={() => handleNav('home')}>
-                   <span className="font-serif font-bold text-xl md:text-2xl text-sage-900 leading-none">Melissa Boukaia</span>
-                   <h1 className="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple à Rueil (92)</h1>
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 z-50 w-full transition-all duration-300 bg-transparent py-4 md:py-6">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex flex-col cursor-pointer" onclick="navigateTo('home')">
+                    <span class="font-serif font-bold text-xl md:text-2xl text-sage-900 leading-none">Melissa Boukaia</span>
+                    <h1 class="text-xs text-sage-600 uppercase tracking-widest mt-1">Thérapeute de couple à Rueil (92)</h1>
                 </div>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
-                  <button onClick={() => handleNav('home', 'problemes')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Pour qui ?</button>
-                  <button onClick={() => handleNav('home', 'vision')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Mon approche</button>
-                  <button onClick={() => handleNav('home', 'avis')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Témoignages</button>
-                  <button onClick={() => handleNav('home', 'qui-suis-je')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">Mon histoire</button>
-                  <button onClick={() => handleNav('blog')} className={`font-medium text-sm transition-colors ${currentPage === 'blog' ? 'text-sage-600 font-bold' : 'text-sage-800 hover:text-sage-600'}`}>Blog</button>
-                  <button onClick={() => handleNav('home', 'faq')} className="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors">FAQ</button>
-                  <button 
-                    onClick={() => handleNav('home', 'contact')} 
-                    className="bg-sage-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
-                  >
-                    Appel offert
-                  </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 lg:space-x-10">
+                    <a href="#problemes" onclick="navigateTo('home')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">Pour qui ?</a>
+                    <a href="#vision" onclick="navigateTo('home')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">Mon approche</a>
+                    <a href="#avis" onclick="navigateTo('home')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">Témoignages</a>
+                    <a href="#qui-suis-je" onclick="navigateTo('home')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">Mon histoire</a>
+                    <a onclick="navigateTo('blog')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">Blog</a>
+                    <a href="#faq" onclick="navigateTo('home')" class="text-sage-800 hover:text-sage-600 font-medium text-sm transition-colors cursor-pointer">FAQ</a>
+                    <a href="#contact" onclick="navigateTo('home')" class="bg-sage-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">Appel offert</a>
                 </div>
 
-                <button 
-                  onClick={() => setIsOpen(!isOpen)} 
-                  className="md:hidden text-sage-900 p-2 focus:outline-none"
-                  aria-label="Menu"
-                >
-                  {isOpen ? <X size={28} /> : <Menu size={28} />}
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMenu()" class="md:hidden text-sage-900 p-2 focus:outline-none" aria-label="Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
-              </div>
             </div>
-
-            {isOpen && (
-              <div className="md:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 p-6 animate-in slide-in-from-top-5 border-t border-sage-200 overflow-y-auto">
-                 <div className="flex flex-col space-y-6 text-center pt-8">
-                  <button onClick={() => handleNav('home', 'problemes')} className="text-xl font-serif text-sage-900">Pour qui ?</button>
-                  <button onClick={() => handleNav('home', 'vision')} className="text-xl font-serif text-sage-900">Mon approche</button>
-                  <button onClick={() => handleNav('home', 'avis')} className="text-xl font-serif text-sage-900">Témoignages</button>
-                  <button onClick={() => handleNav('home', 'qui-suis-je')} className="text-xl font-serif text-sage-900">Mon histoire</button>
-                  <button onClick={() => handleNav('blog')} className="text-xl font-serif text-sage-900">Le Blog</button>
-                  <button onClick={() => handleNav('home', 'faq')} className="text-xl font-serif text-sage-900">FAQ</button>
-                  <button onClick={() => handleNav('home', 'contact')} className="bg-sage-600 text-white px-8 py-4 rounded-full text-lg mx-auto w-full max-w-xs shadow-lg font-medium">Réserver mon appel offert</button>
-                </div>
-              </div>
-            )}
-          </nav>
-        );
-      };
-
-      const Hero = () => {
-        return (
-          <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-cream-100">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                
-                {/* Text Left */}
-                <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage-200 bg-white/60 backdrop-blur-sm text-sage-700 text-xs font-bold uppercase tracking-wider mb-6 mx-auto lg:mx-0 shadow-sm">
-                      <MapPin size={14} />
-                      Rueil-Malmaison (92) & Visio
-                   </div>
-
-                   <h2 className="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
-                     Thérapie de couple à <span className="text-sage-600 italic">Rueil-Malmaison</span>
-                   </h2>
-                   
-                   <p className="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-normal">
-                     Et si votre couple retrouvait enfin de l’apaisement ?
-                   </p>
-                   
-                   <p className="text-base md:text-lg text-sage-700 mb-10 leading-relaxed font-light max-w-lg mx-auto lg:mx-0">
-                     Recréez une relation saine grâce à un accompagnement bienveillant. Je vous aide à rétablir le dialogue et à surmonter la crise.
-                   </p>
-
-                   <div className="flex flex-col mb-10 items-center lg:items-start">
-                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-                       <a href="#contact" className="flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-all shadow-lg shadow-sage-600/20 hover:shadow-xl hover:-translate-y-0.5 text-base w-full sm:w-auto">
-                         <Phone size={18} />
-                         Appel découverte offert
-                       </a>
-                       <a href="#vision" className="flex items-center justify-center px-8 py-4 rounded-full border border-sage-300 text-sage-800 font-medium hover:bg-white transition-colors text-base w-full sm:w-auto">
-                         Mon approche
-                       </a>
-                     </div>
-                     <div className="mt-3 text-[10px] md:text-xs text-sage-500 font-bold tracking-widest uppercase opacity-80 pl-2">
-                       Gratuit • 15 min • Sans engagement
-                     </div>
-                   </div>
-
-                   {/* Google Trust Badge */}
-                   <div className="flex items-center justify-center lg:justify-start gap-4">
-                     <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-sage-100 shadow-sm rounded-xl px-5 py-3">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-8 h-8" />
-                        <div className="flex flex-col items-start">
-                           <div className="flex gap-0.5 text-[#fbbc04] mb-0.5">
-                             {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="currentColor" />)}
-                           </div>
-                           <p className="text-xs text-sage-600 font-bold">+20 couples me recommandent</p>
-                        </div>
-                     </div>
-                   </div>
-                   
-                </div>
-
-                {/* Image Right - Arch Shape */}
-                <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
-                  <div className="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
-                     {/* Main Image */}
-                     <div className="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
-                       <img src={IMG_HAPPY_COUPLE} alt="Couple heureux Rueil Malmaison" className="w-full h-full object-cover" width="448" height="597" loading="eager" />
-                       
-                       {/* Overlay Gradient */}
-                       <div className="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent"></div>
-                     </div>
-
-                     {/* Floating Badge */}
-                     <div className="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-4 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
-                        <div className="relative">
-                          <div className="w-3 h-3 bg-sage-500 rounded-full animate-pulse"></div>
-                          <div className="absolute inset-0 bg-sage-500 rounded-full animate-ping opacity-75"></div>
-                        </div>
-                        <div>
-                          <p className="text-[10px] text-sage-400 uppercase font-bold tracking-wide">Cabinet & Visio</p>
-                          <p className="text-sm font-serif font-bold text-sage-900 leading-tight">Créneaux disponibles</p>
-                        </div>
-                     </div>
-
-                     {/* Decorative Circle */}
-                     <div className="absolute top-10 -right-6 w-32 h-32 bg-sage-200 rounded-full blur-3xl -z-10 opacity-60"></div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-        );
-      };
-
-      const Problem = () => {
-        const problems = [
-          {
-            text: "Vous vivez des conflits fréquents, des non-dits ou un éloignement émotionnel.",
-            icon: <MessageCircle size={20} />
-          },
-          {
-            text: "Le dialogue est rompu et vous ne savez plus comment vous retrouver.",
-            icon: <X size={20} />
-          },
-          {
-            text: "Vous vous sentez incompris(e), frustré(e) ou submergé(e) par les émotions.",
-            icon: <Heart size={20} />
-          },
-          {
-            text: "Vous vous demandez si vous êtes encore faits pour être ensemble.",
-            icon: <Lightbulb size={20} />
-          }
-        ];
-
-        return (
-          <section id="problemes" className="py-20 md:py-28 bg-sage-500 text-white relative">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Votre couple traverse une crise ou une période de tension ?</h2>
-                <p className="text-sage-100 text-lg md:text-xl font-light">Ne restez pas seul face à l'impasse.</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                {problems.map((p, i) => (
-                  <div key={i} className="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors duration-300">
-                    <div className="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
-                      {p.icon}
-                    </div>
-                    <p className="text-base md:text-lg font-light leading-relaxed opacity-95">{p.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-12 md:mt-16 text-center">
-                 <a href="#contact" className="inline-flex items-center gap-2 bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-base">
-                   <Phone size={18} />
-                   Réserver mon appel offert
-                 </a>
-                 <p className="text-sage-200 text-xs md:text-sm mt-4 opacity-80">C'est gratuit et sans engagement</p>
-              </div>
-            </div>
-          </section>
-        );
-      };
-
-      const GoogleReviewCard = ({ name, date, text, initial, color }) => (
-        <div className="min-w-[280px] w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <div className={`w-12 h-12 rounded-full ${color} flex items-center justify-center text-white font-serif font-bold text-xl shadow-sm`}>
-                {initial}
-              </div>
-              <div>
-                <p className="font-bold text-sage-900 text-sm md:text-base">{name}</p>
-                <p className="text-xs text-sage-400">{date}</p>
-              </div>
-            </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-6 h-6 opacity-90" />
-          </div>
-          <div className="flex mb-4">
-            {[1,2,3,4,5].map(i => <Star key={i} size={16} className="text-[#fbbc04] fill-[#fbbc04]" />)}
-          </div>
-          <p className="text-sage-600 text-sm md:text-base leading-relaxed font-light line-clamp-5 flex-grow">"{text}"</p>
         </div>
-      );
 
-      const Reviews = () => {
-        return (
-          <section id="avis" className="py-20 md:py-24 bg-cream-100 overflow-hidden border-t border-cream-200">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-16">
-               <div className="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-sm mb-6 border border-cream-200">
-                 <span className="font-bold text-sage-900 text-xl">5.0</span>
-                 <div className="flex text-[#fbbc04] gap-1"><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /></div>
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" className="w-6 h-6 ml-2" />
-               </div>
-               <h2 className="text-3xl md:text-4xl font-serif text-sage-900">Ce qu'ils en pensent</h2>
-               <p className="text-sage-500 mt-4 text-base font-light max-w-2xl mx-auto">Retrouvez les avis vérifiés de patients qui ont retrouvé la sérénité.</p>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[70px] bg-cream-100 z-40 p-6 border-t border-sage-200 overflow-y-auto">
+            <div class="flex flex-col space-y-6 text-center pt-8">
+                <a href="#problemes" onclick="closeMenuAndNavigate('home')" class="text-xl font-serif text-sage-900">Pour qui ?</a>
+                <a href="#vision" onclick="closeMenuAndNavigate('home')" class="text-xl font-serif text-sage-900">Mon approche</a>
+                <a href="#avis" onclick="closeMenuAndNavigate('home')" class="text-xl font-serif text-sage-900">Témoignages</a>
+                <a href="#qui-suis-je" onclick="closeMenuAndNavigate('home')" class="text-xl font-serif text-sage-900">Mon histoire</a>
+                <a onclick="closeMenuAndNavigate('blog')" class="text-xl font-serif text-sage-900 cursor-pointer">Le Blog</a>
+                <a href="#faq" onclick="closeMenuAndNavigate('home')" class="text-xl font-serif text-sage-900">FAQ</a>
+                <a href="#contact" onclick="closeMenuAndNavigate('home')" class="bg-sage-600 text-white px-8 py-4 rounded-full text-lg mx-auto w-full max-w-xs shadow-lg font-medium">Réserver mon appel offert</a>
             </div>
+        </div>
+    </nav>
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 hidden md:grid">
-                  <GoogleReviewCard 
-                    initial="A"
-                    color="bg-sage-400"
-                    name="Amandine F." 
-                    date="il y a 1 mois" 
-                    text="Nous avons vu Mélissa pour une thérapie de couple à un moment où on n'arrivait plus à se parler sans se disputer. Elle nous a vraiment aidés à comprendre nos blocages."
-                  />
-                  <GoogleReviewCard 
-                    initial="S"
-                    color="bg-gold-500"
-                    name="Sophia M." 
-                    date="il y a 4 mois" 
-                    text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés à mieux communiquer."
-                  />
-                  <GoogleReviewCard 
-                    initial="C"
-                    color="bg-sage-600"
-                    name="Cédric B." 
-                    date="il y a 3 mois" 
-                    text="On traversait une grosse période de tension. Au final, ça nous a fait énormément de bien. Elle nous a aidés à remettre du dialogue."
-                  />
-                   <GoogleReviewCard 
-                    initial="N"
-                    color="bg-blue-400"
-                    name="Nicolas S." 
-                    date="il y a 2 mois" 
-                    text="On repart plus connectés, avec des outils simples à appliquer. Franchement, on recommande vivement."
-                  />
-              </div>
-              
-              <div className="flex overflow-x-auto pb-8 gap-4 md:hidden snap-x snap-mandatory -mx-6 px-6 no-scrollbar">
-                   <div className="snap-center w-[85vw] flex-shrink-0">
-                     <GoogleReviewCard initial="A" color="bg-sage-400" name="Amandine F." date="il y a 1 mois" text="Nous avons vu Mélissa pour une thérapie de couple à un moment où on n'arrivait plus à se parler sans se disputer. Elle nous a vraiment aidés à comprendre nos blocages." />
-                   </div>
-                   <div className="snap-center w-[85vw] flex-shrink-0">
-                     <GoogleReviewCard initial="S" color="bg-gold-500" name="Sophia M." date="il y a 4 mois" text="Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés." />
-                   </div>
-                   <div className="snap-center w-[85vw] flex-shrink-0">
-                      <GoogleReviewCard initial="C" color="bg-sage-600" name="Cédric B." date="il y a 3 mois" text="On traversait une grosse période de tension. Au final, ça nous a fait énormément de bien. Elle nous a aidés à remettre du dialogue." />
-                   </div>
-                   <div className="snap-center w-[85vw] flex-shrink-0">
-                      <GoogleReviewCard initial="N" color="bg-blue-400" name="Nicolas S." date="il y a 2 mois" text="On repart plus connectés, avec des outils simples à appliquer. Franchement, on recommande vivement." />
-                   </div>
-              </div>
+    <!-- VIEW: HOME -->
+    <main id="view-home">
+        
+        <!-- HERO -->
+        <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-cream-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <!-- Text -->
+                    <div class="relative z-10 order-2 lg:order-1 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage-200 bg-white/60 backdrop-blur-sm text-sage-700 text-xs font-bold uppercase tracking-wider mb-6 mx-auto lg:mx-0 shadow-sm">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Rueil-Malmaison (92) & Visio
+                        </div>
+                        <h2 class="text-4xl md:text-5xl lg:text-[3.8rem] leading-[1.1] font-serif text-sage-900 mb-6">
+                            Thérapie de couple à <span class="text-sage-600 italic">Rueil-Malmaison</span>
+                        </h2>
+                        <p class="font-serif italic text-2xl md:text-3xl text-sage-600 mb-8 font-normal">
+                            Et si votre couple retrouvait enfin de l’apaisement ?
+                        </p>
+                        <p class="text-base md:text-lg text-sage-700 mb-10 leading-relaxed font-light max-w-lg mx-auto lg:mx-0">
+                            Recréez une relation saine grâce à un accompagnement bienveillant. Je vous aide à rétablir le dialogue et à surmonter la crise.
+                        </p>
+                        <div class="flex flex-col mb-10 items-center lg:items-start">
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                                <a href="#contact" class="flex items-center justify-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-all shadow-lg shadow-sage-600/20 hover:shadow-xl hover:-translate-y-0.5 text-base w-full sm:w-auto">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    Appel découverte offert
+                                </a>
+                                <a href="#vision" class="flex items-center justify-center px-8 py-4 rounded-full border border-sage-300 text-sage-800 font-medium hover:bg-white transition-colors text-base w-full sm:w-auto">Mon approche</a>
+                            </div>
+                            <div class="mt-3 text-[10px] md:text-xs text-sage-500 font-bold tracking-widest uppercase opacity-80 pl-2">Gratuit • 15 min • Sans engagement</div>
+                        </div>
+                        <!-- Google Badge -->
+                        <div class="flex items-center justify-center lg:justify-start gap-4">
+                            <div class="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-sage-100 shadow-sm rounded-xl px-5 py-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-8 h-8" />
+                                <div class="flex flex-col items-start">
+                                    <div class="flex gap-0.5 text-[#fbbc04] mb-0.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    </div>
+                                    <p class="text-xs text-sage-600 font-bold">+20 couples me recommandent</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0">
+                        <div class="relative w-full max-w-[320px] md:max-w-md mx-auto lg:mr-0">
+                            <div class="aspect-[3/4] rounded-[8rem_8rem_1rem_1rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-white">
+                                <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple heureux Rueil Malmaison" class="w-full h-full object-cover" width="448" height="597">
+                                <div class="absolute inset-0 bg-gradient-to-t from-sage-900/20 to-transparent"></div>
+                            </div>
+                            <!-- Floating Badge -->
+                            <div class="absolute bottom-6 -left-4 lg:-left-12 z-20 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-4">
+                                <div class="relative"><div class="w-3 h-3 bg-sage-500 rounded-full animate-pulse"></div><div class="absolute inset-0 bg-sage-500 rounded-full animate-ping opacity-75"></div></div>
+                                <div><p class="text-[10px] text-sage-400 uppercase font-bold tracking-wide">Cabinet & Visio</p><p class="text-sm font-serif font-bold text-sage-900 leading-tight">Créneaux disponibles</p></div>
+                            </div>
+                            <div class="absolute top-10 -right-6 w-32 h-32 bg-sage-200 rounded-full blur-3xl -z-10 opacity-60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEMES -->
+        <section id="problemes" class="py-20 md:py-28 bg-sage-500 text-white relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight">Votre couple traverse une crise ou une période de tension ?</h2>
+                    <p class="text-sage-100 text-lg md:text-xl font-light">Ne restez pas seul face à l'impasse.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <!-- Item 1 -->
+                    <div class="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors">
+                        <div class="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        </div>
+                        <p class="text-base md:text-lg font-light leading-relaxed opacity-95">Vous vivez des conflits fréquents, des non-dits ou un éloignement émotionnel.</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors">
+                        <div class="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </div>
+                        <p class="text-base md:text-lg font-light leading-relaxed opacity-95">Le dialogue est rompu et vous ne savez plus comment vous retrouver.</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors">
+                        <div class="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
+                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </div>
+                        <p class="text-base md:text-lg font-light leading-relaxed opacity-95">Vous vous sentez incompris(e), frustré(e) ou submergé(e) par les émotions.</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="bg-sage-600/50 backdrop-blur-sm border border-sage-400/30 p-6 md:p-8 rounded-2xl flex items-start gap-5 hover:bg-sage-600 transition-colors">
+                        <div class="bg-white/10 text-white rounded-full p-2.5 flex-shrink-0 mt-0.5 shadow-inner">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                        </div>
+                        <p class="text-base md:text-lg font-light leading-relaxed opacity-95">Vous vous demandez si vous êtes encore faits pour être ensemble.</p>
+                    </div>
+                </div>
+                <div class="mt-12 md:mt-16 text-center">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-base">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Réserver mon appel offert
+                    </a>
+                    <p class="text-sage-200 text-xs md:text-sm mt-4 opacity-80">C'est gratuit et sans engagement</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION (METHOD) -->
+        <section id="vision" class="py-20 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">Mon approche</p>
+                    <h2 class="text-3xl md:text-5xl font-serif text-sage-900 leading-tight mb-6">Une thérapie <span class="italic text-sage-500">concrète</span> et bienveillante</h2>
+                    <p class="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed text-lg">Mon accompagnement repose sur trois piliers essentiels : l’écoute, la compréhension du lien, et le respect du rythme de chacun.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-cream-50 rounded-2xl p-8 text-center hover:shadow-soft transition-all duration-300 border border-cream-100 hover:-translate-y-1 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200 group-hover:text-sage-700">
+                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-xl text-sage-900 mb-3">Mieux communiquer</h3>
+                        <p class="text-sage-600 font-light leading-relaxed">Retrouver un dialogue apaisé et constructif dans votre couple, sans cris ni reproches.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-cream-50 rounded-2xl p-8 text-center hover:shadow-soft transition-all duration-300 border border-cream-100 hover:-translate-y-1 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200 group-hover:text-sage-700">
+                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-xl text-sage-900 mb-3">Restaurer l'intimité</h3>
+                        <p class="text-sage-600 font-light leading-relaxed">Recréer une connexion profonde, dépasser les blocages émotionnels et retrouver la complicité.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-cream-50 rounded-2xl p-8 text-center hover:shadow-soft transition-all duration-300 border border-cream-100 hover:-translate-y-1 group">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200 group-hover:text-sage-700">
+                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="font-serif text-xl text-sage-900 mb-3">Outils concrets</h3>
+                        <p class="text-sage-600 font-light leading-relaxed">Je vous donne des moyens concrets pour sortir des conflits répétitifs et renforcer votre relation durablement.</p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <div class="inline-block bg-sage-50 px-8 py-6 rounded-2xl border border-sage-100 max-w-3xl shadow-sm">
+                        <p class="text-sage-800 italic font-serif text-lg leading-relaxed">
+                            "Mon rôle est de ne pas juger mais de vous donner toutes les clés dont vous avez besoin. Comme je dis souvent à mes clients : je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section id="avis" class="py-20 md:py-24 bg-cream-100 overflow-hidden border-t border-cream-200">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-sm mb-6 border border-cream-200">
+                    <span class="font-bold text-sage-900 text-xl">5.0</span>
+                    <div class="flex text-[#fbbc04] gap-1">
+                        <svg width="18" height="18" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="18" height="18" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="18" height="18" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="18" height="18" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="18" height="18" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" class="w-6 h-6 ml-2" />
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif text-sage-900">Ce qu'ils en pensent</h2>
+                <p class="text-sage-500 mt-4 text-base font-light max-w-2xl mx-auto">Retrouvez les avis vérifiés de patients qui ont retrouvé la sérénité.</p>
             </div>
             
-            <div className="text-center mt-10">
-              <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sage-600 text-sm font-medium hover:text-sage-900 underline underline-offset-4 decoration-sage-300 hover:decoration-sage-900 transition-all">
-                Voir tous les avis sur Google Maps <ArrowRight size={14} className="ml-1" />
-              </a>
-            </div>
-          </section>
-        );
-      };
-
-      const Method = () => {
-        return (
-          <section id="vision" className="py-20 md:py-24 bg-white">
-             <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="text-center mb-16">
-                   <p className="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">Mon approche</p>
-                   <h2 className="text-3xl md:text-5xl font-serif text-sage-900 leading-tight mb-6">
-                     Une thérapie <span className="italic text-sage-500">concrète</span> et bienveillante
-                   </h2>
-                   <p className="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed text-lg">
-                     Mon accompagnement repose sur trois piliers essentiels : l’écoute, la compréhension du lien, et le respect du rythme de chacun.
-                   </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8">
-                   {[
-                     { icon: <MessageCircle size={28} />, title: "Mieux communiquer", text: "Retrouver un dialogue apaisé et constructif dans votre couple, sans cris ni reproches." },
-                     { icon: <Heart size={28} />, title: "Restaurer l'intimité", text: "Recréer une connexion profonde, dépasser les blocages émotionnels et retrouver la complicité." },
-                     { icon: <Users size={28} />, title: "Outils concrets", text: "Je vous donne des moyens concrets pour sortir des conflits répétitifs et renforcer votre relation durablement." }
-                   ].map((item, i) => (
-                     <div key={i} className="bg-cream-50 rounded-2xl p-8 text-center hover:shadow-soft transition-all duration-300 border border-cream-100 hover:-translate-y-1 group">
-                        <div className="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-sage-500 shadow-sm mb-6 border border-cream-200 group-hover:text-sage-700 group-hover:border-sage-300 transition-colors">
-                          {item.icon}
-                        </div>
-                        <h3 className="font-serif text-xl text-sage-900 mb-3">{item.title}</h3>
-                        <p className="text-sage-600 font-light leading-relaxed">{item.text}</p>
-                     </div>
-                   ))}
-                </div>
-                
-                <div className="mt-16 text-center">
-                   <div className="inline-block bg-sage-50 px-8 py-6 rounded-2xl border border-sage-100 max-w-3xl shadow-sm">
-                      <p className="text-sage-800 italic font-serif text-lg leading-relaxed">
-                         "Mon rôle est de ne pas juger mais de vous donner toutes les clés dont vous avez besoin. Comme je dis souvent à mes clients : je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau."
-                      </p>
-                   </div>
-                </div>
-             </div>
-          </section>
-        );
-      };
-
-      const Bio = () => {
-        const [isExpanded, setIsExpanded] = useState(false);
-
-        return (
-          <section id="qui-suis-je" className="py-20 md:py-24 bg-sage-500 text-white relative overflow-hidden">
-             <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-               <div className="grid lg:grid-cols-12 gap-12 items-center">
-                  
-                  <div className="lg:col-span-5 order-2 lg:order-1">
-                    <div className="relative mx-auto max-w-sm lg:max-w-none">
-                       <div className="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
-                          <img src={IMG_MELISSA} alt="Melissa Boukaia Thérapeute Rueil Malmaison" className="w-full h-full object-cover grayscale-0" loading="lazy" />
-                       </div>
-                       <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
-                          <Quote size={32} className="text-sage-800 opacity-50" />
-                       </div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <!-- Desktop Grid -->
+                <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Review 1 -->
+                    <div class="w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-sage-400 flex items-center justify-center text-white font-serif font-bold text-xl">A</div><div><p class="font-bold text-sage-900 text-sm">Amandine F.</p><p class="text-xs text-sage-400">il y a 1 mois</p></div></div><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-6 h-6 opacity-90"></div>
+                        <div class="flex mb-4 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"Nous avons vu Mélissa pour une thérapie de couple à un moment où on n'arrivait plus à se parler sans se disputer. Elle nous a vraiment aidés à comprendre nos blocages."</p>
                     </div>
-                  </div>
+                    <!-- Review 2 -->
+                    <div class="w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gold-500 flex items-center justify-center text-white font-serif font-bold text-xl">S</div><div><p class="font-bold text-sage-900 text-sm">Sophia M.</p><p class="text-xs text-sage-400">il y a 4 mois</p></div></div><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-6 h-6 opacity-90"></div>
+                        <div class="flex mb-4 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"Au début, on était hésitants à faire cette thérapie, mais Mélissa a vraiment su nous mettre à l'aise. Son écoute active et ses conseils concrets nous ont aidés."</p>
+                    </div>
+                     <!-- Review 3 -->
+                    <div class="w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-sage-600 flex items-center justify-center text-white font-serif font-bold text-xl">C</div><div><p class="font-bold text-sage-900 text-sm">Cédric B.</p><p class="text-xs text-sage-400">il y a 3 mois</p></div></div><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-6 h-6 opacity-90"></div>
+                        <div class="flex mb-4 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"On traversait une grosse période de tension. Au final, ça nous a fait énormément de bien. Elle nous a aidés à remettre du dialogue."</p>
+                    </div>
+                     <!-- Review 4 -->
+                    <div class="w-full bg-white p-6 md:p-8 rounded-2xl shadow-card border border-cream-200 flex flex-col h-full hover:shadow-elevated hover:-translate-y-1 transition-all">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-blue-400 flex items-center justify-center text-white font-serif font-bold text-xl">N</div><div><p class="font-bold text-sage-900 text-sm">Nicolas S.</p><p class="text-xs text-sage-400">il y a 2 mois</p></div></div><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="w-6 h-6 opacity-90"></div>
+                        <div class="flex mb-4 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"On repart plus connectés, avec des outils simples à appliquer. Franchement, on recommande vivement."</p>
+                    </div>
+                </div>
 
-                  <div className="lg:col-span-7 order-1 lg:order-2">
-                     <p className="text-sage-200 font-bold uppercase tracking-widest text-xs mb-3">À propos de moi</p>
-                     <h2 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">
-                       Mon histoire
-                     </h2>
-                     
-                     <div className="space-y-6 text-base md:text-lg font-light text-sage-50 leading-relaxed text-justify relative">
-                        {/* Always visible part */}
-                        <p>
-                          Si je devais résumer mon parcours, je dirais que chaque étape de ma vie m’a fait grandir. J’ai traversé des remises en question, des moments de doute... mais aussi des rencontres qui m'ont permis de mieux me comprendre.
-                        </p>
-                        
-                        {/* Mobile: Hidden by default, Desktop: Always visible */}
-                        <div className={`${isExpanded ? 'block' : 'hidden md:block'} space-y-6`}>
-                          <p>
-                            J’ai grandi aux côtés d’une maman psychologiquement fragile, ce qui m’a amenée très tôt à développer une écoute sensible et authentique. J'ai appris à entendre ce qui ne se disait pas toujours avec des mots.
-                          </p>
-                          <p>
-                            Mon couple, depuis de nombreuses années, est ma colonne vertébrale. Je suis aussi maman de trois enfants, et comme beaucoup, j’ai expérimenté l’équilibre parfois fragile entre les rôles, les besoins, les émotions.
-                          </p>
-                          <p>
-                            Aujourd’hui, c’est tout ce vécu que je mets à votre service. Ma plus grande satisfaction, c’est de voir les couples avancer, retrouver un dialogue et recréer du lien.
-                          </p>
-                        </div>
-                        
-                        {/* Mobile Toggle Button */}
-                        <button 
-                          onClick={() => setIsExpanded(!isExpanded)}
-                          className="md:hidden flex items-center gap-1 text-sage-800 font-bold bg-white/20 px-4 py-2 rounded-full text-sm mt-2 hover:bg-white/30 transition-colors"
-                        >
-                          {isExpanded ? (
-                            <>Voir moins <ChevronUp size={16} /></>
-                          ) : (
-                            <>Lire la suite <ChevronDown size={16} /></>
-                          )}
-                        </button>
+                <!-- Mobile Scroll -->
+                <div class="flex md:hidden overflow-x-auto pb-8 gap-4 snap-x snap-mandatory -mx-6 px-6 no-scrollbar">
+                     <div class="snap-center w-[85vw] flex-shrink-0 bg-white p-6 rounded-2xl shadow-card border border-cream-200">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-sage-400 flex items-center justify-center text-white font-serif font-bold text-lg">A</div><div><p class="font-bold text-sage-900 text-sm">Amandine F.</p><p class="text-xs text-sage-400">il y a 1 mois</p></div></div></div>
+                        <div class="flex mb-2 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"Nous avons vu Mélissa pour une thérapie de couple... Elle nous a vraiment aidés à comprendre nos blocages."</p>
                      </div>
-
-                     <div className="mt-10 flex flex-wrap gap-4">
-                       <a href="#contact" className="bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg">
-                         Réserver mon appel offert
-                       </a>
+                     <div class="snap-center w-[85vw] flex-shrink-0 bg-white p-6 rounded-2xl shadow-card border border-cream-200">
+                        <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center text-white font-serif font-bold text-lg">S</div><div><p class="font-bold text-sage-900 text-sm">Sophia M.</p><p class="text-xs text-sage-400">il y a 4 mois</p></div></div></div>
+                         <div class="flex mb-2 text-[#fbbc04]"><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <p class="text-sage-600 text-sm leading-relaxed font-light">"Au début, on était hésitants... Son écoute active et ses conseils concrets nous ont aidés."</p>
                      </div>
-                  </div>
-
-               </div>
-             </div>
-          </section>
-        );
-      };
-
-      const Office = () => (
-        <section className="py-20 md:py-24 bg-cream-100">
-           <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-12">
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-sage-500 border border-cream-200">
-                 <MapPin size={28} />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-serif text-sage-900 mb-6">Je vous accueille à Rueil-Malmaison ou en Visio</h2>
-              <div className="inline-flex flex-col md:flex-row items-center gap-3 text-sage-700 text-sm font-medium">
-                 <span className="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
-                   <MapPin size={14} className="text-sage-500" />
-                   Cabinet : Rueil-Malmaison (92)
-                 </span>
-                 <span className="hidden md:inline text-sage-300">•</span>
-                 <span className="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
-                   <Video size={14} className="text-sage-500" />
-                   Visio : Partout en France
-                 </span>
-              </div>
-           </div>
-           
-           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
-              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                 <img src={IMG_OFFICE_1} alt="Cabinet Thérapie Rueil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Un espace chaleureux</div>
-              </div>
-              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
-                 <img src={IMG_OFFICE_2} alt="Cabinet Thérapie Couple" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Propice à l'échange</div>
-              </div>
-           </div>
-        </section>
-      );
-
-      // --- BLOG COMPONENTS ---
-
-      const BlogList = ({ onNavigate }) => {
-        return (
-          <section className="py-24 md:py-32 bg-cream-100 min-h-screen">
-             <div className="max-w-7xl mx-auto px-6 lg:px-12">
-               <div className="text-center mb-16">
-                 <p className="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">Le Blog</p>
-                 <h1 className="text-4xl md:text-5xl font-serif text-sage-900 mb-6">Conseils & Relations</h1>
-                 <p className="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed">
-                   Découvrez mes articles pour mieux comprendre votre couple, la sexothérapie et les dynamiques relationnelles.
-                 </p>
-               </div>
-
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 {BLOG_POSTS.map(post => (
-                   <div key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group cursor-pointer" onClick={() => onNavigate('article', post.id)}>
-                     <div className="h-48 overflow-hidden">
-                       <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                     </div>
-                     <div className="p-6">
-                       <h3 className="font-serif text-xl text-sage-900 mb-3 group-hover:text-sage-600 transition-colors">{post.title}</h3>
-                       <p className="text-sage-600 font-light text-sm line-clamp-3 mb-4">{post.excerpt}</p>
-                       <span className="text-sage-800 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                         Lire l'article <ArrowRight size={14} />
-                       </span>
-                     </div>
-                   </div>
-                 ))}
-               </div>
-             </div>
-          </section>
-        );
-      };
-
-      const ArticleView = ({ articleId, onNavigate }) => {
-        const post = BLOG_POSTS.find(p => p.id === articleId);
-
-        if (!post) return <div>Article non trouvé</div>;
-
-        return (
-          <section className="py-24 md:py-32 bg-white min-h-screen">
-             <article className="max-w-3xl mx-auto px-6 lg:px-12">
-               <button onClick={() => onNavigate('blog')} className="flex items-center gap-2 text-sage-500 hover:text-sage-800 mb-8 transition-colors text-sm font-medium">
-                 <ArrowLeft size={16} /> Retour au blog
-               </button>
-               
-               <h1 className="text-3xl md:text-5xl font-serif text-sage-900 mb-6 leading-tight">{post.title}</h1>
-               <div className="w-full h-64 md:h-96 rounded-2xl overflow-hidden mb-10 shadow-soft">
-                 <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-               </div>
-               
-               <div className="prose prose-sage prose-lg text-sage-700 font-light leading-relaxed">
-                 {post.content}
-               </div>
-
-               <div className="mt-16 pt-10 border-t border-cream-200">
-                 <div className="bg-sage-50 rounded-2xl p-8 text-center">
-                   <h3 className="font-serif text-xl text-sage-900 mb-2">Besoin d'en parler ?</h3>
-                   <p className="text-sage-600 mb-6">Si cet article résonne avec votre situation, n'hésitez pas à prendre rendez-vous.</p>
-                   <button onClick={() => onNavigate('home', 'contact')} className="bg-sage-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md">
-                     Réserver mon appel offert
-                   </button>
-                 </div>
-               </div>
-             </article>
-          </section>
-        );
-      };
-
-      const FAQ = () => {
-        const [openIndex, setOpenIndex] = useState(null);
-
-        const faqs = [
-          { q: "Quels sont vos Tarifs ?", a: "La première consultation, d’une durée d’environ 1h30, est proposée à 135€. Les séances suivantes durent 1h et sont au tarif de 85€. Ce premier échange plus long permet de poser les bases de votre accompagnement et de bien comprendre votre situation en couple." },
-          { q: "Est-ce que l’appel gratuit m’engage à commencer une thérapie ?", a: "Non, pas du tout. L’appel gratuit est une première prise de contact sans engagement. Il vous permet de poser vos questions, de me découvrir, et de voir si vous vous sentez en confiance pour envisager un accompagnement. La décision de commencer une thérapie vous appartient entièrement." },
-          { q: "Et si mon/ma partenaire ne veut pas venir ?", a: "C’est une situation fréquente. Vous pouvez commencer seul(e) pour poser un regard plus clair sur votre relation. Parfois, ce premier pas encourage l’autre à rejoindre la démarche par la suite." },
-          { q: "Comment on commence ?", a: "Tout commence par un appel téléphonique gratuit de 15 minutes. C’est un premier échange simple, sans engagement, pour faire connaissance, comprendre votre situation et voir si mon accompagnement vous convient. Si vous souhaitez poursuivre, nous fixons ensemble une première séance, en cabinet à Rueil-Malmaison ou en visio selon votre préférence." },
-        ];
-
-        return (
-          <section id="faq" className="py-20 md:py-24 bg-cream-50">
-            <div className="max-w-3xl mx-auto px-6 lg:px-12">
-              <div className="text-center mb-12">
-                 <h2 className="text-3xl md:text-4xl font-serif text-sage-900 mb-4">Questions fréquentes</h2>
-                 <p className="text-sage-500 font-light">Tout ce que vous devez savoir avant de commencer</p>
-              </div>
-              
-              <div className="space-y-4">
-                 {faqs.map((faq, i) => (
-                   <div key={i} className="border border-cream-200 rounded-2xl p-1 bg-white hover:border-sage-300 transition-colors shadow-sm">
-                      <button 
-                        onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                        className="w-full flex justify-between items-center p-5 text-left"
-                      >
-                        <span className="font-medium text-sage-900 pr-4 text-base">{faq.q}</span>
-                        <div className={`bg-cream-100 w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0 ${openIndex === i ? 'rotate-180 bg-sage-600 text-white' : ''}`}>
-                          <ChevronDown size={18} />
-                        </div>
-                      </button>
-                      <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-                         <p className="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">{faq.a}</p>
-                      </div>
-                   </div>
-                 ))}
-              </div>
+                </div>
             </div>
-          </section>
-        );
-      };
+            
+            <div class="text-center mt-10">
+                <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sage-600 text-sm font-medium hover:text-sage-900 underline underline-offset-4 decoration-sage-300 hover:decoration-sage-900 transition-all">
+                    Voir tous les avis sur Google Maps 
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </section>
 
-      const Contact = () => {
-        return (
-          <section id="contact" className="relative py-20 md:py-24 bg-sage-900 text-white overflow-hidden">
-             {/* Background Image Overlay */}
-             <div className="absolute inset-0 opacity-10">
-               <img src={IMG_THERAPY_SESSION} alt="Background" className="w-full h-full object-cover" loading="lazy" />
-             </div>
-             <div className="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/95 to-sage-900/90"></div>
-
-             <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
-                  Votre nouvelle vie de couple <br/> <span className="italic text-sage-300">commence ici</span>
-                </h2>
-                <p className="text-lg md:text-xl text-sage-200 mb-10 font-light max-w-2xl mx-auto">
-                  Faites le premier pas vers l'apaisement. Réservez votre appel découverte gratuit dès maintenant.
-                </p>
-                
-                <div className="text-xs text-sage-400 mb-10 uppercase tracking-widest flex items-center justify-center gap-2">
-                   <Calendar size={14} /> Choisissez votre créneau ci-dessous
+        <!-- BIO -->
+        <section id="qui-suis-je" class="py-20 md:py-24 bg-sage-500 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 order-2 lg:order-1">
+                        <div class="relative mx-auto max-w-sm lg:max-w-none">
+                            <div class="aspect-[4/5] rounded-[2rem_8rem_2rem_8rem] overflow-hidden shadow-2xl border-4 border-sage-400/30">
+                                <img src="https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg" alt="Melissa Boukaia Thérapeute Rueil Malmaison" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-sage-300 rounded-full flex items-center justify-center shadow-lg">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-sage-800 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 order-1 lg:order-2">
+                        <p class="text-sage-200 font-bold uppercase tracking-widest text-xs mb-3">À propos de moi</p>
+                        <h2 class="text-3xl md:text-5xl font-serif mb-8 leading-tight">Mon histoire</h2>
+                        <div class="space-y-6 text-base md:text-lg font-light text-sage-50 leading-relaxed text-justify relative">
+                            <p>Si je devais résumer mon parcours, je dirais que chaque étape de ma vie m’a fait grandir. J’ai traversé des remises en question, des moments de doute... mais aussi des rencontres qui m'ont permis de mieux me comprendre.</p>
+                            
+                            <!-- Hidden part for mobile -->
+                            <div id="bio-more" class="hidden md:block space-y-6">
+                                <p>J’ai grandi aux côtés d’une maman psychologiquement fragile, ce qui m’a amenée très tôt à développer une écoute sensible et authentique. J'ai appris à entendre ce qui ne se disait pas toujours avec des mots.</p>
+                                <p>Mon couple, depuis de nombreuses années, est ma colonne vertébrale. Je suis aussi maman de trois enfants, et comme beaucoup, j’ai expérimenté l’équilibre parfois fragile entre les rôles, les besoins, les émotions.</p>
+                                <p>Aujourd’hui, c’est tout ce vécu que je mets à votre service. Ma plus grande satisfaction, c’est de voir les couples avancer, retrouver un dialogue et recréer du lien.</p>
+                            </div>
+                            
+                            <button onclick="toggleBio()" id="bio-btn" class="md:hidden flex items-center gap-1 text-sage-800 font-bold bg-white/20 px-4 py-2 rounded-full text-sm mt-2 hover:bg-white/30 transition-colors">
+                                Lire la suite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                        </div>
+                        <div class="mt-10 flex flex-wrap gap-4">
+                            <a href="#contact" class="bg-white text-sage-800 px-8 py-3.5 rounded-full font-medium hover:bg-cream-100 transition-colors shadow-lg">Réserver mon appel offert</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div className="bg-white rounded-2xl p-1 md:p-2 shadow-2xl max-w-4xl mx-auto overflow-hidden">
-                   <CalendlyWidget />
+        <!-- OFFICE -->
+        <section class="py-20 md:py-24 bg-cream-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-12">
+                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-sage-500 border border-cream-200">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-             </div>
-          </section>
-        );
-      };
+                <h2 class="text-3xl md:text-4xl font-serif text-sage-900 mb-6">Je vous accueille à Rueil-Malmaison ou en Visio</h2>
+                <div class="inline-flex flex-col md:flex-row items-center gap-3 text-sage-700 text-sm font-medium">
+                    <span class="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Cabinet : Rueil-Malmaison (92)
+                    </span>
+                    <span class="hidden md:inline text-sage-300">•</span>
+                    <span class="bg-white px-5 py-2.5 rounded-full border border-cream-200 shadow-sm flex items-center gap-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Visio : Partout en France
+                    </span>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8 md:gap-10">
+                <div class="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
+                    <img src="https://i.postimg.cc/K87jRkb1/sexotherapie-saint-cloud-sexologue.jpg" alt="Cabinet Thérapie Rueil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Un espace chaleureux</div>
+                </div>
+                <div class="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft border-4 border-white group relative">
+                    <img src="https://i.postimg.cc/T3j1pLxW/Sexotherapeute-a-rueil-malmaison.jpg" alt="Cabinet Thérapie Couple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-medium text-sage-800">Propice à l'échange</div>
+                </div>
+            </div>
+        </section>
 
-      const FooterUser = ({ onNavigate }) => (
-        <footer className="bg-cream-100 py-12 border-t border-cream-200 text-center md:text-left mb-16 md:mb-0">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
-             <div>
-               <p className="font-serif font-bold text-2xl text-sage-900 cursor-pointer" onClick={() => onNavigate('home')}>Melissa Boukaia</p>
-               <p className="text-xs text-sage-500 uppercase tracking-widest mt-2 font-medium">Thérapeute de couple & Sexothérapeute</p>
-               <p className="text-sm text-sage-600 mt-2 flex items-center justify-center md:justify-start gap-1"><MapPin size={14}/> Rueil-Malmaison (92) & Visio</p>
-             </div>
-             <div className="flex flex-col items-center md:items-end gap-3">
+        <!-- FAQ -->
+        <section id="faq" class="py-20 md:py-24 bg-cream-50">
+            <div class="max-w-3xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif text-sage-900 mb-4">Questions fréquentes</h2>
+                    <p class="text-sage-500 font-light">Tout ce que vous devez savoir avant de commencer</p>
+                </div>
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="border border-cream-200 rounded-2xl p-1 bg-white hover:border-sage-300 transition-colors shadow-sm">
+                        <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-5 text-left">
+                            <span class="font-medium text-sage-900 pr-4 text-base">Quels sont vos Tarifs ?</span>
+                            <div id="icon-1" class="bg-cream-100 w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </button>
+                        <div id="faq-1" class="faq-content">
+                            <p class="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">La première consultation, d’une durée d’environ 1h30, est proposée à 135€. Les séances suivantes durent 1h et sont au tarif de 85€. Ce premier échange plus long permet de poser les bases de votre accompagnement et de bien comprendre votre situation en couple.</p>
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="border border-cream-200 rounded-2xl p-1 bg-white hover:border-sage-300 transition-colors shadow-sm">
+                        <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-5 text-left">
+                            <span class="font-medium text-sage-900 pr-4 text-base">Est-ce que l’appel gratuit m’engage à commencer une thérapie ?</span>
+                            <div id="icon-2" class="bg-cream-100 w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </button>
+                        <div id="faq-2" class="faq-content">
+                            <p class="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">Non, pas du tout. L’appel gratuit est une première prise de contact sans engagement. Il vous permet de poser vos questions, de me découvrir, et de voir si vous vous sentez en confiance pour envisager un accompagnement. La décision de commencer une thérapie vous appartient entièrement.</p>
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="border border-cream-200 rounded-2xl p-1 bg-white hover:border-sage-300 transition-colors shadow-sm">
+                        <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-5 text-left">
+                            <span class="font-medium text-sage-900 pr-4 text-base">Et si mon/ma partenaire ne veut pas venir ?</span>
+                            <div id="icon-3" class="bg-cream-100 w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </button>
+                        <div id="faq-3" class="faq-content">
+                            <p class="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">C’est une situation fréquente. Vous pouvez commencer seul(e) pour poser un regard plus clair sur votre relation. Parfois, ce premier pas encourage l’autre à rejoindre la démarche par la suite.</p>
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="border border-cream-200 rounded-2xl p-1 bg-white hover:border-sage-300 transition-colors shadow-sm">
+                        <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center p-5 text-left">
+                            <span class="font-medium text-sage-900 pr-4 text-base">Comment on commence ?</span>
+                            <div id="icon-4" class="bg-cream-100 w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-sage-500 transition-transform duration-300 flex-shrink-0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </button>
+                        <div id="faq-4" class="faq-content">
+                            <p class="px-5 pb-5 text-sage-600 font-light text-sm md:text-base leading-relaxed border-t border-sage-100 pt-3">Tout commence par un appel téléphonique gratuit de 15 minutes. C’est un premier échange simple, sans engagement, pour faire connaissance, comprendre votre situation et voir si mon accompagnement vous convient. Si vous souhaitez poursuivre, nous fixons ensemble une première séance, en cabinet à Rueil-Malmaison ou en visio selon votre préférence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="relative py-20 md:py-24 bg-sage-900 text-white overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <img src="https://xn--bullesdepenses-mkb.fr/wp-content/uploads/2025/05/therapie-de-couple.jpg" alt="Background" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-sage-900 via-sage-900/95 to-sage-900/90"></div>
+            <div class="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">Votre nouvelle vie de couple <br/> <span class="italic text-sage-300">commence ici</span></h2>
+                <p class="text-lg md:text-xl text-sage-200 mb-10 font-light max-w-2xl mx-auto">Faites le premier pas vers l'apaisement. Réservez votre appel découverte gratuit dès maintenant.</p>
+                <div class="text-xs text-sage-400 mb-10 uppercase tracking-widest flex items-center justify-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Choisissez votre créneau ci-dessous
+                </div>
+                <div class="bg-white rounded-2xl p-1 md:p-2 shadow-2xl max-w-4xl mx-auto overflow-hidden">
+                    <div class="calendly-inline-widget w-full" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- VIEW: BLOG LIST -->
+    <main id="view-blog" class="hidden-view py-24 md:py-32 bg-cream-100 min-h-screen fade-in">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <p class="text-xs font-bold tracking-widest text-sage-400 uppercase mb-3">Le Blog</p>
+                <h1 class="text-4xl md:text-5xl font-serif text-sage-900 mb-6">Conseils & Relations</h1>
+                <p class="text-sage-600 max-w-2xl mx-auto font-light leading-relaxed">Découvrez mes articles pour mieux comprendre votre couple, la sexothérapie et les dynamiques relationnelles.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group cursor-pointer" onclick="openArticle(1)">
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900 mb-3 group-hover:text-sage-600 transition-colors">Les 5 clés pour renouer le dialogue</h3>
+                        <p class="text-sage-600 font-light text-sm line-clamp-3 mb-4">Lorsque les non-dits s'accumulent, la communication devient impossible...</p>
+                        <span class="text-sage-800 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Lire l'article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                    </div>
+                </div>
+                <!-- Article 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group cursor-pointer" onclick="openArticle(2)">
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900 mb-3 group-hover:text-sage-600 transition-colors">Quand faut-il consulter ?</h3>
+                        <p class="text-sage-600 font-light text-sm line-clamp-3 mb-4">N'attendez pas que la rupture soit inévitable. Voici les signes...</p>
+                        <span class="text-sage-800 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Lire l'article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                    </div>
+                </div>
+                 <!-- Article 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group cursor-pointer" onclick="openArticle(3)">
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"></div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900 mb-3 group-hover:text-sage-600 transition-colors">Surmonter une crise</h3>
+                        <p class="text-sage-600 font-light text-sm line-clamp-3 mb-4">Une crise majeure peut être dévastatrice, mais elle peut aussi être l'occasion...</p>
+                        <span class="text-sage-800 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Lire l'article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- VIEW: ARTICLE DETAIL (Generic Template) -->
+    <main id="view-article" class="hidden-view py-24 md:py-32 bg-white min-h-screen fade-in">
+        <article class="max-w-3xl mx-auto px-6 lg:px-12">
+            <button onclick="navigateTo('blog')" class="flex items-center gap-2 text-sage-500 hover:text-sage-800 mb-8 transition-colors text-sm font-medium">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Retour au blog
+            </button>
+            <h1 id="article-title" class="text-3xl md:text-5xl font-serif text-sage-900 mb-6 leading-tight"></h1>
+            <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden mb-10 shadow-soft">
+                <img id="article-image" src="" class="w-full h-full object-cover">
+            </div>
+            <div id="article-content" class="prose prose-sage prose-lg text-sage-700 font-light leading-relaxed"></div>
+            <div class="mt-16 pt-10 border-t border-cream-200">
+                <div class="bg-sage-50 rounded-2xl p-8 text-center">
+                    <h3 class="font-serif text-xl text-sage-900 mb-2">Besoin d'en parler ?</h3>
+                    <p class="text-sage-600 mb-6">Si cet article résonne avec votre situation, n'hésitez pas à prendre rendez-vous.</p>
+                    <button onclick="navigateTo('home'); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-sage-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-sage-700 shadow-md">Réserver mon appel offert</button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-cream-100 py-12 border-t border-cream-200 text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
+                <p class="font-serif font-bold text-2xl text-sage-900 cursor-pointer" onclick="navigateTo('home')">Melissa Boukaia</p>
+                <p class="text-xs text-sage-500 uppercase tracking-widest mt-2 font-medium">Thérapeute de couple & Sexothérapeute</p>
+                <p class="text-sm text-sage-600 mt-2 flex items-center justify-center md:justify-start gap-1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Rueil-Malmaison (92) & Visio</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end gap-3">
                 <p className="text-sm text-sage-500">© 2025 Melissa Boukaia. Tous droits réservés.</p>
-                <div className="flex gap-6 text-xs text-sage-500">
-                  <a href="#" className="hover:text-sage-800 transition-colors">Mentions Légales</a>
-                  <a href="#" className="hover:text-sage-800 transition-colors">Politique de confidentialité</a>
+                <div class="flex gap-6 text-xs text-sage-500">
+                    <a href="#" class="hover:text-sage-800 transition-colors">Mentions Légales</a>
                 </div>
-             </div>
-          </div>
-        </footer>
-      );
+            </div>
+        </div>
+    </footer>
 
-      function App() {
-        // Simple routing state: 'home', 'blog', or 'article'
-        const [view, setView] = useState('home');
-        const [activeArticleId, setActiveArticleId] = useState(null);
-
-        const handleNavigate = (page, articleId = null) => {
-          setView(page);
-          if (articleId) setActiveArticleId(articleId);
-          window.scrollTo(0, 0);
+    <!-- LOGIC SCRIPTS (Pure JS - Ultra Fast) -->
+    <script>
+        // --- Data ---
+        const articles = {
+            1: { 
+                title: "Les 5 clés pour renouer le dialogue dans le couple", 
+                image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&q=80&w=800",
+                content: `<p class="mb-4">La communication est souvent citée comme la clé de voûte du couple, mais qu'est-ce que cela signifie vraiment ? Il ne s'agit pas seulement de parler, mais d'entendre.</p><h3 class="font-serif text-xl text-sage-900 mt-6 mb-3">1. Écouter pour comprendre, pas pour répondre</h3><p class="mb-4">Trop souvent, nous écoutons notre partenaire en préparant déjà notre contre-argument. La véritable écoute active demande de mettre son ego de côté.</p><h3 class="font-serif text-xl text-sage-900 mt-6 mb-3">2. Choisir le bon moment</h3><p class="mb-4">N'abordez pas les sujets sensibles quand l'un de vous est épuisé ou stressé. Créez un espace dédié à l'échange.</p>`
+            },
+            2: {
+                title: "Thérapie de couple : Quand faut-il consulter ?",
+                image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
+                content: `<p class="mb-4">Beaucoup de couples attendent le "point de non-retour" pour consulter. Pourtant, la thérapie est bien plus efficace quand elle intervient dès les premiers blocages persistants.</p><h3 class="font-serif text-xl text-sage-900 mt-6 mb-3">Les signaux d'alerte</h3><ul class="list-disc pl-5 space-y-2 mb-4"><li>Vous vous disputez toujours pour les mêmes sujets sans jamais trouver de solution.</li><li>Vous vivez comme des "colocataires" sans intimité.</li></ul>`
+            },
+            3: {
+                title: "Surmonter une crise : Fin ou nouveau départ ?",
+                image: "https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&q=80&w=800",
+                content: `<p class="mb-4">L'infidélité, le deuil, ou simplement l'usure du temps peuvent provoquer des séismes dans le couple. Souvent, on pense que c'est la fin.</p><p class="mb-4">Pourtant, la crise est aussi un symptôme : elle dit que l'ancien fonctionnement ne convient plus. Elle oblige à la vérité.</p>`
+            }
         };
 
-        return (
-          <div className="min-h-screen font-sans text-sage-900 bg-cream-100 selection:bg-sage-200 selection:text-sage-900">
-            <Navbar onNavigate={handleNavigate} currentPage={view} />
-            <main>
-              {view === 'home' && (
-                <>
-                  <Hero />
-                  <Problem />
-                  <Method />
-                  <Reviews />
-                  <Bio />
-                  <Office />
-                  <FAQ />
-                  <Contact />
-                </>
-              )}
-              {view === 'blog' && (
-                <BlogList onNavigate={handleNavigate} />
-              )}
-              {view === 'article' && (
-                 <ArticleView articleId={activeArticleId} onNavigate={handleNavigate} />
-              )}
-            </main>
-            <FooterUser onNavigate={handleNavigate} />
-          </div>
-        );
-      }
+        // --- Navigation ---
+        function navigateTo(viewId) {
+            document.querySelectorAll('main').forEach(el => el.classList.add('hidden-view'));
+            document.getElementById('view-' + viewId).classList.remove('hidden-view');
+            window.scrollTo(0, 0);
+        }
 
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      );
+        function openArticle(id) {
+            const article = articles[id];
+            if(!article) return;
+            document.getElementById('article-title').innerText = article.title;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-content').innerHTML = article.content;
+            navigateTo('article');
+        }
+
+        // --- Menu Mobile ---
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        function closeMenuAndNavigate(view) {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            navigateTo(view);
+        }
+
+        // --- Bio Toggle ---
+        function toggleBio() {
+            const bioMore = document.getElementById('bio-more');
+            const btn = document.getElementById('bio-btn');
+            bioMore.classList.toggle('hidden');
+            if(bioMore.classList.contains('hidden')) {
+                btn.innerHTML = 'Lire la suite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+            } else {
+                btn.innerHTML = 'Voir moins <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+            }
+        }
+
+        // --- FAQ Toggle ---
+        function toggleFaq(id) {
+            const content = document.getElementById('faq-' + id);
+            const icon = document.getElementById('icon-' + id);
+            
+            // Close others if you want accordion style, or just toggle current
+            const isOpen = content.classList.contains('open');
+            content.classList.toggle('open');
+            
+            if(isOpen) {
+                icon.classList.remove('rotate-180', 'bg-sage-600', 'text-white');
+            } else {
+                icon.classList.add('rotate-180', 'bg-sage-600', 'text-white');
+            }
+        }
+
+        // --- Calendly Loader ---
+        window.onload = function() {
+            const script = document.createElement('script');
+            script.src = "https://assets.calendly.com/assets/external/widget.js";
+            script.async = true;
+            document.head.appendChild(script);
+            
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if(window.scrollY > 20) {
+                    nav.classList.add('bg-cream-100/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                    nav.classList.remove('bg-transparent', 'py-4', 'md:py-6');
+                } else {
+                    nav.classList.remove('bg-cream-100/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                    nav.classList.add('bg-transparent', 'py-4', 'md:py-6');
+                }
+            });
+        };
     </script>
-  </body>
+</body>
 </html>
