@@ -9,7 +9,15 @@
       "destination": "/robots.txt"
     },
     {
-      "source": "/((?!assets|sitemap.xml|robots.txt).*)",
+      "source": "/therapeute-couple-saint-cloud",
+      "destination": "/therapeute-couple-saint-cloud.html"
+    },
+    {
+      "source": "/therapeute-couple-saint-cloud/",
+      "destination": "/therapeute-couple-saint-cloud.html"
+    },
+    {
+      "source": "/((?!assets|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html).*)",
       "destination": "/index.html"
     }
   ],
