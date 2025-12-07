@@ -17,7 +17,31 @@
       "destination": "/therapeute-couple-saint-cloud.html"
     },
     {
-      "source": "/((?!assets|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html).*)",
+      "source": "/therapeute-couple-nanterre",
+      "destination": "/therapeute-couple-nanterre.html"
+    },
+    {
+      "source": "/therapeute-couple-nanterre/",
+      "destination": "/therapeute-couple-nanterre.html"
+    },
+    {
+      "source": "/therapeute-couple-suresnes",
+      "destination": "/therapeute-couple-suresnes.html"
+    },
+    {
+      "source": "/therapeute-couple-suresnes/",
+      "destination": "/therapeute-couple-suresnes.html"
+    },
+    {
+      "source": "/therapeute-couple-chatou-croissy",
+      "destination": "/therapeute-couple-chatou-croissy.html"
+    },
+    {
+      "source": "/therapeute-couple-chatou-croissy/",
+      "destination": "/therapeute-couple-chatou-croissy.html"
+    },
+    {
+      "source": "/((?!assets|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html|therapeute-couple-nanterre.html|therapeute-couple-suresnes.html|therapeute-couple-chatou-croissy.html).*)",
       "destination": "/index.html"
     }
   ],
