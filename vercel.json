@@ -49,7 +49,7 @@
       "destination": "/rendez-vous-therapie-couple.html"
     },
     {
-      "source": "/((?!assets|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html|therapeute-couple-nanterre.html|therapeute-couple-suresnes.html|therapeute-couple-chatou-croissy.html|rendez-vous-therapie-couple.html).*)",
+      "source": "/((?!assets|img|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html|therapeute-couple-nanterre.html|therapeute-couple-suresnes.html|therapeute-couple-chatou-croissy.html|rendez-vous-therapie-couple.html).*)",
       "destination": "/index.html"
     }
   ],

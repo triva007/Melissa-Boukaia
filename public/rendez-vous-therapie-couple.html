@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://assets.calendly.com" />
-    <link rel="preload" as="image" href="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/img/couple-complicite.jpg" fetchpriority="high" />
 
     <!-- ===== SUIVI DES CONVERSIONS GOOGLE ADS =====
          Renseigner AW_ID et les libellés une fois les conversions créées dans Google Ads.
@@ -66,7 +66,7 @@
               cream: { 50: '#FDFBF7', 100: '#F7F4EB' },
               sage: { 50: '#F0F9FA', 100: '#E0F2F1', 500: '#649BA6', 600: '#4A7A85', 900: '#192E33' },
             },
-            boxShadow: { 'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)' }
+            boxShadow: { 'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.06)' }
           }
         }
       }
@@ -74,103 +74,90 @@
     <style>
       body { font-family: 'Inter', sans-serif; background-color: #F7F4EB; color: #192E33; }
       h1, h2, h3 { font-family: 'Playfair Display', serif; }
+      #sticky-cta { transform: translateY(110%); transition: transform .25s ease; }
+      #sticky-cta.show { transform: translateY(0); }
+      #reviews::-webkit-scrollbar { height: 6px; } #reviews::-webkit-scrollbar-thumb { background: #E0F2F1; border-radius: 9px; }
     </style>
 </head>
-<body class="antialiased pb-20 md:pb-0">
+<body class="antialiased">
 
-    <!-- En-tête -->
+    <!-- En-tête : épuré sur mobile -->
     <header class="bg-cream-50/95 backdrop-blur border-b border-sage-100 sticky top-0 z-40">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div>
-                <p class="font-serif text-lg font-semibold leading-tight">Melissa Boukaia</p>
-                <p class="text-xs text-sage-600">Thérapeute de couple · Rueil-Malmaison</p>
+        <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="/img/melissa.jpg" alt="Melissa Boukaia" class="w-9 h-9 rounded-full object-cover" width="36" height="36">
+                <div>
+                    <p class="font-serif text-base font-semibold leading-tight">Melissa Boukaia</p>
+                    <p class="text-xs text-sage-600">Thérapeute de couple · Rueil-Malmaison</p>
+                </div>
             </div>
-            <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="hidden sm:inline-flex items-center gap-2 bg-sage-900 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-sage-600 transition">
-                Appeler le cabinet : 06 07 35 41 24
-            </a>
+            <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="hidden md:inline-flex items-center gap-2 text-sage-900 text-sm font-semibold hover:text-sage-600"><svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> 06 07 35 41 24</a>
         </div>
     </header>
 
-    <!-- Accroche -->
-    <section class="max-w-5xl mx-auto px-4 pt-6 pb-10 md:pt-16 md:pb-16 grid md:grid-cols-2 gap-10 items-center">
+    <!-- 1. Accroche : un message, un bouton -->
+    <section class="max-w-5xl mx-auto px-5 pt-8 pb-10 md:pt-16 md:pb-16 grid md:grid-cols-2 gap-10 items-center">
         <div>
-            <p class="text-xs md:text-sm font-semibold text-sage-600 uppercase tracking-wide mb-3">Cabinet à Rueil-Malmaison<span class="hidden md:inline"> · à quelques minutes de Nanterre, Suresnes, Puteaux et Chatou</span></p>
-            <h1 class="text-[1.9rem] leading-tight md:text-5xl font-semibold mb-4">Vous ne vous parlez plus. Vous ne vous comprenez plus.</h1>
-            <p class="text-base md:text-lg text-gray-700 mb-6">Retrouvez le dialogue, la complicité et l'intimité dans votre couple, avec une thérapeute bienveillante, sans jugement et concrète.</p>
-            <a href="#rdv" class="flex items-center gap-3 bg-sage-600 text-white px-5 py-4 rounded-2xl hover:bg-sage-900 transition shadow-soft md:max-w-md">
-                <svg aria-hidden="true" class="w-7 h-7 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-                <span class="text-left leading-tight"><span class="block font-semibold text-base">Réserver mon appel découverte offert</span><span class="block text-sm text-white/85">Vous choisissez l'heure, Melissa vous rappelle (15 min)</span></span>
+            <h1 class="text-[2rem] leading-[1.15] md:text-5xl font-semibold mb-4">Vous ne vous parlez plus. Vous ne vous comprenez plus.</h1>
+            <p class="text-[17px] md:text-lg text-gray-700 mb-7">Retrouvez le dialogue et la complicité, avec une thérapeute de couple bienveillante, à Rueil-Malmaison.</p>
+            <a id="hero-cta" href="#rdv" class="flex items-center justify-center gap-3 bg-sage-600 text-white px-6 py-4 rounded-full font-semibold text-[17px] hover:bg-sage-900 transition shadow-soft md:inline-flex">
+                <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg> Réserver mon appel découverte offert
             </a>
-            <div class="flex items-center gap-3 mt-4 mb-6">
-                <img src="https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg" alt="Melissa Boukaia" class="w-11 h-11 rounded-full object-cover" width="44" height="44">
-                <p class="text-sm text-gray-600">Une question avant ? <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="font-semibold text-sage-900 underline whitespace-nowrap">Appelez le cabinet : 06 07 35 41 24</a></p>
-            </div>
-            <ul class="text-sm text-gray-700 space-y-1.5">
-                <li>★★★★★ <strong>5,0</strong> sur 26 avis Google</li>
-                <li>Plus de 40 couples accompagnés</li>
-                <li>Confidentiel, sans jugement. Vous pouvez aussi venir seul(e)</li>
-                <li>Rendez-vous du lundi au jeudi, de 9 h à 20 h</li>
-            </ul>
+            <p class="text-sm text-gray-600 mt-3 text-center md:text-left">15 min au téléphone · Melissa vous rappelle · <span class="text-amber-500">★</span> 5,0 sur 26 avis Google</p>
         </div>
-        <div class="hidden md:block rounded-3xl overflow-hidden shadow-soft aspect-[4/5] max-w-sm mx-auto w-full">
-            <img src="https://i.postimg.cc/mkQkCt9N/couple-heureux-rire.png" alt="Couple qui a retrouvé la complicité" class="w-full h-full object-cover" width="448" height="560" fetchpriority="high">
+        <div class="rounded-3xl overflow-hidden shadow-soft aspect-[4/3] md:aspect-[4/5]">
+            <img src="/img/couple-complicite.jpg" alt="Un couple qui a retrouvé la complicité" class="w-full h-full object-cover" width="900" height="700" fetchpriority="high">
         </div>
     </section>
 
-    <!-- Problèmes -->
+    <!-- 2. Les problèmes, avec des images qui parlent -->
     <section class="bg-cream-50 py-14">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-3">Vous vous reconnaissez ?</h2>
-            <p class="text-center text-gray-600 mb-10">Ce sont les trois situations que les couples me décrivent le plus souvent.</p>
-            <div class="grid md:grid-cols-3 gap-5">
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <h3 class="text-xl font-semibold mb-2">Le dialogue est rompu</h3>
-                    <p class="text-gray-700">Chaque discussion tourne à la dispute ou au silence. Vous ne savez plus comment vous parler sans vous blesser.</p>
+        <div class="max-w-5xl mx-auto px-5">
+            <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-2">Vous vous reconnaissez ?</h2>
+            <p class="text-center text-gray-600 mb-8">Ce que les couples me confient le plus souvent.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft">
+                    <img src="/img/couple-dialogue-rompu.jpg" alt="Couple dos à dos, bras croisés" class="w-full aspect-[3/2] object-cover" loading="lazy" width="700" height="467">
+                    <div class="p-5"><h3 class="text-xl font-semibold mb-1">Le dialogue est rompu</h3><p class="text-gray-700">Chaque discussion finit en dispute ou en silence.</p></div>
                 </div>
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <h3 class="text-xl font-semibold mb-2">Vous ne vous comprenez plus</h3>
-                    <p class="text-gray-700">Vous vous sentez seul(e) à deux, incompris(e), et les mêmes reproches reviennent sans cesse.</p>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft">
+                    <img src="/img/couple-incompris.jpg" alt="Couple assis, abattu" class="w-full aspect-[3/2] object-cover" loading="lazy" width="700" height="467">
+                    <div class="p-5"><h3 class="text-xl font-semibold mb-1">Vous ne vous comprenez plus</h3><p class="text-gray-700">Seul(e) à deux, avec les mêmes reproches qui reviennent.</p></div>
                 </div>
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <h3 class="text-xl font-semibold mb-2">L'intimité s'est éteinte</h3>
-                    <p class="text-gray-700">Moins de tendresse, moins de désir. La distance s'installe et vous ne savez pas comment la franchir.</p>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft">
+                    <img src="/img/couple-distance.jpg" alt="Distance dans le couple" class="w-full aspect-[3/2] object-cover" loading="lazy" width="700" height="467">
+                    <div class="p-5"><h3 class="text-xl font-semibold mb-1">L'intimité s'est éteinte</h3><p class="text-gray-700">Moins de tendresse, moins de désir, de plus en plus de distance.</p></div>
                 </div>
             </div>
-            <p class="text-center mt-8 text-gray-700">Vous n'êtes pas obligés de rester dans cette impasse. <a href="#rdv" class="font-semibold text-sage-600 underline">Parlons-en 15 minutes, gratuitement.</a></p>
+            <p class="text-center mt-8 text-lg text-gray-800">Ce n'est pas une fatalité. <strong>Vous pouvez retrouver le lien.</strong></p>
         </div>
     </section>
 
-    <!-- Déroulé -->
+    <!-- 3. Comment ça se passe -->
     <section class="py-14">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">Comment ça se passe</h2>
-            <div class="grid md:grid-cols-3 gap-5">
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <p class="text-sage-500 font-bold text-sm mb-1">Étape 1 · Offert</p>
-                    <h3 class="text-xl font-semibold mb-2">Appel découverte</h3>
-                    <p class="text-gray-700">15 minutes par téléphone pour faire connaissance et voir si je peux vous aider. Sans engagement.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <p class="text-sage-500 font-bold text-sm mb-1">Étape 2</p>
-                    <h3 class="text-xl font-semibold mb-2">Le bilan (1h30)</h3>
-                    <p class="text-gray-700">Au cabinet, on comprend ensemble ce qui bloque dans votre couple et on fixe vos objectifs.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-soft">
-                    <p class="text-sage-500 font-bold text-sm mb-1">Étape 3</p>
-                    <h3 class="text-xl font-semibold mb-2">Le suivi (1h)</h3>
-                    <p class="text-gray-700">Des outils concrets pour mieux communiquer et vous retrouver. En moyenne, un accompagnement dure 3 séances, bilan compris.</p>
-                </div>
+        <div class="max-w-3xl mx-auto px-5">
+            <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-8">Comment ça se passe</h2>
+            <ol class="space-y-5">
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">1</span><div><p class="font-semibold">Un appel découverte offert</p><p class="text-gray-700">15 minutes au téléphone pour faire connaissance. Sans engagement.</p></div></li>
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">2</span><div><p class="font-semibold">Un bilan au cabinet (1h30)</p><p class="text-gray-700">On comprend ensemble ce qui bloque et on fixe vos objectifs.</p></div></li>
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">3</span><div><p class="font-semibold">Des séances de suivi (1h)</p><p class="text-gray-700">Des outils concrets pour mieux communiquer. En moyenne, 3 séances au total.</p></div></li>
+            </ol>
+            <div class="mt-8 grid grid-cols-2 gap-3 text-sm text-gray-700">
+                <p class="bg-white rounded-2xl p-4 shadow-soft">Confidentiel et sans jugement</p>
+                <p class="bg-white rounded-2xl p-4 shadow-soft">Vous pouvez aussi venir seul(e)</p>
+                <p class="bg-white rounded-2xl p-4 shadow-soft">Du lundi au jeudi, 9 h - 20 h</p>
+                <p class="bg-white rounded-2xl p-4 shadow-soft">À quelques minutes de Nanterre, Suresnes, Puteaux</p>
             </div>
         </div>
     </section>
 
-    <!-- Avis Google réels (fiche Google de Melissa, relevés le 25/09/2026 ; […] = passage coupé) -->
-    <section class="py-14">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-2">Ce qu'en disent les personnes accompagnées</h2>
-            <p class="text-center text-gray-600 mb-8"><span class="text-amber-500">★★★★★</span> <strong>5,0 sur 26 avis Google</strong> · aucun avis en dessous de 5 étoiles</p>
+    <!-- 4. Avis Google réels (relevés le 25/09/2026 ; […] = passage coupé) -->
+    <section class="bg-cream-50 py-14">
+        <div class="max-w-5xl mx-auto px-5">
+            <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-2">Ils ont retrouvé le lien</h2>
+            <p class="text-center text-gray-600 mb-8"><span class="text-amber-500">★★★★★</span> <strong>5,0 sur 26 avis Google</strong></p>
             <div class="relative">
-                <div id="reviews" class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scroll-px-4" style="scrollbar-width:thin">
+                <div id="reviews" class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 scroll-px-5">
                 <figure class="bg-white rounded-2xl p-6 shadow-soft snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[calc(25%-15px)] flex flex-col">
                     <p class="text-amber-500 text-sm mb-2">★★★★★</p>
                     <blockquote class="text-gray-700 text-[15px] line-clamp-[8]">« J'ai eu la chance d'être accompagnée par Melissa, et je ne peux que recommander son accompagnement. Dès le début, je me suis sentie écoutée, comprise et accueillie avec beaucoup de bienveillance. Elle a su créer un espace de confiance dans lequel je me suis sentie à l'aise pour m'exprimer librement, sans aucun jugement. »</blockquote>
@@ -212,102 +199,73 @@
                     <figcaption class="mt-auto pt-4 text-sm text-gray-500">Jen M. · avis Google · il y a 1 an</figcaption>
                 </figure>
                 </div>
-                <button type="button" onclick="document.getElementById('reviews').scrollBy({left:-document.getElementById('reviews').clientWidth*0.9,behavior:'smooth'})" class="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white shadow-soft border border-sage-100" aria-label="Avis précédents">‹</button>
-                <button type="button" onclick="document.getElementById('reviews').scrollBy({left:document.getElementById('reviews').clientWidth*0.9,behavior:'smooth'})" class="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white shadow-soft border border-sage-100" aria-label="Avis suivants">›</button>
+                <button type="button" onclick="reviews.scrollBy({left:-reviews.clientWidth*0.9,behavior:'smooth'})" class="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white shadow-soft border border-sage-100" aria-label="Avis précédents">‹</button>
+                <button type="button" onclick="reviews.scrollBy({left:reviews.clientWidth*0.9,behavior:'smooth'})" class="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-white shadow-soft border border-sage-100" aria-label="Avis suivants">›</button>
             </div>
-            <p class="text-center text-sm text-gray-500 mt-1">Faites défiler pour lire les autres avis →</p>
-            <p class="text-center mt-4"><a class="inline-block border border-sage-500 text-sage-900 rounded-full px-6 py-3 font-semibold hover:bg-sage-50" href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener">Lire les 26 avis sur Google</a></p>
+            <p class="text-center text-sm text-gray-500">Faites glisser pour lire les autres avis → · <a class="underline" href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener">Tous les avis sur Google</a></p>
         </div>
     </section>
 
-    <!-- Présentation -->
-    <section class="bg-cream-50 py-14">
-        <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-[260px_1fr] gap-8 items-center">
-            <div class="rounded-3xl overflow-hidden shadow-soft aspect-[4/5] max-w-[260px] mx-auto w-full">
-                <img src="https://i.postimg.cc/63m5XRZm/Whats-App-Image-2025-05-16-a-16-20-05-0bf85651.jpg" alt="Melissa Boukaia, thérapeute de couple à Rueil-Malmaison" class="w-full h-full object-cover" loading="lazy" width="260" height="325">
+    <!-- 5. Melissa et son cabinet -->
+    <section class="py-14">
+        <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-8 items-center">
+            <div class="grid grid-cols-2 gap-3">
+                <img src="/img/melissa.jpg" alt="Melissa Boukaia, thérapeute de couple" class="w-full aspect-[3/4] object-cover rounded-3xl shadow-soft" loading="lazy" width="518" height="800">
+                <img src="/img/cabinet-rueil.jpg" alt="Le cabinet de Melissa à Rueil-Malmaison" class="w-full aspect-[3/4] object-cover rounded-3xl shadow-soft" loading="lazy" width="680" height="510">
             </div>
             <div>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-4">Melissa Boukaia</h2>
-                <p class="text-gray-700 mb-4">Thérapeute de couple et sexothérapeute (master praticien en sexothérapie, praticienne PNL). Mariée depuis de nombreuses années et maman de trois enfants, je sais combien l'équilibre d'un couple peut être fragile.</p>
+                <h2 class="text-[1.7rem] md:text-3xl font-semibold mb-4">Je suis Melissa</h2>
+                <p class="text-gray-700 mb-4">Thérapeute de couple et sexothérapeute, je vous reçois dans mon cabinet chaleureux à Rueil-Malmaison. Mariée depuis de nombreuses années et maman de trois enfants, je sais combien l'équilibre d'un couple peut être fragile.</p>
                 <blockquote class="border-l-4 border-sage-500 pl-4 italic text-gray-700">« Je ne juge pas, je vous donne toutes les clés. Je vous donne les ingrédients, et c'est à vous de faire votre gâteau. »</blockquote>
-                <p class="mt-5 text-sm text-gray-600">Avis vérifiables : <a class="underline" href="https://www.resalib.fr/praticien/81063-melissa-boukaia-therapeute-conjugal-rueil-malmaison" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB">Resalib</a> · <a class="underline" href="https://liberlo.com/profil/melissa-boukaia/" target="_blank" rel="noopener">Liberlo</a> · <a class="underline" href="https://www.google.com/search?q=M%C3%A9lissa+Bouka%C3%AFa+Th%C3%A9rapeute+de+couple+Rueil-Malmaison+avis" target="_blank" rel="noopener">Google</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Réservation -->
-    <section id="rdv" class="py-14 scroll-mt-20">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-3">Réservez votre appel découverte offert</h2>
-            <ol class="max-w-md mx-auto text-gray-700 mb-6 space-y-1.5 text-[15px]">
-                <li><strong>1.</strong> Choisissez un jour et une heure ci-dessous.</li>
-                <li><strong>2.</strong> Melissa vous appelle elle-même à l'heure choisie.</li>
-                <li><strong>3.</strong> 15 minutes pour faire connaissance. Offert et sans engagement.</li>
-            </ol>
-            <div class="bg-white rounded-2xl shadow-soft overflow-hidden">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min" style="min-width:280px;height:760px;"></div>
+    <!-- 6. Réservation -->
+    <section id="rdv" class="bg-cream-50 py-14 scroll-mt-16">
+        <div class="max-w-3xl mx-auto px-5">
+            <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-3">Réservez votre appel découverte offert</h2>
+            <p class="text-center text-gray-700 mb-6">Choisissez un jour et une heure. <strong>Melissa vous appelle elle-même</strong> à l'heure choisie : 15 minutes, sans engagement.</p>
+            <div class="bg-white rounded-3xl shadow-soft overflow-hidden">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_landing_page_details=1" style="min-width:280px;height:720px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
-            <p class="text-center text-sm text-gray-600 mt-6 mb-3">Vous préférez autrement ?</p>
-            <div class="grid sm:grid-cols-3 gap-3 text-center text-sm">
-                <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="border border-sage-500 text-sage-900 px-4 py-3 rounded-full font-semibold">Appeler le cabinet</a>
-                <a href="https://www.resalib.fr/praticien/81063-melissa-boukaia-therapeute-conjugal-rueil-malmaison" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="border border-sage-500 text-sage-900 px-4 py-3 rounded-full font-semibold">Réserver le bilan sur Resalib</a>
-                <a href="https://wa.me/33607354124" target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="border border-[#25D366] text-[#128C7E] px-4 py-3 rounded-full font-semibold">Écrire sur WhatsApp</a>
-            </div>
+            <p class="text-center text-sm text-gray-600 mt-6">Une question avant ? <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="underline font-semibold text-sage-900">Appelez le cabinet</a> · <a href="https://wa.me/33607354124" target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="underline font-semibold text-sage-900">WhatsApp</a> · <a href="https://www.resalib.fr/praticien/81063-melissa-boukaia-therapeute-conjugal-rueil-malmaison" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="underline font-semibold text-sage-900">réserver le bilan sur Resalib</a></p>
         </div>
     </section>
 
-    <!-- Questions fréquentes -->
-    <section class="bg-cream-50 py-14">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8">Questions fréquentes</h2>
+    <!-- 7. Questions fréquentes -->
+    <section class="py-14">
+        <div class="max-w-3xl mx-auto px-5">
+            <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-8">Questions fréquentes</h2>
             <div class="space-y-3">
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">Où se trouve le cabinet ?</summary>
-                    <p class="mt-3 text-gray-700">Au 16 bis avenue de Buzenval, à Rueil-Malmaison, à quelques minutes de Nanterre, Suresnes, Puteaux, Chatou, Croissy, Garches et Saint-Cloud. Accessible en RER A (station Rueil-Malmaison) et en bus.</p>
-                </details>
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">Quels sont vos horaires ?</summary>
-                    <p class="mt-3 text-gray-700">Je reçois au cabinet du lundi au jeudi, de 9 h à 20 h. Les créneaux du soir permettent de venir après le travail.</p>
-                </details>
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">Et si mon ou ma partenaire ne veut pas venir ?</summary>
-                    <p class="mt-3 text-gray-700">C'est fréquent. Vous pouvez commencer seul(e) pour y voir plus clair. Souvent, ce premier pas donne envie à l'autre de rejoindre la démarche.</p>
-                </details>
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">Combien ça coûte ?</summary>
-                    <p class="mt-3 text-gray-700">L'appel découverte de 15 minutes est offert. Ensuite, le bilan de 1h30 est à 135 € et les séances de suivi d'une heure à 85 €. En moyenne, un accompagnement dure 3 séances, bilan compris. On en parle librement pendant l'appel, sans engagement.</p>
-                </details>
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">Appel découverte ou appel au cabinet, quelle différence ?</summary>
-                    <p class="mt-3 text-gray-700">L'appel découverte est un rendez-vous téléphonique offert de 15 minutes : vous réservez un créneau en ligne et Melissa vous appelle à l'heure choisie, pour parler de votre situation. Le numéro du cabinet sert à poser une question rapide. Si elle est en séance, elle vous rappelle dès que possible.</p>
-                </details>
-                <details class="bg-white rounded-2xl p-5 shadow-soft">
-                    <summary class="font-semibold cursor-pointer">L'appel découverte m'engage-t-il ?</summary>
-                    <p class="mt-3 text-gray-700">Non. C'est un simple échange pour faire connaissance. Vous décidez ensuite, librement, de commencer ou non.</p>
-                </details>
-            </div>
-            <div class="text-center mt-10">
-                <a href="#rdv" class="inline-block bg-sage-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-sage-900 transition shadow-soft">Réserver mon appel découverte offert</a>
+                <details class="bg-white rounded-2xl p-5 shadow-soft"><summary class="font-semibold cursor-pointer">Appel découverte ou appel au cabinet, quelle différence ?</summary><p class="mt-3 text-gray-700">L'appel découverte est un rendez-vous téléphonique offert de 15 minutes : vous réservez un créneau en ligne et Melissa vous appelle à l'heure choisie pour parler de votre situation. Le numéro du cabinet sert à poser une question rapide ; si elle est en séance, elle vous rappelle dès que possible.</p></details>
+                <details class="bg-white rounded-2xl p-5 shadow-soft"><summary class="font-semibold cursor-pointer">Et si mon ou ma partenaire ne veut pas venir ?</summary><p class="mt-3 text-gray-700">C'est fréquent. Vous pouvez commencer seul(e) pour y voir plus clair. Souvent, ce premier pas donne envie à l'autre de rejoindre la démarche.</p></details>
+                <details class="bg-white rounded-2xl p-5 shadow-soft"><summary class="font-semibold cursor-pointer">Combien ça coûte ?</summary><p class="mt-3 text-gray-700">L'appel découverte de 15 minutes est offert. Ensuite, le bilan de 1h30 est à 135 € et les séances de suivi d'une heure à 85 €. En moyenne, un accompagnement dure 3 séances, bilan compris. On en parle librement pendant l'appel, sans engagement.</p></details>
+                <details class="bg-white rounded-2xl p-5 shadow-soft"><summary class="font-semibold cursor-pointer">Où se trouve le cabinet ?</summary><p class="mt-3 text-gray-700">16 bis avenue de Buzenval, à Rueil-Malmaison, à quelques minutes de Nanterre, Suresnes, Puteaux, Chatou, Croissy, Garches et Saint-Cloud. RER A (station Rueil-Malmaison) et bus.</p></details>
+                <details class="bg-white rounded-2xl p-5 shadow-soft"><summary class="font-semibold cursor-pointer">Quels sont vos horaires ?</summary><p class="mt-3 text-gray-700">Du lundi au jeudi, de 9 h à 20 h. Les créneaux du soir permettent de venir après le travail.</p></details>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 text-center text-sm text-gray-600">
+    <footer class="py-8 pb-28 md:pb-8 text-center text-sm text-gray-600">
         <p>Melissa Boukaia · Thérapeute de couple et sexothérapeute · 16 bis avenue de Buzenval, 92500 Rueil-Malmaison</p>
         <p class="mt-1"><a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="underline">06 07 35 41 24</a> · <a href="/" class="underline">Site principal</a></p>
     </footer>
 
-    <!-- Barre fixe mobile : appel découverte (principal) et téléphone du cabinet (secondaire), bien distincts -->
-    <div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-sage-100 px-3 py-2.5 flex gap-2 items-stretch">
-        <a href="#rdv" class="flex-1 flex items-center gap-2 bg-sage-600 text-white px-3 py-2 rounded-2xl">
-            <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-            <span class="leading-tight"><span class="block font-semibold text-sm">Appel découverte offert</span><span class="block text-xs text-white/85">Choisir mon créneau</span></span>
-        </a>
-        <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="flex flex-col items-center justify-center border border-sage-500 text-sage-900 px-3 rounded-2xl text-xs font-semibold" aria-label="Appeler le cabinet">
-            <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-            <span>Appeler</span>
-        </a>
+    <!-- Barre mobile : apparaît seulement après le bouton du haut -->
+    <div id="sticky-cta" class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-t border-sage-100 px-4 py-3 flex gap-3 items-center">
+        <a href="#rdv" class="flex-1 flex items-center justify-center gap-2 bg-sage-600 text-white py-3.5 rounded-full font-semibold"><svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg> Appel découverte offert</a>
+        <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="w-12 h-12 flex items-center justify-center rounded-full border border-sage-500 text-sage-900" aria-label="Appeler le cabinet"><svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    </div>
+
+    <!-- Bandeau cookies : discret, n'apparaît qu'après le premier défilement -->
+    <div id="cookie-banner" class="hidden fixed inset-x-3 bottom-24 md:bottom-4 md:left-auto md:right-4 md:max-w-sm z-[60] bg-white rounded-2xl shadow-soft border border-sage-100 p-3 text-xs">
+        <p class="text-gray-700 mb-2">Cookies de mesure pour savoir quelles annonces vous ont amené ici. Le site fonctionne pareil si vous refusez.</p>
+        <div class="flex gap-2">
+            <button id="cookie-refuse" class="flex-1 border border-sage-500 text-sage-900 rounded-full py-1.5 font-semibold">Refuser</button>
+            <button id="cookie-accept" class="flex-1 bg-sage-600 text-white rounded-full py-1.5 font-semibold">Accepter</button>
+        </div>
     </div>
 
     <script>
@@ -321,23 +279,25 @@
           trackConversion('LABEL_RDV_CALENDLY');
         }
       });
-    </script>
-    <!-- Bandeau de consentement cookies (mode consentement v2) -->
-    <div id="cookie-banner" class="hidden fixed inset-x-3 bottom-24 md:bottom-4 md:left-auto md:right-4 md:max-w-sm z-[60] bg-white rounded-2xl shadow-soft border border-sage-100 p-4 text-sm">
-        <p class="text-gray-700 mb-3">J'utilise des cookies de mesure pour savoir quelles annonces vous ont amené ici. Vous pouvez les refuser, le site fonctionne de la même façon.</p>
-        <div class="flex gap-2">
-            <button id="cookie-refuse" class="flex-1 border border-sage-500 text-sage-900 rounded-full py-2 font-semibold">Refuser</button>
-            <button id="cookie-accept" class="flex-1 bg-sage-600 text-white rounded-full py-2 font-semibold">Accepter</button>
-        </div>
-    </div>
-    <script>
+      // Barre mobile visible seulement quand le bouton du haut et la réservation ne sont pas à l'écran
+      (function () {
+        var bar = document.getElementById('sticky-cta'), hero = document.getElementById('hero-cta'), rdv = document.getElementById('rdv');
+        var heroVisible = true, rdvVisible = false;
+        function upd() { bar.classList.toggle('show', !heroVisible && !rdvVisible); }
+        new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; upd(); }).observe(hero);
+        new IntersectionObserver(function (e) { rdvVisible = e[0].isIntersecting; upd(); }, { threshold: 0.15 }).observe(rdv);
+      })();
+      // Consentement : bandeau affiché après le premier défilement
       (function () {
         var b = document.getElementById('cookie-banner');
-        if (savedConsent !== 'granted' && savedConsent !== 'denied') b.classList.remove('hidden');
         function choose(v) {
+          window.__consentChosen = true;
           try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
           if (v === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied', analytics_storage: 'granted' });
           b.classList.add('hidden');
+        }
+        if (savedConsent !== 'granted' && savedConsent !== 'denied') {
+          window.addEventListener('scroll', function once() { window.removeEventListener('scroll', once); if (!window.__consentChosen) b.classList.remove('hidden'); }, { passive: true });
         }
         document.getElementById('cookie-accept').addEventListener('click', function () { choose('granted'); });
         document.getElementById('cookie-refuse').addEventListener('click', function () { choose('denied'); });
