@@ -175,6 +175,19 @@
             <p class="text-center text-gray-600 text-sm mb-6">Vous n'avez rien à préparer. Ce que vous dites reste entre vous.</p>
             <div class="bg-white rounded-3xl shadow-soft overflow-hidden">
                 <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" style="min-width:280px;height:720px;"></div>
+                <script>
+                  // Transmet la source de la visite (annonce Google) à Calendly, pour savoir quels RDV viennent des pubs
+                  (function () {
+                    try {
+                      var q = new URLSearchParams(location.search), w = document.querySelector('.calendly-inline-widget');
+                      if (!w) return;
+                      var u = new URL(w.getAttribute('data-url'));
+                      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+                      if (!q.get('utm_source') && q.get('gclid')) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
+                      w.setAttribute('data-url', u.toString());
+                    } catch (e) {}
+                  })();
+                </script>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
             <p class="text-center text-sm text-gray-600 mt-6">Une question avant ? <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="underline font-semibold text-sage-900">Appelez le cabinet</a> , <a href="https://wa.me/33607354124" target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="underline font-semibold text-sage-900">écrivez sur WhatsApp</a> ou <a href="https://www.resalib.fr/praticien/81063-melissa-boukaia-therapeute-conjugal-rueil-malmaison" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="underline font-semibold text-sage-900">réservez directement le bilan sur Resalib</a>.</p>
