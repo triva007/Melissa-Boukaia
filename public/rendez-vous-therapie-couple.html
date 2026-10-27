@@ -21,9 +21,9 @@
       window.TRACKING = {
         AW_ID: 'AW-17253279660',
         LABEL_RDV_CALENDLY: '2OyTCLGemqkdEKzPgKNA',    // conversion principale : appel découverte réservé
-        LABEL_CLIC_RESALIB: '',    // clic vers la réservation du bilan sur Resalib
-        LABEL_CLIC_TEL: '',        // clic sur le numéro de téléphone
-        LABEL_CLIC_WHATSAPP: ''    // clic sur WhatsApp
+        LABEL_CLIC_RESALIB: 'NSFHCLD_m6kdEKzPgKNA',    // clic vers la réservation du bilan sur Resalib
+        LABEL_CLIC_TEL: '42SYCLP_m6kdEKzPgKNA',        // clic sur le numéro de téléphone
+        LABEL_CLIC_WHATSAPP: '42SYCLP_m6kdEKzPgKNA'    // clic sur WhatsApp
       };
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
@@ -183,7 +183,7 @@
                       if (!w) return;
                       var u = new URL(w.getAttribute('data-url'));
                       ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
-                      if (!q.get('utm_source') && q.get('gclid')) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
+                      if (!q.get('utm_source') && (q.get('gclid') || q.get('gbraid') || q.get('wbraid'))) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
                       w.setAttribute('data-url', u.toString());
                     } catch (e) {}
                   })();
@@ -228,8 +228,12 @@
       document.querySelectorAll('[data-track]').forEach(function (el) {
         el.addEventListener('click', function () { trackConversion(el.getAttribute('data-track')); });
       });
+      var rdvSent = false;
       window.addEventListener('message', function (e) {
-        if (e.origin === 'https://calendly.com' && e.data && e.data.event === 'calendly.event_scheduled') { trackConversion('LABEL_RDV_CALENDLY'); }
+        if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.event_scheduled' || rdvSent) return;
+        rdvSent = true;
+        var t = window.TRACKING, inv = e.data.payload && e.data.payload.invitee && e.data.payload.invitee.uri;
+        if (t.AW_ID && t.LABEL_RDV_CALENDLY) gtag('event', 'conversion', { send_to: t.AW_ID + '/' + t.LABEL_RDV_CALENDLY, transaction_id: inv || undefined });
       });
       document.getElementById('more-reviews').addEventListener('click', function () {
         document.querySelectorAll('.more-review').forEach(function (el) { el.classList.remove('hidden'); });
