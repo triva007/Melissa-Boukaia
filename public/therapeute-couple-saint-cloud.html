@@ -63,11 +63,18 @@
         "addressCountry": "FR"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 48.8777, "longitude": 2.1811 },
-      "openingHoursSpecification": {
+      "openingHoursSpecification": [
+        {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
         "opens": "09:00", "closes": "20:00"
-      },
+        },
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "09:00", "closes": "16:00"
+        }
+      ],
       "description": "Cabinet de thérapie de couple à proximité de Saint-Cloud (92) et consultations en ligne.",
       "areaServed": ["Saint-Cloud", "Garches", "Vaucresson", "Marnes-la-Coquette", "Ville-d'Avray"]
     }
