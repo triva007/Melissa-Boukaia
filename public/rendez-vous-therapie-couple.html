@@ -22,7 +22,9 @@
         LABEL_RDV_CALENDLY: '2OyTCLGemqkdEKzPgKNA',    // conversion principale : appel découverte réservé
         LABEL_CLIC_RESALIB: 'NSFHCLD_m6kdEKzPgKNA',    // clic vers la réservation du bilan sur Resalib
         LABEL_CLIC_TEL: '42SYCLP_m6kdEKzPgKNA',        // clic sur le numéro de téléphone
-        LABEL_CLIC_WHATSAPP: '42SYCLP_m6kdEKzPgKNA'    // clic sur WhatsApp
+        LABEL_CLIC_WHATSAPP: '42SYCLP_m6kdEKzPgKNA',   // clic sur WhatsApp
+        LABEL_APPEL_SITE: '9KCwCIDls64dEKzPgKNA',      // appel de 60 s ou plus vers le numéro Google affiché sur la page
+        CLARITY_ID: '__CLARITY_ID__'                    // Microsoft Clarity : enregistrement anonymisé des visites
       };
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
@@ -46,6 +48,20 @@
         document.head.appendChild(s);
         gtag('js', new Date());
         gtag('config', id);
+        // Suivi des appels : pour les visiteurs venus d'une annonce, Google affiche un numéro de transfert qui sonne chez Melissa
+        if (window.TRACKING.LABEL_APPEL_SITE) gtag('config', id + '/' + window.TRACKING.LABEL_APPEL_SITE, {
+          phone_conversion_number: '06 07 35 41 24',
+          phone_conversion_callback: function (formatted, mobile) {
+            document.querySelectorAll('[data-phone]').forEach(function (a) { a.textContent = formatted; a.setAttribute('href', 'tel:' + mobile); });
+          }
+        });
+      })();
+      // Microsoft Clarity : chargé tout de suite, sans cookie tant que le visiteur n'a pas accepté
+      (function () {
+        var id = window.TRACKING.CLARITY_ID;
+        if (!id || id.indexOf('__') === 0) return;
+        (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); }; t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, 'clarity', 'script', id);
+        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: savedConsent === 'granted' ? 'granted' : 'denied' });
       })();
       function trackConversion(labelKey) {
         var t = window.TRACKING;
@@ -79,7 +95,7 @@
                 </div>
             </div>
             <a id="hero-cta" href="#rdv" class="flex items-center justify-center gap-3 bg-sage-600 text-white px-6 py-4 rounded-full font-semibold text-[17px] hover:bg-sage-900 transition shadow-soft md:inline-flex"><svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg> Réserver mon appel découverte offert</a>
-            <p class="text-sm text-gray-600 mt-3 text-center md:text-left">20 min en visio · offert et sans engagement · seul(e) ou à deux</p>
+            <p class="text-sm text-gray-600 mt-3 text-center md:text-left">20 min par téléphone ou en visio · offert, sans engagement</p>
             <p class="mt-4 text-center md:text-left"><a href="https://www.resalib.fr/agenda/81063" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="font-semibold text-sage-900 underline underline-offset-4 decoration-sage-500">Déjà décidé(e)&nbsp;? Réservez directement votre 1<sup>re</sup> séance →</a></p>
         </div>
         <figure class="hidden md:block">
@@ -186,7 +202,7 @@
         <div class="max-w-3xl mx-auto px-5">
             <h2 class="text-[1.7rem] md:text-3xl font-semibold mb-8">Comment ça se passe</h2>
             <ol class="space-y-6">
-                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">1</span><div><p class="font-semibold">L'appel découverte · 20 min en visio · <span class="text-sage-600">offert</span></p><p class="text-gray-700">Vous racontez ce qui se passe, avec vos mots. Melissa vous dit si elle peut vous aider, et comment. Sans engagement.</p></div></li>
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">1</span><div><p class="font-semibold">L'appel découverte · 20 min · <span class="text-sage-600">offert</span></p><p class="text-gray-700">Par téléphone ou en visio, au choix. Vous racontez ce qui se passe, avec vos mots. Melissa vous dit si elle peut vous aider, et comment. Sans engagement.</p></div></li>
                 <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">2</span><div><p class="font-semibold">Le bilan · 1h30 · 135 €</p><p class="text-gray-700">Au cabinet ou en visio. On comprend ensemble ce qui vous éloigne, ce qui vous relie encore, et vos objectifs.</p></div></li>
                 <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">3</span><div><p class="font-semibold">Les séances de suivi · 1h · 85 €</p><p class="text-gray-700">Des outils concrets pour mieux communiquer et vous retrouver. En moyenne 3 séances au total, bilan compris.</p></div></li>
             </ol>
@@ -203,7 +219,7 @@
     <section id="rdv" class="bg-cream-50 py-14 scroll-mt-16">
         <div class="max-w-3xl mx-auto px-5">
             <h2 class="text-[1.7rem] md:text-3xl font-semibold text-center mb-3">Choisissez votre créneau d'appel offert</h2>
-            <p class="text-center text-gray-700 mb-6">20 minutes en visio avec Melissa : vous recevez un lien <strong>Google Meet</strong>. Rien à préparer, ce que vous dites reste entre vous.</p>
+            <p class="text-center text-gray-700 mb-6">20 minutes avec Melissa, au choix <strong>par téléphone</strong> (elle vous appelle) ou <strong>en visio</strong> (lien Google Meet). Rien à préparer, ce que vous dites reste entre vous.</p>
             <div class="bg-white rounded-3xl shadow-soft overflow-hidden">
                 <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
                 <script>
@@ -260,11 +276,11 @@
 
     <footer class="py-8 px-5 text-center text-sm text-gray-600">
         <p>Melissa Boukaia · Thérapeute de couple et sexothérapeute · 16 bis avenue de Buzenval, 92500 Rueil-Malmaison</p>
-        <p class="mt-1"><a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" class="underline">06 07 35 41 24</a> · <a href="/mentions-legales" class="underline">Mentions légales et confidentialité</a></p>
+        <p class="mt-1"><a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone class="underline">06 07 35 41 24</a> · <a href="/mentions-legales" class="underline">Mentions légales et confidentialité</a></p>
     </footer>
 
     <div id="cookie-banner" class="hidden fixed inset-x-2 bottom-2 md:left-auto md:right-4 md:bottom-4 md:max-w-sm z-[60] bg-white rounded-xl shadow-soft border border-sage-100 px-3 py-2 text-xs flex items-center gap-2">
-        <p class="text-gray-700 flex-1 leading-snug">Cookies de mesure des annonces. Le site marche pareil si vous refusez.</p>
+        <p class="text-gray-700 flex-1 leading-snug">Cookies de mesure (annonces et visites). Le site marche pareil si vous refusez.</p>
         <button id="cookie-refuse" class="border border-sage-500 text-sage-900 rounded-full px-3 py-1.5 font-semibold shrink-0">Refuser</button>
         <button id="cookie-accept" class="bg-sage-600 text-white rounded-full px-3 py-1.5 font-semibold shrink-0">Accepter</button>
     </div>
@@ -287,6 +303,7 @@
           window.__consentChosen = true;
           try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
           if (v === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied', analytics_storage: 'granted' });
+          if (window.clarity) window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: v === 'granted' ? 'granted' : 'denied' });
           b.classList.add('hidden');
         }
         if (window.TRACKING.AW_ID && savedConsent !== 'granted' && savedConsent !== 'denied') {
