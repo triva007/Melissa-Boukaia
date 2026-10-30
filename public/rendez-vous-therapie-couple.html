@@ -24,7 +24,7 @@
         LABEL_CLIC_TEL: '42SYCLP_m6kdEKzPgKNA',        // clic sur le numéro de téléphone
         LABEL_CLIC_WHATSAPP: '42SYCLP_m6kdEKzPgKNA',   // clic sur WhatsApp
         LABEL_APPEL_SITE: '9KCwCIDls64dEKzPgKNA',      // appel de 60 s ou plus vers le numéro Google affiché sur la page
-        CLARITY_ID: '__CLARITY_ID__'                    // Microsoft Clarity : enregistrement anonymisé des visites
+        CLARITY_ID: 'z5rkhu7cx0'                    // Microsoft Clarity : enregistrement anonymisé des visites
       };
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
@@ -56,13 +56,14 @@
           }
         });
       })();
-      // Microsoft Clarity : chargé tout de suite, sans cookie tant que le visiteur n'a pas accepté
-      (function () {
+      // Microsoft Clarity : chargé uniquement si le visiteur accepte les cookies (masquage strict côté Clarity)
+      function loadClarity() {
         var id = window.TRACKING.CLARITY_ID;
-        if (!id || id.indexOf('__') === 0) return;
+        if (!id || window.clarity) return;
         (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); }; t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, 'clarity', 'script', id);
-        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: savedConsent === 'granted' ? 'granted' : 'denied' });
-      })();
+        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+      }
+      if (savedConsent === 'granted') loadClarity();
       function trackConversion(labelKey) {
         var t = window.TRACKING;
         if (!t.AW_ID || !t[labelKey]) return;
@@ -203,8 +204,8 @@
             <h2 class="text-[1.7rem] md:text-3xl font-semibold mb-8">Comment ça se passe</h2>
             <ol class="space-y-6">
                 <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">1</span><div><p class="font-semibold">L'appel découverte · 20 min · <span class="text-sage-600">offert</span></p><p class="text-gray-700">Par téléphone ou en visio, au choix. Vous racontez ce qui se passe, avec vos mots. Melissa vous dit si elle peut vous aider, et comment. Sans engagement.</p></div></li>
-                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">2</span><div><p class="font-semibold">Le bilan · 1h30 · 135 €</p><p class="text-gray-700">Au cabinet ou en visio. On comprend ensemble ce qui vous éloigne, ce qui vous relie encore, et vos objectifs.</p></div></li>
-                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">3</span><div><p class="font-semibold">Les séances de suivi · 1h · 85 €</p><p class="text-gray-700">Des outils concrets pour mieux communiquer et vous retrouver. En moyenne 3 séances au total, bilan compris.</p></div></li>
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">2</span><div><p class="font-semibold">Le bilan · 1h30</p><p class="text-gray-700">Au cabinet ou en visio. On comprend ensemble ce qui vous éloigne, ce qui vous relie encore, et vos objectifs.</p></div></li>
+                <li class="flex gap-4"><span class="shrink-0 w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-semibold">3</span><div><p class="font-semibold">Les séances de suivi · 1h</p><p class="text-gray-700">Des outils concrets pour mieux communiquer et vous retrouver. En moyenne 3 séances au total, bilan compris.</p></div></li>
             </ol>
             <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-gray-800">
                 <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Confidentiel, sans jugement</li>
@@ -303,7 +304,7 @@
           window.__consentChosen = true;
           try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
           if (v === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied', analytics_storage: 'granted' });
-          if (window.clarity) window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: v === 'granted' ? 'granted' : 'denied' });
+          if (v === 'granted') loadClarity();
           b.classList.add('hidden');
         }
         if (window.TRACKING.AW_ID && savedConsent !== 'granted' && savedConsent !== 'denied') {
