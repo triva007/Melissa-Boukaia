@@ -10,7 +10,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link rel="preconnect" href="https://assets.calendly.com" />
+    <link rel="preconnect" href="https://calendly.com" />
     <link rel="preload" as="image" href="/img/melissa-visage.jpg" fetchpriority="high" />
 
     <!-- ===== SUIVI DES CONVERSIONS GOOGLE ADS =====
@@ -22,7 +23,7 @@
         LABEL_RDV_CALENDLY: '2OyTCLGemqkdEKzPgKNA',    // conversion principale : appel découverte réservé
         LABEL_CLIC_RESALIB: 'NSFHCLD_m6kdEKzPgKNA',    // clic vers la réservation du bilan sur Resalib
         LABEL_CLIC_TEL: '42SYCLP_m6kdEKzPgKNA',        // clic sur le numéro de téléphone
-        LABEL_CLIC_WHATSAPP: '42SYCLP_m6kdEKzPgKNA',   // clic sur WhatsApp
+        LABEL_CLIC_WHATSAPP: '57P6CNqewK8dEKzPgKNA',   // clic sur WhatsApp
         LABEL_APPEL_SITE: '9KCwCIDls64dEKzPgKNA',      // appel de 60 s ou plus vers le numéro Google affiché sur la page
         CLARITY_ID: 'z5rkhu7cx0'                    // Microsoft Clarity : enregistrement anonymisé des visites
       };
@@ -56,14 +57,17 @@
           }
         });
       })();
-      // Microsoft Clarity : chargé uniquement si le visiteur accepte les cookies (masquage strict côté Clarity)
-      function loadClarity() {
+      // Microsoft Clarity (textes masqués) : sans cookie tant que le visiteur n'a pas accepté,
+      // avec cookies s'il accepte, pas chargé du tout s'il refuse.
+      function loadClarity(granted) {
         var id = window.TRACKING.CLARITY_ID;
-        if (!id || window.clarity) return;
-        (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); }; t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, 'clarity', 'script', id);
-        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+        if (!id) return;
+        if (!window.clarity) {
+          (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); }; t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, 'clarity', 'script', id);
+        }
+        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: granted ? 'granted' : 'denied' });
       }
-      if (savedConsent === 'granted') loadClarity();
+      if (savedConsent !== 'denied') loadClarity(savedConsent === 'granted');
       function trackConversion(labelKey) {
         var t = window.TRACKING;
         if (!t.AW_ID || !t[labelKey]) return;
@@ -97,6 +101,7 @@
             </div>
             <a id="hero-cta" href="#rdv" class="flex items-center justify-center gap-3 bg-sage-600 text-white px-6 py-4 rounded-full font-semibold text-[17px] hover:bg-sage-900 transition shadow-soft md:inline-flex"><svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg> Réserver mon appel offert de 20 min</a>
             <p class="text-sm text-gray-600 mt-3 text-center md:text-left">Par téléphone ou en visio · sans engagement</p>
+            <p class="text-sm text-gray-700 mt-2 text-center md:text-left">Ou appelez Melissa&nbsp;: <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone class="font-semibold text-sage-900 underline underline-offset-4 whitespace-nowrap">06 07 35 41 24</a></p>
             <p class="mt-4 text-center md:text-left"><a href="https://www.resalib.fr/agenda/81063" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="font-semibold text-sage-900 underline underline-offset-4 decoration-sage-500">Déjà décidé(e)&nbsp;? Réservez directement votre 1<sup>re</sup> séance →</a></p>
         </div>
         <figure class="hidden md:block">
@@ -209,7 +214,7 @@
             </ol>
             <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-gray-800">
                 <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Confidentiel, sans jugement</li>
-                <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Du lundi au jeudi jusqu'à 20 h, le vendredi jusqu'à 16 h</li>
+                <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Séances du lundi au vendredi, y compris en soirée</li>
                 <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Vous pouvez venir seul(e) ou à deux</li>
                 <li class="flex gap-2"><svg aria-hidden="true" class="w-5 h-5 shrink-0 text-sage-600 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Au cabinet à Rueil ou en visio, de chez vous</li>
             </ul>
@@ -304,7 +309,7 @@
           window.__consentChosen = true;
           try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
           if (v === 'granted') gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied', analytics_storage: 'granted' });
-          if (v === 'granted') loadClarity();
+          if (v === 'granted') loadClarity(true);
           b.classList.add('hidden');
         }
         if (window.TRACKING.AW_ID && savedConsent !== 'granted' && savedConsent !== 'denied') {
