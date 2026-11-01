@@ -222,6 +222,33 @@
         .quote blockquote{font-size:1.35rem}
         .cookie{left:auto;right:16px;bottom:16px;max-width:384px}
       }
+      /* ===== Situations ===== */
+      .pains li{position:relative;padding:14px 0 14px 30px;border-top:1px solid var(--line)}
+      .pains li:first-child{border-top:0;padding-top:0}
+      .pains li::before{content:"";position:absolute;left:4px;top:23px;width:10px;height:10px;border-radius:50%;background:var(--sage-mist)}
+      .pains li:first-child::before{top:9px}
+      .pains-end{margin-top:22px;font-family:var(--serif);font-size:1.15rem;line-height:1.5}
+      .aside{margin-top:26px;padding:18px 20px;border-radius:16px;background:var(--paper);border:1px solid var(--line);font-size:.97rem}
+      /* ===== Avis façon Google ===== */
+      .gr-summary{display:flex;align-items:center;gap:12px;padding:14px 16px;margin-bottom:18px;background:#fff;border:1px solid #dadce0;border-radius:14px;text-decoration:none;color:#202124;font-family:Roboto,Arial,var(--sans)}
+      .gr-summary .gr-score{font-size:1.35rem;margin-right:4px}
+      .gr-summary .stars{font-size:1rem}
+      .gr-sub{display:block;font-size:.82rem;color:#5f6368}
+      .gr-cta{margin-left:auto;font-size:.82rem;font-weight:600;color:#1a73e8;white-space:nowrap}
+      .gr-list{display:grid;gap:12px}
+      .gr-card{background:#fff;border:1px solid #dadce0;border-radius:14px;padding:16px;color:#202124;font-family:Roboto,Arial,var(--sans)}
+      .gr-head{display:flex;align-items:center;gap:12px}
+      .gr-av{width:38px;height:38px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:1.05rem;flex:none}
+      .gr-who{display:flex;flex-direction:column;line-height:1.25;font-size:.93rem}
+      .gr-src{font-size:.78rem;color:#5f6368}
+      .gr-g{width:20px;height:20px;margin-left:auto}
+      .gr-stars{margin-top:10px;font-size:.95rem}
+      .gr-text{margin-top:6px;font-size:.93rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+      .gr-card.open .gr-text{display:block;-webkit-line-clamp:unset;overflow:visible}
+      .gr-more{margin-top:6px;padding:0;border:0;background:none;color:#1a73e8;font:600 .86rem/1.4 Roboto,Arial,var(--sans);cursor:pointer}
+      .gr-more[hidden]{display:none}
+      /* ===== Offert ===== */
+      .offer-badge{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;background:var(--sage);color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.01em}
     </style>
 </head>
 <body>
@@ -239,16 +266,62 @@
     </header>
 
     <main>
+        <section id="situations" class="section">
+            <div class="wrap">
+                <h2>Vous vous reconnaissez&nbsp;?</h2>
+                <ul class="pains">
+                    <li><strong>Le dialogue est rompu.</strong> Chaque discussion finit en dispute, ou pire, en silence.</li>
+                    <li><strong>Vous vous sentez seul(e) à deux.</strong> Les mêmes reproches reviennent, et personne ne se sent compris.</li>
+                    <li><strong>L'intimité s'est éteinte.</strong> Moins de tendresse, moins de désir, et une distance qui s'installe.</li>
+                    <li><strong>Vous vous demandez si vous êtes encore faits pour être ensemble.</strong></li>
+                </ul>
+                <p class="pains-end">Plus on attend, plus ces habitudes s'installent. Mais ce n'est pas une fatalité&nbsp;: ça se travaille, avec la bonne aide.</p>
+                <div class="aside"><strong>Votre conjoint n'est pas prêt&nbsp;?</strong> C'est très fréquent. Vous pouvez faire l'appel découverte seul(e), puis commencer seul(e). Souvent, ce premier pas donne envie à l'autre de suivre.</div>
+            </div>
+        </section>
+
         <section id="avis" class="section">
             <div class="wrap">
-                <h2>Ce qu'ils en disent</h2>
-                <ul class="quotes">
-                    <li><figure class="quote"><blockquote>« Melissa est très à l'écoute, bienveillante et surtout ne porte aucun jugement […] Grâce à elle nous avons réussi à sauver notre couple. »</blockquote><figcaption><span class="stars" aria-label="5 étoiles">★★★★★</span>Penda, avis Google</figcaption></figure></li>
-                    <li><figure class="quote"><blockquote>« […] ses conseils très concrets nous ont permis de mieux nous comprendre, de mieux communiquer et d’aborder les conflits avec davantage de recul. »</blockquote><figcaption><span class="stars" aria-label="5 étoiles">★★★★★</span>Dsk, avis Google</figcaption></figure></li>
-                    <li><figure class="quote"><blockquote>« Excellente expérience avec Mélissa. À l'écoute et attentive, elle a l'art et la manière d'ouvrir les portes de la communication au sein du couple. Merci Mélissa ! »</blockquote><figcaption><span class="stars" aria-label="5 étoiles">★★★★★</span>Anthony M., avis Google</figcaption></figure></li>
+                <h2>Ils ont retrouvé le lien</h2>
+                <a href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener" class="gr-summary">
+                    <img src="/img/google-g.svg" alt="Google" width="28" height="28" loading="lazy">
+                    <span><strong class="gr-score">5,0</strong> <span class="stars">★★★★★</span><span class="gr-sub">26 avis sur Google</span></span>
+                    <span class="gr-cta">Voir sur Google</span>
+                </a>
+                <ul class="gr-list">
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#1a73e8">P</span><span class="gr-who"><strong>Penda</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Melissa est une superbe thérapeute de couple, que j&#x27;ai consulté sur les conseils d&#x27;une amie, très satisfaite de son approche. Melissa est très à l&#x27;écoute bienveillante et surtout ne porte aucun jugement sur votre problématique. Elle inspire la confiance et rassure. Grâce à elle nous avons réussi à sauver notre couple à un moment où je pensais que plus rien n&#x27;était possible. Merci du fond du cœur à Melissa pour tout ce qu&#x27;elle à fait pour mon mari et moi. Je la recommande vivement et surtout gardez en tête que rien n&#x27;est jamais perdu avec Melissa.</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#e8710a">L</span><span class="gr-who"><strong>Lauriane S.</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Therapeuthe a l’écoute et de bons conseils Au bord du divorce j’ai cru que mon mariage était fini J’ai accepté cette thérapie à la demande de mon mari comme étant la dernière chance de se retrouver Je ne regretterai jamais, ça a été la meilleure décision de ma vie Elle m’a ouvert les yeux, m’a fait meilleure rendre compte que l’amour était encore là mais surtout qu’on pouvait aimer différemment qu’aux débuts Merci encore Mélissa</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#188038">V</span><span class="gr-who"><strong>Valou</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Nous avons rencontré Melissa pour une thérapie de couple .On est arrivé chez elle démunie notre couple étais au point mort plus de communication verbale ,on parler que par message pour nos enfants.le couple étais oublié. On étais ensemble que pour nos enfants. Mélissa nous a aidé à réapprendre à dialogué ensemble et nous faire comprendre que les mots on plusieurs signification. Aujourd’hui nous avons les bases pour que notre couple continue sur les bases solide qu’on avez perdu. Merci à vous Mélissa vous avez sauvez mon couple à la séparation . C’est pas facile de se dévoiler quand on connaît pas une personne, il faut savoir que Melissa est là pour nous écouter et non pour nous juger. tout ce qui est dit dans son bureau, reste dans son bureau, elle est pas là pour nous rabaisser, mais pour nous donner des solutions. Maintenant ses à nous de continuer les efforts et de pas oublier il les important de ceux parler .</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#9334e6">D</span><span class="gr-who"><strong>Dsk</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Un grand merci à Mélissa pour la qualité de son accompagnement ! Son écoute, sa bienveillance et ses conseils très concrets nous ont permis de mieux nous comprendre, de mieux communiquer et d’aborder les conflits avec davantage de recul. Nous l’avons consultée dans une période compliquée de notre relation et nous nous sentons aujourd’hui beaucoup mieux armés pour avancer ensemble. Se faire accompagner pour prendre soin de son couple fait véritablement la différence. Nous la recommandons sincèrement !</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#d93025">T</span><span class="gr-who"><strong>Teyana</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Mon conjoint et moi avons fait appel à Mélissa dans une période où on avait du mal à s&#x27;écouter et à communiquer au quotidien. Elle a su nous accompagner avec bienveillance, nous donner des conseils afin réapprendre à s&#x27;écouter et nous retrouver en tant que couple et non parents. Elle n&#x27;est pas dans le jugement et est très professionnelle ! Merci encore</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
                 </ul>
-                <a href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener" class="reviews-link tlink"><img src="/img/google-g.svg" alt="" width="20" height="20" loading="lazy">Lire les 26 avis Google</a>
-                <p class="note">Extraits d'avis publiés sur la fiche Google, non modifiés (hors passages coupés […]).</p>
+                <a href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener" class="reviews-link tlink"><img src="/img/google-g.svg" alt="" width="20" height="20" loading="lazy">Lire les 26 avis sur Google</a>
+                <p class="note">Avis publiés sur la fiche Google de Melissa Boukaia, reproduits tels quels.</p>
             </div>
         </section>
 
@@ -284,8 +357,9 @@
 
         <section id="rdv" class="section">
             <div class="wrap">
-                <h2>Choisissez votre créneau</h2>
-                <p class="rdv-intro">20 minutes avec Melissa, par téléphone (elle vous appelle) ou en visio (elle vous envoie le lien). Rien à préparer.</p>
+                <p class="offer-badge">100&nbsp;% offert · 20 min · sans engagement</p>
+                <h2>Réservez votre appel découverte offert</h2>
+                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec Melissa, par téléphone (elle vous appelle) ou en visio (elle vous envoie le lien). Vous lui expliquez ce qui se passe, elle vous dit si elle peut vous aider. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
                 <div class="cal">
                     <div class="cal-loading" aria-hidden="true"><i></i>Chargement des créneaux…</div>
                     <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
@@ -369,6 +443,21 @@
         }
         document.getElementById('cookie-accept').addEventListener('click', function () { choose('granted'); });
         document.getElementById('cookie-refuse').addEventListener('click', function () { choose('denied'); });
+      })();
+    </script>
+
+    <script>
+      // Avis : bouton « Voir plus » seulement si le texte est coupé
+      (function () {
+        document.querySelectorAll('.gr-card').forEach(function (c) {
+          var t = c.querySelector('.gr-text'), b = c.querySelector('.gr-more');
+          if (t.scrollHeight <= t.clientHeight + 2) { b.hidden = true; return; }
+          b.addEventListener('click', function () {
+            var o = c.classList.toggle('open');
+            b.textContent = o ? 'Voir moins' : 'Voir plus';
+            b.setAttribute('aria-expanded', o ? 'true' : 'false');
+          });
+        });
       })();
     </script>
 </body>
