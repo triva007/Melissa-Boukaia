@@ -57,7 +57,23 @@
       "destination": "/mentions-legales.html"
     },
     {
-      "source": "/((?!assets|img|sitemap.xml|robots.txt|therapeute-couple-saint-cloud.html|therapeute-couple-nanterre.html|therapeute-couple-suresnes.html|therapeute-couple-chatou-croissy.html|rendez-vous-therapie-couple.html|mentions-legales.html).*)",
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/blog/:slug/",
+      "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/((?!assets|img|sitemap.xml|robots.txt|llms.txt|blog|therapeute-couple-saint-cloud.html|therapeute-couple-nanterre.html|therapeute-couple-suresnes.html|therapeute-couple-chatou-croissy.html|rendez-vous-therapie-couple.html|mentions-legales.html).*)",
       "destination": "/index.html"
     }
   ],
@@ -87,6 +103,19 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.xn--bullesdepenses-mkb.fr"
+        }
+      ],
+      "destination": "https://xn--bullesdepenses-mkb.fr/:path*",
+      "permanent": true
     }
   ]
 }
