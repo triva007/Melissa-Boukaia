@@ -37,6 +37,8 @@
         ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied',
         wait_for_update: 500
       });
+      // Garde la trace du clic sur l'annonce même si le visiteur ne choisit pas les cookies (mesure des RDV plus complète)
+      gtag('set', 'url_passthrough', true);
       if (savedConsent === 'granted') {
         gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied', analytics_storage: 'granted' });
       }
