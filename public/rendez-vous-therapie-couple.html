@@ -282,6 +282,37 @@
             </div>
         </section>
 
+        <section id="rdv" class="section">
+            <div class="wrap">
+                <p class="offer-badge">100&nbsp;% offert · 20 min · sans engagement</p>
+                <h2>Réservez votre appel découverte offert</h2>
+                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec Melissa, par téléphone (elle vous appelle) ou en visio (lien Google Meet envoyé automatiquement). Vous lui expliquez ce qui se passe, elle vous dit si elle peut vous aider. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
+                <div class="cal">
+                    <div class="cal-loading" aria-hidden="true"><i></i>Chargement des créneaux…</div>
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
+                    <script>
+                      // Transmet la source de la visite (annonce Google) à Calendly, pour savoir quels RDV viennent des pubs
+                      (function () {
+                        try {
+                          var q = new URLSearchParams(location.search), w = document.querySelector('.calendly-inline-widget');
+                          if (!w) return;
+                          var u = new URL(w.getAttribute('data-url'));
+                          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+                          if (!q.get('utm_source') && (q.get('gclid') || q.get('gbraid') || q.get('wbraid'))) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
+                          w.setAttribute('data-url', u.toString());
+                        } catch (e) {}
+                      })();
+                    </script>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                </div>
+                <p class="after">Déjà décidé(e)&nbsp;? <a href="https://www.resalib.fr/agenda/81063" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="tlink">Réservez directement le bilan de 1h30 sur Resalib</a></p>
+                <div class="after">
+                    <p>Aucun créneau ne vous convient&nbsp;?</p>
+                    <a href="https://wa.me/33607354124?text=Bonjour%20Melissa%2C%20je%20souhaiterais%20prendre%20rendez-vous%20pour%20une%20th%C3%A9rapie%20de%20couple." target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="wa"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Écrire à Melissa sur WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
         <section id="avis" class="section">
             <div class="wrap">
                 <h2>Ils ont retrouvé le lien</h2>
@@ -354,37 +385,6 @@
                     <li><div><h3>Bilan <span>· 1h30</span></h3><p>Au cabinet ou en visio, on fait le point ensemble.</p></div></li>
                     <li><div><h3>Séances de suivi <span>· 1h</span></h3><p>Des outils concrets pour mieux communiquer.</p></div></li>
                 </ol>
-            </div>
-        </section>
-
-        <section id="rdv" class="section">
-            <div class="wrap">
-                <p class="offer-badge">100&nbsp;% offert · 20 min · sans engagement</p>
-                <h2>Réservez votre appel découverte offert</h2>
-                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec Melissa, par téléphone (elle vous appelle) ou en visio (lien Google Meet envoyé automatiquement). Vous lui expliquez ce qui se passe, elle vous dit si elle peut vous aider. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
-                <div class="cal">
-                    <div class="cal-loading" aria-hidden="true"><i></i>Chargement des créneaux…</div>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
-                    <script>
-                      // Transmet la source de la visite (annonce Google) à Calendly, pour savoir quels RDV viennent des pubs
-                      (function () {
-                        try {
-                          var q = new URLSearchParams(location.search), w = document.querySelector('.calendly-inline-widget');
-                          if (!w) return;
-                          var u = new URL(w.getAttribute('data-url'));
-                          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
-                          if (!q.get('utm_source') && (q.get('gclid') || q.get('gbraid') || q.get('wbraid'))) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
-                          w.setAttribute('data-url', u.toString());
-                        } catch (e) {}
-                      })();
-                    </script>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                </div>
-                <p class="after">Déjà décidé(e)&nbsp;? <a href="https://www.resalib.fr/agenda/81063" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="tlink">Réservez directement le bilan de 1h30 sur Resalib</a></p>
-                <div class="after">
-                    <p>Aucun créneau ne vous convient&nbsp;?</p>
-                    <a href="https://wa.me/33607354124?text=Bonjour%20Melissa%2C%20je%20souhaiterais%20prendre%20rendez-vous%20pour%20une%20th%C3%A9rapie%20de%20couple." target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="wa"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Écrire à Melissa sur WhatsApp</a>
-                </div>
             </div>
         </section>
 
