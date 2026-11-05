@@ -257,44 +257,153 @@
       .saying cite{display:block;margin-top:8px;font-family:var(--sans);font-style:normal;font-size:.86rem;color:var(--muted)}
       .access{margin-top:18px;color:var(--muted);font-size:.97rem}
       .offer-badge{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;background:var(--sage);color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.01em}
+
+      /* ===== V2 : design repris de la page d'accueil ===== */
+      .pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-deep)}
+      .pill svg{width:14px;height:14px;color:var(--sage);flex-shrink:0}
+      .hero-v2{max-width:var(--wrap);margin:0 auto;padding:28px var(--gutter) 40px;text-align:center}
+      .hero-v2 h1{margin-top:18px;font-family:var(--serif);font-weight:500;font-size:2.2rem;line-height:1.12;letter-spacing:-.015em}
+      .hero-v2 h1 em{display:block;color:var(--sage);font-style:italic}
+      .hero-v2 .lede{margin-top:12px;font-size:1.06rem;color:var(--muted)}
+      .who{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px;text-align:left}
+      .who .arch{width:104px;height:132px;object-fit:cover;object-position:center 14%;border-radius:52px 52px 14px 14px;box-shadow:0 14px 30px -18px rgba(25,46,51,.45);flex-shrink:0}
+      .who .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:0 10px 24px -18px rgba(25,46,51,.35)}
+      .who .name{font-family:var(--serif);font-size:1.12rem;line-height:1.25}
+      .who .role{font-size:.8rem;color:var(--muted);line-height:1.35}
+      .who .rating{margin-top:6px}
+      .hero-v2 .btn{margin-top:24px}
+      .hero-v2 .fine{margin-top:12px}
+      .ico{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;flex-shrink:0}
+      .ico svg{width:19px;height:19px}
+
+      /* Bande couleur « Vous vous reconnaissez ? » */
+      .band{background:var(--sage);color:#fff;padding:56px 0 60px}
+      .band h2{color:#fff;text-align:center;margin-bottom:10px}
+      .band .sub{text-align:center;color:rgba(255,255,255,.88);margin-bottom:26px}
+      .pcards{display:grid;gap:12px}
+      .pcard{display:flex;align-items:flex-start;gap:14px;padding:16px 16px;border-radius:16px;background:rgba(25,46,51,.14);border:1px solid rgba(255,255,255,.14);font-size:.98rem;line-height:1.5}
+      .pcard .ico{background:rgba(255,255,255,.16);color:#fff}
+      .band .aside{margin-top:18px;background:rgba(255,255,255,.95);color:var(--sage-deep);border:0}
+      .band .btn-light{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;margin-top:22px;padding:14px 24px;border-radius:999px;background:#fff;color:var(--sage-deep);font-weight:600;text-decoration:none}
+      .band .btn-light svg{width:18px;height:18px}
+      .band .tiny{margin-top:10px;text-align:center;font-size:.8rem;color:rgba(255,255,255,.8)}
+
+      /* Réservation */
+      .mini-steps{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;margin:0 0 18px;font-size:.84rem;color:var(--muted)}
+      .mini-steps b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:4px;border-radius:50%;background:var(--sage);color:#fff;font-size:.74rem}
+      .mini-steps i{font-style:normal;color:var(--sage-mist)}
+
+      /* Cartes approche */
+      .kicker{display:block;margin-bottom:10px;text-align:center;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+      .center{text-align:center}
+      .acards{display:grid;gap:14px}
+      .acard{padding:24px 20px;border-radius:18px;background:var(--paper);border:1px solid var(--line);text-align:center}
+      .acard .ico{margin:0 auto 12px;width:48px;height:48px;background:#fff;border:1px solid var(--line);color:var(--sage)}
+      .acard h3{font-family:var(--serif);font-weight:500;font-size:1.2rem}
+      .acard p{margin-top:6px;color:var(--muted);font-size:.96rem}
+      .quotebox{margin-top:18px;padding:22px 22px;border-radius:18px;background:#eef6f6;border:1px solid rgba(74,122,133,.16);font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.55;text-align:center}
+      .quotebox cite{display:block;margin-top:10px;font-family:var(--sans);font-style:normal;font-size:.84rem;color:var(--muted)}
+
+      /* Étapes en cartes */
+      .tint{background:#eef6f6}
+      .scards{display:grid;gap:14px}
+      .scard{padding:22px 20px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+      .scard .num{font-family:var(--serif);font-size:2.2rem;line-height:1;color:#c9e2e5}
+      .scard h3{margin-top:8px;font-family:var(--serif);font-weight:500;font-size:1.2rem}
+      .scard p{margin-top:4px;color:var(--muted);font-size:.96rem}
+      .scard p strong{color:var(--sage-deep)}
+      .tint .btn{margin-top:22px}
+
+      /* Cabinet */
+      .photos{display:grid;gap:12px;margin-top:22px}
+      .photo{position:relative;margin:0}
+      .photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+      .photo figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.78rem;font-weight:600;color:var(--sage-deep)}
+      .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px}
+      .chips span{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.86rem}
+      .chips svg{width:15px;height:15px;color:var(--sage)}
+      .towns{margin-top:18px;text-align:center;color:var(--muted);font-size:.97rem}
+      .towns strong{color:var(--sage-deep)}
+      .visio{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:16px 18px;border-radius:16px;background:#eef6f6;font-size:.95rem;color:var(--muted)}
+      .visio .ico{background:#fff;color:var(--sage)}
+
+      /* FAQ en cartes */
+      .cal-loading{pointer-events:auto}
+      .cal-help{display:block;max-width:260px;text-align:center;font-size:.84rem}
+      .cal-help a{color:var(--sage-deep);font-weight:600}
+      .faq details{border:1px solid var(--line)!important;border-radius:16px;background:#fff;padding:0 18px;margin-bottom:10px}
+      .faq summary{padding:17px 0}
+
+      /* Bande finale */
+      .final{background:var(--sage-deep);color:#fff;padding:60px 0 64px;text-align:center}
+      .final h2{color:#fff;margin-bottom:10px}
+      .final h2 em{display:block;color:#8cc3cc}
+      .final p{color:rgba(255,255,255,.82)}
+      .final .btn-light{display:inline-flex;align-items:center;justify-content:center;min-height:56px;margin-top:24px;padding:14px 28px;border-radius:999px;background:#fff;color:var(--sage-deep);font-weight:600;text-decoration:none}
+      .final .tiny{margin-top:10px;font-size:.8rem;color:rgba(255,255,255,.7)}
+      @media (min-width:760px){
+        .hero-v2{padding:80px var(--gutter) 72px}
+        .hero-v2 h1{font-size:2.8rem}
+        .acards,.scards,.photos{grid-template-columns:repeat(3,1fr)}
+        .photos{grid-template-columns:1fr 1fr}
+        .pcards{grid-template-columns:1fr 1fr}
+        .band{padding:84px 0}
+      }
     </style>
 </head>
 <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7 7 17M7 7l10 10"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+        <symbol id="i-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.4M12 17h.01"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+        <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4z"/></symbol>
+      </defs>
+    </svg>
 
-    <header class="hero">
-        <h1>Thérapie de couple à&nbsp;Rueil-Malmaison</h1>
-        <p class="lede">Au cabinet ou en visio, sans jugement.</p>
-        <img src="/img/melissa.jpg" alt="Melissa Boukaia, thérapeute de couple à Rueil-Malmaison" class="portrait" width="518" height="800" fetchpriority="high">
-        <div class="meta">
-            <p class="meta-name">Melissa Boukaia</p>
-            <a href="#avis" class="rating"><img src="/img/google-g.svg" alt="Google" width="18" height="18"><span class="stars" aria-hidden="true">★★★★★</span><span class="count"><strong>5,0</strong> · 26 avis Google</span></a>
+    <header class="hero-v2">
+        <span class="pill"><svg aria-hidden="true"><use href="#i-pin"/></svg>Rueil-Malmaison (92) · proche&nbsp;Saint&#8209;Cloud · visio</span>
+        <h1>Thérapie de couple&nbsp;à <em>Rueil-Malmaison</em></h1>
+        <p class="lede">Retrouvez un dialogue apaisé, au cabinet ou en visio, sans jugement.</p>
+        <div class="who">
+            <img src="/img/melissa.jpg" alt="Melissa Boukaia, thérapeute de couple à Rueil-Malmaison" class="arch" width="518" height="800" fetchpriority="high">
+            <div class="card">
+                <p class="name">Melissa Boukaia</p>
+                <p class="role">Thérapeute de couple et sexothérapeute<br>Maître praticienne certifiée en sexothérapie</p>
+                <a href="#avis" class="rating"><img src="/img/google-g.svg" alt="Google" width="18" height="18"><span class="stars" aria-hidden="true">★★★★★</span><span class="count"><strong>5,0</strong> · 26 avis Google</span></a>
+            </div>
         </div>
         <a id="hero-cta" href="#rdv" class="btn">Réserver mon appel offert de 20 min</a>
         <p class="fine"><span>Gratuit · sans engagement&nbsp;· par téléphone ou en visio</span><span>ou appelez-moi au <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone>06 07 35 41 24</a></span></p>
     </header>
 
     <main>
-        <section id="situations" class="section">
+        <section id="situations" class="band">
             <div class="wrap">
                 <h2>Vous vous reconnaissez&nbsp;?</h2>
-                <ul class="pains">
-                    <li><strong>Le dialogue est rompu.</strong> Chaque discussion finit en dispute, ou pire, en silence.</li>
-                    <li><strong>Vous vous sentez seul(e) à deux.</strong> Les mêmes reproches reviennent, et personne ne se sent compris.</li>
-                    <li><strong>L'intimité s'est éteinte.</strong> Moins de tendresse, moins de désir, et une distance qui s'installe.</li>
-                    <li><strong>Vous vous demandez si vous êtes encore faits pour être ensemble.</strong></li>
+                <p class="sub">Ne restez pas seul(e) face à l'impasse.</p>
+                <ul class="pcards">
+                    <li class="pcard"><span class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span><strong>Le dialogue est rompu.</strong> Chaque discussion finit en dispute, ou en silence.</span></li>
+                    <li class="pcard"><span class="ico"><svg aria-hidden="true"><use href="#i-x"/></svg></span><span><strong>Vous vous sentez seul(e) à deux.</strong> Côte à côte, mais plus vraiment ensemble.</span></li>
+                    <li class="pcard"><span class="ico"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><span><strong>L'intimité s'est éteinte.</strong> Moins de tendresse, plus de distance.</span></li>
+                    <li class="pcard"><span class="ico"><svg aria-hidden="true"><use href="#i-question"/></svg></span><span><strong>Vous vous demandez si vous êtes encore faits pour être ensemble.</strong></span></li>
                 </ul>
-                <p class="pains-end">Ce n'est pas une fatalité&nbsp;: ça se travaille, à votre rythme, avec la bonne aide.</p>
-                <div class="aside"><strong>Votre conjoint n'est pas prêt&nbsp;?</strong> C'est très fréquent. Vous pouvez faire l'appel découverte seul(e), puis commencer seul(e). Souvent, ce premier pas donne envie à l'autre de suivre.</div>
+                <div class="aside"><strong>Votre conjoint n'est pas prêt&nbsp;?</strong> C'est fréquent. Vous pouvez commencer seul(e)&nbsp;: souvent, l'autre suit ensuite.</div>
             </div>
         </section>
 
         <section id="rdv" class="section">
             <div class="wrap">
-                <p class="offer-badge">100&nbsp;% offert · 20 min · sans engagement</p>
+                <p class="offer-badge">Offert · 20 min · sans engagement</p>
                 <h2>Réservez votre appel découverte offert</h2>
-                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec moi, par téléphone (je vous appelle) ou en visio (lien Google Meet envoyé automatiquement). Vous m'expliquez ce que vous vivez, je vous écoute et je vous dis comment je peux vous accompagner. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
+                <p class="mini-steps"><span><b>1</b>Appel offert</span><i>→</i><span><b>2</b>Bilan 1h30</span><i>→</i><span><b>3</b>Suivi</span></p>
+                <p class="rdv-intro">20 minutes avec moi, par téléphone (je vous appelle) ou en visio. Vous m'expliquez ce que vous vivez, je vous dis comment je peux vous accompagner. <strong>Vous ne payez rien et ne vous engagez à rien.</strong></p>
                 <div class="cal">
-                    <div class="cal-loading" aria-hidden="true"><i></i>Chargement des créneaux…</div>
+                    <div class="cal-loading" aria-hidden="true"><i></i>Les créneaux arrivent…<span class="cal-help">Rien ne s'affiche&nbsp;? Appelez-moi au <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone>06 07 35 41 24</a></span></div>
                     <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
                     <script>
                       // Transmet la source de la visite (annonce Google) à Calendly, pour savoir quels RDV viennent des pubs
@@ -324,13 +433,14 @@
 
         <section id="approche" class="section">
             <div class="wrap">
-                <h2>Mon approche&nbsp;: concrète et bienveillante</h2>
-                <ul class="pillars">
-                    <li><strong>Mieux communiquer.</strong> Retrouver un dialogue apaisé, sans cris ni reproches.</li>
-                    <li><strong>Restaurer l'intimité.</strong> Dépasser les blocages et retrouver la complicité.</li>
-                    <li><strong>Des outils concrets.</strong> Pour sortir des conflits qui se répètent et renforcer votre relation.</li>
-                </ul>
-                <blockquote class="saying">«&nbsp;Mon rôle est de ne pas juger, mais de vous donner toutes les clés dont vous avez besoin. Je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau.&nbsp;»<cite>Melissa</cite></blockquote>
+                <span class="kicker">Mon approche</span>
+                <h2 class="center">Une thérapie concrète et bienveillante</h2>
+                <div class="acards">
+                    <div class="acard"><span class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><h3>Mieux communiquer</h3><p>Retrouver un dialogue apaisé et constructif, sans cris ni reproches.</p></div>
+                    <div class="acard"><span class="ico"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><h3>Restaurer l'intimité</h3><p>Recréer une connexion profonde, dépasser les blocages et retrouver la complicité.</p></div>
+                    <div class="acard"><span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span><h3>Outils concrets</h3><p>Des moyens concrets pour sortir des conflits répétitifs et renforcer votre relation.</p></div>
+                </div>
+                <blockquote class="quotebox">«&nbsp;Mon rôle est de ne pas juger, mais de vous donner toutes les clés dont vous avez besoin. Je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau.&nbsp;»<cite>Melissa</cite></blockquote>
             </div>
         </section>
 
@@ -349,18 +459,6 @@
                         <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
                     </li>
                     <li class="gr-card">
-                        <div class="gr-head"><span class="gr-av" style="background:#e8710a">L</span><span class="gr-who"><strong>Lauriane S.</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
-                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p class="gr-text">Therapeuthe a l’écoute et de bons conseils Au bord du divorce j’ai cru que mon mariage était fini J’ai accepté cette thérapie à la demande de mon mari comme étant la dernière chance de se retrouver Je ne regretterai jamais, ça a été la meilleure décision de ma vie Elle m’a ouvert les yeux, m’a fait meilleure rendre compte que l’amour était encore là mais surtout qu’on pouvait aimer différemment qu’aux débuts Merci encore Mélissa</p>
-                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
-                    </li>
-                    <li class="gr-card">
-                        <div class="gr-head"><span class="gr-av" style="background:#188038">V</span><span class="gr-who"><strong>Valou</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
-                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p class="gr-text">Nous avons rencontré Melissa pour une thérapie de couple .On est arrivé chez elle démunie notre couple étais au point mort plus de communication verbale ,on parler que par message pour nos enfants.le couple étais oublié. On étais ensemble que pour nos enfants. Mélissa nous a aidé à réapprendre à dialogué ensemble et nous faire comprendre que les mots on plusieurs signification. Aujourd’hui nous avons les bases pour que notre couple continue sur les bases solide qu’on avez perdu. Merci à vous Mélissa vous avez sauvez mon couple à la séparation . C’est pas facile de se dévoiler quand on connaît pas une personne, il faut savoir que Melissa est là pour nous écouter et non pour nous juger. tout ce qui est dit dans son bureau, reste dans son bureau, elle est pas là pour nous rabaisser, mais pour nous donner des solutions. Maintenant ses à nous de continuer les efforts et de pas oublier il les important de ceux parler .</p>
-                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
-                    </li>
-                    <li class="gr-card">
                         <div class="gr-head"><span class="gr-av" style="background:#9334e6">D</span><span class="gr-who"><strong>Dsk</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
                         <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
                         <p class="gr-text">Un grand merci à Mélissa pour la qualité de son accompagnement ! Son écoute, sa bienveillance et ses conseils très concrets nous ont permis de mieux nous comprendre, de mieux communiquer et d’aborder les conflits avec davantage de recul. Nous l’avons consultée dans une période compliquée de notre relation et nous nous sentons aujourd’hui beaucoup mieux armés pour avancer ensemble. Se faire accompagner pour prendre soin de son couple fait véritablement la différence. Nous la recommandons sincèrement !</p>
@@ -372,9 +470,32 @@
                         <p class="gr-text">Mon conjoint et moi avons fait appel à Mélissa dans une période où on avait du mal à s&#x27;écouter et à communiquer au quotidien. Elle a su nous accompagner avec bienveillance, nous donner des conseils afin réapprendre à s&#x27;écouter et nous retrouver en tant que couple et non parents. Elle n&#x27;est pas dans le jugement et est très professionnelle ! Merci encore</p>
                         <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
                     </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#188038">V</span><span class="gr-who"><strong>Valou</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Nous avons rencontré Melissa pour une thérapie de couple .On est arrivé chez elle démunie notre couple étais au point mort plus de communication verbale ,on parler que par message pour nos enfants.le couple étais oublié. On étais ensemble que pour nos enfants. Mélissa nous a aidé à réapprendre à dialogué ensemble et nous faire comprendre que les mots on plusieurs signification. Aujourd’hui nous avons les bases pour que notre couple continue sur les bases solide qu’on avez perdu. Merci à vous Mélissa vous avez sauvez mon couple à la séparation . C’est pas facile de se dévoiler quand on connaît pas une personne, il faut savoir que Melissa est là pour nous écouter et non pour nous juger. tout ce qui est dit dans son bureau, reste dans son bureau, elle est pas là pour nous rabaisser, mais pour nous donner des solutions. Maintenant ses à nous de continuer les efforts et de pas oublier il les important de ceux parler .</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
+                    <li class="gr-card">
+                        <div class="gr-head"><span class="gr-av" style="background:#e8710a">L</span><span class="gr-who"><strong>Lauriane S.</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
+                        <div class="gr-stars stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="gr-text">Therapeuthe a l’écoute et de bons conseils Au bord du divorce j’ai cru que mon mariage était fini J’ai accepté cette thérapie à la demande de mon mari comme étant la dernière chance de se retrouver Je ne regretterai jamais, ça a été la meilleure décision de ma vie Elle m’a ouvert les yeux, m’a fait meilleure rendre compte que l’amour était encore là mais surtout qu’on pouvait aimer différemment qu’aux débuts Merci encore Mélissa</p>
+                        <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
+                    </li>
                 </ul>
                 <p class="note">Avis publiés sur la fiche Google de Melissa Boukaia, reproduits tels quels.</p>
-                <p class="back"><a href="#rdv" class="tlink">Réserver mon appel offert ↑</a></p>
+            </div>
+        </section>
+
+        <section id="deroule" class="section tint">
+            <div class="wrap">
+                <h2 class="center">Comment ça se passe&nbsp;?</h2>
+                <div class="scards">
+                    <div class="scard"><span class="num">01</span><h3>L'appel découverte</h3><p><strong>20 min, offert</strong>, par téléphone ou en visio. On fait connaissance, sans engagement.</p></div>
+                    <div class="scard"><span class="num">02</span><h3>Le bilan</h3><p>Une séance d'<strong>1h30</strong>, au cabinet ou en visio, pour comprendre ce qui coince dans votre couple et fixer vos objectifs.</p></div>
+                    <div class="scard"><span class="num">03</span><h3>Le suivi</h3><p>Des séances d'<strong>1h</strong> pour ancrer le changement, avec des outils concrets.</p></div>
+                </div>
+                <a href="#rdv" class="btn">Réserver mon appel offert</a>
             </div>
         </section>
 
@@ -390,35 +511,34 @@
                     <li>Praticienne PNL</li>
                     <li>Sophrologue</li>
                 </ul>
-                <figure class="place">
-                    <img src="/img/cabinet-bureau.jpg" alt="Le bureau du cabinet de Melissa à Rueil-Malmaison" width="680" height="510" loading="lazy">
-                    <figcaption>Le cabinet, 16 bis avenue de Buzenval, <span class="nowrap">Rueil-Malmaison</span></figcaption>
-                </figure>
-                <p class="access">Accessible en RER A (station Rueil-Malmaison) ou en bus, tout près de Saint-Cloud, Nanterre, Suresnes, Garches, Vaucresson et Chatou. Vous préférez rester chez vous&nbsp;? La visio est possible.</p>
-            </div>
-        </section>
-
-        <section id="deroule" class="section">
-            <div class="wrap">
-                <h2>Comment ça se passe</h2>
-                <ol class="steps">
-                    <li><div><h3>Appel découverte <span>· 20 min, offert</span></h3><p>On fait connaissance, sans engagement. Je vous dis comment je peux vous aider.</p></div></li>
-                    <li><div><h3>Bilan <span>· 1h30</span></h3><p>Au cabinet ou en visio, on comprend ensemble ce qui coince dans votre couple et on fixe vos objectifs.</p></div></li>
-                    <li><div><h3>Séances de suivi <span>· 1h</span></h3><p>Des outils concrets pour mieux communiquer et ancrer le changement.</p></div></li>
-                </ol>
+                <div class="photos">
+                    <figure class="photo"><img src="/img/cabinet-rueil.jpg" alt="Le coin salon du cabinet de Melissa à Rueil-Malmaison" width="680" height="510" loading="lazy"><figcaption>Un espace chaleureux</figcaption></figure>
+                    <figure class="photo"><img src="/img/cabinet-bureau.jpg" alt="Le bureau du cabinet de Melissa à Rueil-Malmaison" width="680" height="510" loading="lazy"><figcaption>Propice à l'échange</figcaption></figure>
+                </div>
+                <p class="towns">Le cabinet est au <strong>16 bis avenue de Buzenval, Rueil-Malmaison</strong>, accessible en RER A (station Rueil-Malmaison) ou en bus. Tout près de <strong>Saint-Cloud, Nanterre, Suresnes, Garches, Vaucresson, Chatou et Croissy</strong>.</p>
+                <div class="visio"><span class="ico"><svg aria-hidden="true"><use href="#i-video"/></svg></span><span>Vous habitez plus loin ou préférez rester chez vous&nbsp;? <strong>La visio est aussi possible.</strong></span></div>
             </div>
         </section>
 
         <section class="section faq" aria-labelledby="faq-titre">
             <div class="wrap">
-                <h2 id="faq-titre">Questions fréquentes</h2>
+                <h2 id="faq-titre" class="center">Questions fréquentes</h2>
                 <details><summary>L'appel gratuit m'engage-t-il à commencer&nbsp;?</summary><p>Non, pas du tout. C'est un premier contact pour poser vos questions, me découvrir et voir si vous vous sentez en confiance. La décision de commencer vous appartient entièrement.</p></details>
+                <details><summary>Est-ce que ça peut aggraver les choses&nbsp;?</summary><p>Non. Le but n'est pas de chercher un coupable, mais de comprendre ensemble ce qui coince. Vous avancez à votre rythme.</p></details>
                 <details><summary>Combien ça coûte&nbsp;?</summary><p>L'appel de 20 minutes est offert. Si vous continuez&nbsp;: le bilan de 1h30 est à 135 €, puis les séances d'une heure à 85 €. En moyenne 3 séances au total, bilan compris.</p></details>
                 <details><summary>Et si mon conjoint n'est pas prêt&nbsp;?</summary><p>C'est très fréquent. Vous pouvez faire l'appel découverte et commencer seul(e). Souvent, ce premier pas donne envie à l'autre de suivre.</p></details>
                 <details><summary>Au cabinet ou en visio&nbsp;?</summary><p>Les deux, au choix&nbsp;: au cabinet à Rueil-Malmaison ou en visio, depuis chez vous.</p></details>
                 <details><summary>Comment venir au cabinet&nbsp;?</summary><p>Le cabinet est au 16 bis avenue de Buzenval, à Rueil-Malmaison. Depuis La Défense ou Nanterre, vous venez rapidement en RER A (station Rueil-Malmaison) ou en bus.</p></details>
                 <details><summary>Est-ce confidentiel&nbsp;?</summary><p>Oui. Ce que vous me confiez reste entre nous. Vous pouvez parler librement, sans crainte d'être jugé(e).</p></details>
-                <p class="back"><a href="#rdv" class="tlink">Réserver mon appel offert ↑</a></p>
+            </div>
+        </section>
+
+        <section class="final">
+            <div class="wrap">
+                <h2>Le premier pas, <em>c'est un simple appel</em></h2>
+                <p>20 minutes offertes pour faire connaissance et voir comment je peux vous aider.</p>
+                <a href="#rdv" class="btn-light">Réserver mon appel offert</a>
+                <p class="tiny">Gratuit · sans engagement · par téléphone ou en visio</p>
             </div>
         </section>
     </main>
