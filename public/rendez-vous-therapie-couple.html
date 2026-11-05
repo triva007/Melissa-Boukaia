@@ -172,7 +172,7 @@
       #rdv{background:var(--paper)}
       #rdv h2{margin-bottom:10px}
       .rdv-intro{color:var(--muted);margin-bottom:26px}
-      .cal{position:relative;min-height:1050px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+      .cal{position:relative;min-height:640px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
       .cal .calendly-inline-widget{position:relative;z-index:1}
       .cal .calendly-spinner{display:none!important}
       .cal-loading{position:absolute;z-index:0;left:0;right:0;top:110px;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.94rem;color:var(--muted);pointer-events:none}
@@ -250,6 +250,12 @@
       .gr-more{margin-top:6px;padding:0;border:0;background:none;color:#1a73e8;font:600 .86rem/1.4 Roboto,Arial,var(--sans);cursor:pointer}
       .gr-more[hidden]{display:none}
       /* ===== Offert ===== */
+      /* ===== Approche ===== */
+      .pillars li{padding:12px 0;border-top:1px solid var(--line)}
+      .pillars li:first-child{border-top:0;padding-top:0}
+      .saying{margin-top:24px;padding-left:18px;border-left:2px solid var(--sage-mist);font-family:var(--serif);font-size:1.15rem;line-height:1.5}
+      .saying cite{display:block;margin-top:8px;font-family:var(--sans);font-style:normal;font-size:.86rem;color:var(--muted)}
+      .access{margin-top:18px;color:var(--muted);font-size:.97rem}
       .offer-badge{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;background:var(--sage);color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.01em}
     </style>
 </head>
@@ -264,7 +270,7 @@
             <a href="#avis" class="rating"><img src="/img/google-g.svg" alt="Google" width="18" height="18"><span class="stars" aria-hidden="true">★★★★★</span><span class="count"><strong>5,0</strong> · 26 avis Google</span></a>
         </div>
         <a id="hero-cta" href="#rdv" class="btn">Réserver mon appel offert de 20 min</a>
-        <p class="fine"><span>Gratuit · sans engagement&nbsp;· par téléphone ou en visio</span><span>ou appelez le <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone>06 07 35 41 24</a></span></p>
+        <p class="fine"><span>Gratuit · sans engagement&nbsp;· par téléphone ou en visio</span><span>ou appelez-moi au <a href="tel:+33607354124" data-track="LABEL_CLIC_TEL" data-phone>06 07 35 41 24</a></span></p>
     </header>
 
     <main>
@@ -277,7 +283,7 @@
                     <li><strong>L'intimité s'est éteinte.</strong> Moins de tendresse, moins de désir, et une distance qui s'installe.</li>
                     <li><strong>Vous vous demandez si vous êtes encore faits pour être ensemble.</strong></li>
                 </ul>
-                <p class="pains-end">Plus on attend, plus ces habitudes s'installent. Mais ce n'est pas une fatalité&nbsp;: ça se travaille, avec la bonne aide.</p>
+                <p class="pains-end">Ce n'est pas une fatalité&nbsp;: ça se travaille, à votre rythme, avec la bonne aide.</p>
                 <div class="aside"><strong>Votre conjoint n'est pas prêt&nbsp;?</strong> C'est très fréquent. Vous pouvez faire l'appel découverte seul(e), puis commencer seul(e). Souvent, ce premier pas donne envie à l'autre de suivre.</div>
             </div>
         </section>
@@ -286,7 +292,7 @@
             <div class="wrap">
                 <p class="offer-badge">100&nbsp;% offert · 20 min · sans engagement</p>
                 <h2>Réservez votre appel découverte offert</h2>
-                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec Melissa, par téléphone (elle vous appelle) ou en visio (lien Google Meet envoyé automatiquement). Vous lui expliquez ce qui se passe, elle vous dit si elle peut vous aider. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
+                <p class="rdv-intro">Un premier échange <strong>gratuit</strong> de 20 minutes avec moi, par téléphone (je vous appelle) ou en visio (lien Google Meet envoyé automatiquement). Vous m'expliquez ce que vous vivez, je vous écoute et je vous dis comment je peux vous accompagner. <strong>Vous ne payez rien et vous ne vous engagez à rien.</strong></p>
                 <div class="cal">
                     <div class="cal-loading" aria-hidden="true"><i></i>Chargement des créneaux…</div>
                     <div class="calendly-inline-widget" data-url="https://calendly.com/melissaboukaia/appel15min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" data-resize="true" style="min-width:280px;height:1050px;"></div>
@@ -298,7 +304,10 @@
                           if (!w) return;
                           var u = new URL(w.getAttribute('data-url'));
                           ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
-                          if (!q.get('utm_source') && (q.get('gclid') || q.get('gbraid') || q.get('wbraid'))) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
+                          var clickId = q.get('gclid') || q.get('gbraid') || q.get('wbraid');
+                          if (!q.get('utm_source') && clickId) { u.searchParams.set('utm_source', 'google'); u.searchParams.set('utm_medium', 'cpc'); }
+                          // Identifiant du clic Google gardé dans la fiche Calendly : permet de rattacher chaque RDV à son clic (import dans Google Ads)
+                          if (clickId && !q.get('utm_content')) u.searchParams.set('utm_content', clickId.slice(0, 250));
                           w.setAttribute('data-url', u.toString());
                         } catch (e) {}
                       })();
@@ -308,19 +317,30 @@
                 <p class="after">Déjà décidé(e)&nbsp;? <a href="https://www.resalib.fr/agenda/81063" target="_blank" rel="noopener" data-track="LABEL_CLIC_RESALIB" class="tlink">Réservez directement le bilan de 1h30 sur Resalib</a></p>
                 <div class="after">
                     <p>Aucun créneau ne vous convient&nbsp;?</p>
-                    <a href="https://wa.me/33607354124?text=Bonjour%20Melissa%2C%20je%20souhaiterais%20prendre%20rendez-vous%20pour%20une%20th%C3%A9rapie%20de%20couple." target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="wa"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Écrire à Melissa sur WhatsApp</a>
+                    <a href="https://wa.me/33607354124?text=Bonjour%20Melissa%2C%20je%20souhaiterais%20prendre%20rendez-vous%20pour%20une%20th%C3%A9rapie%20de%20couple." target="_blank" rel="noopener" data-track="LABEL_CLIC_WHATSAPP" class="wa"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>M'écrire sur WhatsApp</a>
                 </div>
+            </div>
+        </section>
+
+        <section id="approche" class="section">
+            <div class="wrap">
+                <h2>Mon approche&nbsp;: concrète et bienveillante</h2>
+                <ul class="pillars">
+                    <li><strong>Mieux communiquer.</strong> Retrouver un dialogue apaisé, sans cris ni reproches.</li>
+                    <li><strong>Restaurer l'intimité.</strong> Dépasser les blocages et retrouver la complicité.</li>
+                    <li><strong>Des outils concrets.</strong> Pour sortir des conflits qui se répètent et renforcer votre relation.</li>
+                </ul>
+                <blockquote class="saying">«&nbsp;Mon rôle est de ne pas juger, mais de vous donner toutes les clés dont vous avez besoin. Je vous donne tous les ingrédients, et c'est à vous de faire votre gâteau.&nbsp;»<cite>Melissa</cite></blockquote>
             </div>
         </section>
 
         <section id="avis" class="section">
             <div class="wrap">
                 <h2>Ils ont retrouvé le lien</h2>
-                <a href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener" class="gr-summary">
+                <div class="gr-summary">
                     <img src="/img/google-g.svg" alt="Google" width="28" height="28" loading="lazy">
                     <span><strong class="gr-score">5,0</strong> <span class="stars">★★★★★</span><span class="gr-sub">26 avis sur Google</span></span>
-                    <span class="gr-cta">Voir sur Google</span>
-                </a>
+                </div>
                 <ul class="gr-list">
                     <li class="gr-card">
                         <div class="gr-head"><span class="gr-av" style="background:#1a73e8">P</span><span class="gr-who"><strong>Penda</strong><span class="gr-src">Avis Google</span></span><img src="/img/google-g.svg" alt="Google" class="gr-g" width="20" height="20" loading="lazy"></div>
@@ -353,8 +373,8 @@
                         <button type="button" class="gr-more" aria-expanded="false">Voir plus</button>
                     </li>
                 </ul>
-                <a href="https://www.google.com/maps?cid=10214116799331425402" target="_blank" rel="noopener" class="reviews-link tlink"><img src="/img/google-g.svg" alt="" width="20" height="20" loading="lazy">Lire les 26 avis sur Google</a>
                 <p class="note">Avis publiés sur la fiche Google de Melissa Boukaia, reproduits tels quels.</p>
+                <p class="back"><a href="#rdv" class="tlink">Réserver mon appel offert ↑</a></p>
             </div>
         </section>
 
@@ -374,6 +394,7 @@
                     <img src="/img/cabinet-bureau.jpg" alt="Le bureau du cabinet de Melissa à Rueil-Malmaison" width="680" height="510" loading="lazy">
                     <figcaption>Le cabinet, 16 bis avenue de Buzenval, <span class="nowrap">Rueil-Malmaison</span></figcaption>
                 </figure>
+                <p class="access">Accessible en RER A (station Rueil-Malmaison) ou en bus, tout près de Saint-Cloud, Nanterre, Suresnes, Garches, Vaucresson et Chatou. Vous préférez rester chez vous&nbsp;? La visio est possible.</p>
             </div>
         </section>
 
@@ -381,9 +402,9 @@
             <div class="wrap">
                 <h2>Comment ça se passe</h2>
                 <ol class="steps">
-                    <li><div><h3>Appel découverte <span>· 20 min, offert</span></h3><p>Melissa vous dit si elle peut vous aider.</p></div></li>
-                    <li><div><h3>Bilan <span>· 1h30</span></h3><p>Au cabinet ou en visio, on fait le point ensemble.</p></div></li>
-                    <li><div><h3>Séances de suivi <span>· 1h</span></h3><p>Des outils concrets pour mieux communiquer.</p></div></li>
+                    <li><div><h3>Appel découverte <span>· 20 min, offert</span></h3><p>On fait connaissance, sans engagement. Je vous dis comment je peux vous aider.</p></div></li>
+                    <li><div><h3>Bilan <span>· 1h30</span></h3><p>Au cabinet ou en visio, on comprend ensemble ce qui coince dans votre couple et on fixe vos objectifs.</p></div></li>
+                    <li><div><h3>Séances de suivi <span>· 1h</span></h3><p>Des outils concrets pour mieux communiquer et ancrer le changement.</p></div></li>
                 </ol>
             </div>
         </section>
@@ -391,10 +412,12 @@
         <section class="section faq" aria-labelledby="faq-titre">
             <div class="wrap">
                 <h2 id="faq-titre">Questions fréquentes</h2>
+                <details><summary>L'appel gratuit m'engage-t-il à commencer&nbsp;?</summary><p>Non, pas du tout. C'est un premier contact pour poser vos questions, me découvrir et voir si vous vous sentez en confiance. La décision de commencer vous appartient entièrement.</p></details>
                 <details><summary>Combien ça coûte&nbsp;?</summary><p>L'appel de 20 minutes est offert. Si vous continuez&nbsp;: le bilan de 1h30 est à 135 €, puis les séances d'une heure à 85 €. En moyenne 3 séances au total, bilan compris.</p></details>
                 <details><summary>Et si mon conjoint n'est pas prêt&nbsp;?</summary><p>C'est très fréquent. Vous pouvez faire l'appel découverte et commencer seul(e). Souvent, ce premier pas donne envie à l'autre de suivre.</p></details>
                 <details><summary>Au cabinet ou en visio&nbsp;?</summary><p>Les deux, au choix&nbsp;: au cabinet à Rueil-Malmaison ou en visio, depuis chez vous.</p></details>
-                <details><summary>Est-ce confidentiel&nbsp;?</summary><p>Oui. Ce que vous confiez reste entre vous et Melissa. Vous pouvez parler librement, sans crainte d'être jugé(e).</p></details>
+                <details><summary>Comment venir au cabinet&nbsp;?</summary><p>Le cabinet est au 16 bis avenue de Buzenval, à Rueil-Malmaison. Depuis La Défense ou Nanterre, vous venez rapidement en RER A (station Rueil-Malmaison) ou en bus.</p></details>
+                <details><summary>Est-ce confidentiel&nbsp;?</summary><p>Oui. Ce que vous me confiez reste entre nous. Vous pouvez parler librement, sans crainte d'être jugé(e).</p></details>
                 <p class="back"><a href="#rdv" class="tlink">Réserver mon appel offert ↑</a></p>
             </div>
         </section>
@@ -432,17 +455,8 @@
           if (v === 'granted') loadClarity(true);
           b.classList.add('hidden');
         }
-        if (window.TRACKING.AW_ID && savedConsent !== 'granted' && savedConsent !== 'denied') {
-          window.addEventListener('scroll', function once() { window.removeEventListener('scroll', once); if (!window.__consentChosen) b.classList.remove('hidden'); }, { passive: true });
-        }
-        var rdvZone = document.getElementById('rdv'), wasShown = false;
-        if (rdvZone && 'IntersectionObserver' in window) {
-          new IntersectionObserver(function (en) {
-            if (window.__consentChosen) return;
-            if (en[0].isIntersecting) { wasShown = !b.classList.contains('hidden'); b.classList.add('hidden'); }
-            else if (wasShown) { b.classList.remove('hidden'); }
-          }, { threshold: 0.2 }).observe(rdvZone);
-        }
+        // Affiché dès l'arrivée et jusqu'au choix du visiteur : sans accord, Google ne peut presque pas compter les RDV
+        if (window.TRACKING.AW_ID && savedConsent !== 'granted' && savedConsent !== 'denied') b.classList.remove('hidden');
         document.getElementById('cookie-accept').addEventListener('click', function () { choose('granted'); });
         document.getElementById('cookie-refuse').addEventListener('click', function () { choose('denied'); });
       })();
